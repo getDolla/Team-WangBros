@@ -12,3 +12,5 @@ Format:                                   |
 v.#.# mm-dd-yy - <First Name> <Last Name> |
 - Stuff Done                              |
 ------------------------------------------+
+v.0.3 01-11-16 - Yikai Wang
+-Wrote mazegen.java with working, albeit not optimal, code.
