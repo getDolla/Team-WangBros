@@ -5,11 +5,10 @@ public class Character {
     public Character() {
 	appearance = "*";
 	name = "Bob";
-	location[0] = 0;
-	location[1] = 0;
     }
     
     public Character(String name) {
+	this();
 	this.name = name;
     }
 

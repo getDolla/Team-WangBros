@@ -50,7 +50,7 @@ public class mazegen{
 
     for( int n = 1; n < array.length-2; n+=2 ) {
     for( int i = 1; i < array[n].length - 2; i+=2 ) {
-        if( Math.random() * 3 < 1 ) {
+        if( Math.random() * 2.5 < 1 ) {
             array[n][i+1] = " ";
             array[n][i+2] = array[n][i];
         }
@@ -98,6 +98,8 @@ public class mazegen{
             }
             System.out.println();
         }
+	
+	System.out.println();
     }
 
     public static void main( String[] args ) {
