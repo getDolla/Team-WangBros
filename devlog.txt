@@ -6,11 +6,15 @@
    \ \_______\ \_______\ \__/ /     \ \_______\ \_______\ \_______\
     \|_______|\|_______|\|__|/       \|_______|\|_______|\|_______|
 
--------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------+
 Format:                                   |
 v.#.# mm-dd-yy - <First Name> <Last Name> |
 - Stuff Done                              |
 ------------------------------------------+
+v.0.4 01-11-16 - Richard Wang
+- Wrote MazeCeption.java, which provides rudimentary movement through user input.
+- Wrote Character.java, with a default person(no classes yet).
+
 v.0.3 01-11-16 - Yikai Wang
--Wrote mazegen.java with working, albeit not optimal, code.
+- Wrote mazegen.java with working, albeit not optimal, code.
