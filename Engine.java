@@ -68,6 +68,22 @@ public class Engine {
 	}
     }
 
+    public static boolean isEnd() {
+	int r = character.getRLocation();
+	int c = character.getCLocation();
+
+	return (r == trueMap.length - 2) && (c == trueMap[r].length - 2);
+    }
+
+    public static void newlvl() { 
+	if(isEnd()) { 
+	    fillMap();
+	    userMap[1][1] = character;
+	    character.setCLocation(1);
+	    character.setRLocation(1);
+	}
+    }
+
     public static void main(String[] args) {
 	/*
 	Scanner rawName = new Scanner(System.in);
@@ -83,15 +99,19 @@ public class Engine {
 	    String in = input.nextLine();
 	    if (in.toUpperCase().equals("W")) { //FPS keys :D
 		moveUp(character.getRLocation(), (character.getCLocation()));
+		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("A")) {
 		moveLeft(character.getRLocation(), (character.getCLocation()));
+		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("S")) {
 		moveDown(character.getRLocation(), (character.getCLocation()));
+		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("D")) {
 		moveRight(character.getRLocation(), (character.getCLocation()));
+		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("EXIT")) {
 		break;
