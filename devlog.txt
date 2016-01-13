@@ -7,11 +7,18 @@
     \|_______|\|_______|\|__|/       \|_______|\|_______|\|_______|
 
 --------------------------------------------------------------------------------------------------------------------------
+To Do List:
+1. Create Flow Chart
+2. Work on Battling
+   - Make Monsters
 ------------------------------------------+
 Format:                                   |
 v.#.# mm-dd-yy - <First Name> <Last Name> |
 - Stuff Done                              |
 ------------------------------------------+
+v.0.9 01-13-16 - Yikai Wang
+- Added continuation of maze
+
 v.0.8 01-12-16 - Yikai Wang
 - Tweaked mazegen, Character, and Engine so that movement works and is fluent.
 - Fixed movement bug from said tweaking by adding additional conditional.
