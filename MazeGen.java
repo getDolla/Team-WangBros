@@ -1,4 +1,4 @@
-public class mazegen{
+public class MazeGen{
     //instance variables
     int r, c;
     Object[][] maze;
@@ -80,7 +80,7 @@ public class mazegen{
 	}
 	for( int i = 1; i < array[n].length - 2; i+=2 ) {
 	    //showmaze (array);
-	    if( Math.random() * 3 < 1 && ((Integer)array[n][i+2]).compareTo((Integer)array[n][i]) != 0) { // second condition makes sure that cells of the same set are not combined
+	    if( Math.random() * 2 < 1 && ((Integer)array[n][i+2]).compareTo((Integer)array[n][i]) != 0) { // second condition makes sure that cells of the same set are not combined
 		array[n][i+1] = " ";
 		array[n][i+2] = array[n][i];
 		
@@ -167,7 +167,7 @@ public class mazegen{
 
     public static void main( String[] args ) {
 
-        mazegen juan = new mazegen(8,8);
+        MazeGen juan = new MazeGen(8,8);
 	
 	//System.out.print("\033[H\033[2J");  
 	//System.out.flush();  

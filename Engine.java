@@ -20,9 +20,9 @@ public class Engine {
     }
 
     public static void fillMap() {
-	mazegen john = new mazegen( 10, 10 );
+	MazeGen john = new MazeGen( 10, 10 );
 
-	trueMap = mazegen.generate( john.maze );
+	trueMap = MazeGen.generate( john.maze );
 	userMap = new Object[trueMap.length][trueMap.length];
 		for( int r = 0; r < trueMap.length; r++ ) {
 			for( int c = 0; c < trueMap[r].length; c++ ) {
