@@ -3,7 +3,7 @@ public class MazeGen{
     int r, c;
     Object[][] maze;
 
-    public mazegen( int x, int y ) {
+    public MazeGen( int x, int y ) {
     if( (x>1) || (x<43) ) {
         r = 2*x+1; // initializes row number
     }
