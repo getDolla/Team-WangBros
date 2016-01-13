@@ -12,6 +12,9 @@ Format:                                   |
 v.#.# mm-dd-yy - <First Name> <Last Name> |
 - Stuff Done                              |
 ------------------------------------------+
+v.0.8 01-12-16 - Yikai Wang
+- Tweaked mazegen, Character, and Engine so that movement works and is fluent.
+
 v.0.6 01-12-16 - Richard Wang
 - Made big changes in MazeCeption to follow Eller's Algorithm more closely.
 
