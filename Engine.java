@@ -53,7 +53,7 @@ public class Engine {
     }
 
     public static void moveLeft(int r, int c) {
-	if (!userMap[r][c-1].equals("|")) { //if not blocked by border
+	if (!userMap[r][c-1].equals("|") && !userMap[r][c-1].equals("-")) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r][c - 1] = character;
 	    character.setCLocation(c - 1);
@@ -61,7 +61,7 @@ public class Engine {
     }
     
     public static void moveRight(int r, int c) {
-	if (!userMap[r][c+1].equals("|")) { //if not blocked by border
+	if (!userMap[r][c+1].equals("|") && !userMap[r][c+1].equals("-")) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r][c + 1] = character;
 	    character.setCLocation(c + 1);
