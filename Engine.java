@@ -1,13 +1,13 @@
 import java.util.Scanner;
 public class Engine {
     
-    public static Object[][] trueMap = new Object[10][10];
-    public static Object[][] userMap = new Object[10][10];
+    public static Object[][] trueMap;
+    public static Object[][] userMap;
     public static Character character = new Character();
 
     public Engine() {
 	 fillMap();
-	 userMap[0][0] = character;
+	 userMap[1][1] = character; //starting point
     }
 
     public static void printMap() {
@@ -20,12 +20,15 @@ public class Engine {
     }
 
     public static void fillMap() {
-	for (int f = 0; f < userMap.length; f++) {
-	    for (int s = 0; s < userMap[f].length; s++) {
-		trueMap[f][s] = " ";
-		userMap[f][s] = " ";
-	    }
-	}
+	mazegen john = new mazegen( 10, 10 );
+
+	trueMap = mazegen.generate( john.maze );
+	userMap = new Object[trueMap.length][trueMap.length];
+		for( int r = 0; r < trueMap.length; r++ ) {
+			for( int c = 0; c < trueMap[r].length; c++ ) {
+				userMap[r][c] = trueMap[r][c]; //populate, not same alias
+			}
+		}
     }
     
     public final static void clearConsole(){
@@ -34,7 +37,7 @@ public class Engine {
     }
 
     public static void moveUp(int r, int c) {
-	if (r > 0) {
+	if (!userMap[r-1][c].equals("-")) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r - 1][c] = character;
 	    character.setRLocation(r - 1);
@@ -42,7 +45,7 @@ public class Engine {
     }
 
     public static void moveDown(int r, int c) {
-	if (r < 9) {
+	if (!userMap[r+1][c].equals("-")) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r + 1][c] = character;
 	    character.setRLocation(r + 1);
@@ -50,7 +53,7 @@ public class Engine {
     }
 
     public static void moveLeft(int r, int c) {
-	if (c > 0) {
+	if (!userMap[r][c-1].equals("|")) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r][c - 1] = character;
 	    character.setCLocation(c - 1);
@@ -58,7 +61,7 @@ public class Engine {
     }
     
     public static void moveRight(int r, int c) {
-	if (c < 9) {
+	if (!userMap[r][c+1].equals("|")) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r][c + 1] = character;
 	    character.setCLocation(c + 1);
@@ -78,7 +81,7 @@ public class Engine {
 	while (input.hasNext()) {
 	    
 	    String in = input.nextLine();
-	    if (in.toUpperCase().equals("W")) {
+	    if (in.toUpperCase().equals("W")) { //FPS keys :D
 		moveUp(character.getRLocation(), (character.getCLocation()));
 	    }
 	    else if (in.toUpperCase().equals("A")) {

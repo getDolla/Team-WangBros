@@ -21,7 +21,7 @@ public class mazegen{
     }
 
     maze = new Object[r][c];
-    generate( maze );
+    //generate( maze );
     }
 
     public static int extendRow( Object[][] array , int n ) { // should only be called starting at row 3
@@ -79,7 +79,7 @@ public class mazegen{
 	    }
 	}
 	for( int i = 1; i < array[n].length - 2; i+=2 ) {
-	    showmaze (array);
+	    //showmaze (array);
 	    if( Math.random() * 3 < 1 && ((Integer)array[n][i+2]).compareTo((Integer)array[n][i]) != 0) { // second condition makes sure that cells of the same set are not combined
 		array[n][i+1] = " ";
 		array[n][i+2] = array[n][i];
@@ -107,7 +107,7 @@ public class mazegen{
 	}
 	
 	
-	showmaze( array );
+	//showmaze( array );
 	
 	// First, generate the first row
 	mergeRow( array, 1, 1 ); // row 1, counter starts at 1
@@ -137,11 +137,11 @@ public class mazegen{
 	    }
 	}
 	
-    showmaze( array );
+    //showmaze( array );
 
     removeNums( array );
    
-    showmaze( array );
+    //showmaze( array );
 
     return array;
     }
@@ -169,8 +169,8 @@ public class mazegen{
 
         mazegen juan = new mazegen(8,8);
 	
-	System.out.print("\033[H\033[2J");  
-	System.out.flush();  
-
+	//System.out.print("\033[H\033[2J");  
+	//System.out.flush();  
+        generate(juan.maze);
     }
 }

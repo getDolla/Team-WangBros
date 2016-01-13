@@ -1,6 +1,6 @@
 public class Character {
     public String appearance,name;
-    private int[] location = new int[2];
+    private int[] location = { 1, 1 }; //initial start point
 
     public Character() {
 	appearance = "*";
