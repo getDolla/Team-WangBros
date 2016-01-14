@@ -1,0 +1,33 @@
+_________ _______         ______   _______    _       _________ _______ _________
+\__   __/(  ___  )       (  __  \ (  ___  )  ( \      \__   __/(  ____ \\__   __/
+   ) (   | (   ) |       | (  \  )| (   ) |  | (         ) (   | (    \/   ) (   
+   | |   | |   | | _____ | |   ) || |   | |  | |         | |   | (_____    | |   
+   | |   | |   | |(_____)| |   | || |   | |  | |         | |   (_____  )   | |   
+   | |   | |   | |       | |   ) || |   | |  | |         | |         ) |   | |   
+   | |   | (___) |       | (__/  )| (___) |  | (____/\___) (___/\____) |   | |   
+   )_(   (_______)       (______/ (_______)  (_______/\_______/\_______)   )_(   
+                                                                                 
+1. Update Character superclass ( By Friday )
+
+   - Add subclasses ( Tank, Rogue, DankMeme, DemoMan ) 
+
+2. Create Monster superclass ( By Saturday )
+
+   - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake )
+
+3. Create Battle ( through an interface ) ( By Sunday )
+
+4. Item superclass ( By Sunday )
+
+   - Add subclasses ( First-Aid kit, Adrenaline Potion )
+
+5. Tile class ( uses items ) ( By Sunday )
+
+6. Display ( combine Engine and add stats on the side ) ( By Monday ) 
+
+7. Create a startup screen for user to choose their class. ( By Tuesday )
+
+8. Create shops after completion of a maze. ( By Wednesday )
+ 
+9. Tutorial ( By Thursday )
+
