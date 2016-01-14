@@ -9,13 +9,15 @@ _________ _______         ______   _______    _       _________ _______ ________
                                                                                  
 1. Update Character superclass ( By Friday )
 
-   - Add subclasses ( Tank, Rogue, DankMeme, DemoMan ) 
+   - Add subclasses ( Tank, Ninja, DankMeme, DemoMan ) 
 
 2. Create Monster superclass ( By Saturday )
 
    - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake )
 
 3. Create Battle ( through an interface ) ( By Sunday )
+	
+   - Add Battle.java ( for display )
 
 4. Item superclass ( By Sunday )
 
