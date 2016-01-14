@@ -5,11 +5,6 @@ public class Engine {
     public static Object[][] userMap;
     public static Character character = new Character();
 
-    public Engine() {
-	 fillMap();
-	 userMap[1][1] = character; //starting point
-    }
-
     public static void printMap() {
 	for (Object[] f : userMap) {
 	    for (Object s : f) {
@@ -29,6 +24,10 @@ public class Engine {
 				userMap[r][c] = trueMap[r][c]; //populate, not same alias
 			}
 		}
+	 
+	userMap[1][1] = character;
+	character.setCLocation(1);
+	character.setRLocation(1);
     }
     
     public final static void clearConsole(){
@@ -78,9 +77,6 @@ public class Engine {
     public static void newlvl() { 
 	if(isEnd()) { 
 	    fillMap();
-	    userMap[1][1] = character;
-	    character.setCLocation(1);
-	    character.setRLocation(1);
 	}
     }
 
@@ -90,7 +86,7 @@ public class Engine {
 	String name = rawName.nextLine();
 
 	*/
-	Engine game = new Engine();
+	fillMap();
 	Scanner input = new Scanner(System.in);
 	clearConsole();
 	printMap();
