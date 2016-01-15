@@ -1,6 +1,6 @@
 public class Character {
     public String appearance,name;
-    public int hp, speed, money, damage, luck;
+    protected hp, speed, money, damage, luck;
     private int[] location = { 1, 1 }; //initial start point
 
     public Character() {
