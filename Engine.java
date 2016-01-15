@@ -41,6 +41,7 @@ public class Engine {
 	    userMap[r - 1][c] = character;
 	    character.setRLocation(r - 1);
 	}
+	newLvl();
     }
 
     public static void moveDown(int r, int c) {
@@ -49,6 +50,7 @@ public class Engine {
 	    userMap[r + 1][c] = character;
 	    character.setRLocation(r + 1);
 	}
+	newLvl();
     }
 
     public static void moveLeft(int r, int c) {
@@ -57,6 +59,7 @@ public class Engine {
 	    userMap[r][c - 1] = character;
 	    character.setCLocation(c - 1);
 	}
+	newLvl();
     }
     
     public static void moveRight(int r, int c) {
@@ -65,6 +68,7 @@ public class Engine {
 	    userMap[r][c + 1] = character;
 	    character.setCLocation(c + 1);
 	}
+	newLvl();
     }
 
     public static boolean isEnd() {
@@ -74,7 +78,7 @@ public class Engine {
 	return (r == trueMap.length - 2) && (c == trueMap[r].length - 2);
     }
 
-    public static void newlvl() { 
+    public static void newLvl() { 
 	if(isEnd()) { 
 	    fillMap();
 	}

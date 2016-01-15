@@ -59,7 +59,7 @@ public class MazeGen{
 	    // now the number of cells in the same group is calculated and the end is saved
 	    
 	    for ( int i = end - (number * 2); i < end; i += 2 ) { // this iteration will guarantee that at least one will extend)
-		if ((Math.random() * number) < 1) {
+		if ((Math.random() * number) < 1.0) {
 		    array[n + 1][i] = " ";
 		    array[n + 2][i] = array[n][i]; // This will always work because extend should always be before the last row
 		}
