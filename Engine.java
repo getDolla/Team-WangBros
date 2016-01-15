@@ -36,7 +36,7 @@ public class Engine {
     }
 
     public static void moveUp(int r, int c) {
-	if ((!userMap[r-1][c]  instanceof Wall)) { //if not blocked by border
+	if (!(userMap[r-1][c]  instanceof Wall)) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r - 1][c] = character;
 	    character.setRLocation(r - 1);
@@ -45,7 +45,7 @@ public class Engine {
     }
 
     public static void moveDown(int r, int c) {
-	if ((!userMap[r+1][c]  instanceof Wall)) { //if not blocked by border
+	if (!(userMap[r+1][c]  instanceof Wall)) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r + 1][c] = character;
 	    character.setRLocation(r + 1);
@@ -54,7 +54,7 @@ public class Engine {
     }
 
     public static void moveLeft(int r, int c) {
-	if ((!userMap[r][c-1]  instanceof Wall)) { //if not blocked by border
+	if (!(userMap[r][c-1]  instanceof Wall)) { //if not blocked by border
 	    userMap[r][c] = trueMap[r][c];
 	    userMap[r][c - 1] = character;
 	    character.setCLocation(c - 1);
