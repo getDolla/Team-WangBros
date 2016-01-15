@@ -9,23 +9,23 @@ _________ _______         ______   _______    _       _________ _______ ________
    
    MazeCeption by Yikai Wang and Richard Wang (Team-WangBros)
                                                                                  
-1. Update Character superclass ( Friday )
+1. Update Character superclass ( Friday ) - CREATED
 
    - Add subclasses ( Tank, Ninja, DankMeme, DemoMan ) 
 
-2. Create Monster superclass ( Saturday )
+2. Create Monster superclass ( Friday ) -CREATED
 
    - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake )
 
-3. Create Battle ( through an interface ) ( Sunday )
-	
-   - Add Battle.java ( for display )
-
-4. Item superclass ( Sunday )
+3. Item superclass ( Sunday )
 
    - Add subclasses ( First-Aid kit, Adrenaline Potion )
 
-5. Tile class ( uses items ) ( Sunday )
+4. Tile class ( uses items ) ( Sunday )
+
+5. Create Battle ( through an interface ) ( Sunday )
+	
+   - Add Battle.java ( for display )
 
 6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( Monday ) 
 
