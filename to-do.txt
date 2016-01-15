@@ -7,29 +7,29 @@ _________ _______         ______   _______    _       _________ _______ ________
    | |   | (___) |       | (__/  )| (___) |  | (____/\___) (___/\____) |   | |   
    )_(   (_______)       (______/ (_______)  (_______/\_______/\_______)   )_(   
                                                                                  
-1. Update Character superclass ( By Friday )
+1. Update Character superclass ( Friday )
 
    - Add subclasses ( Tank, Ninja, DankMeme, DemoMan ) 
 
-2. Create Monster superclass ( By Saturday )
+2. Create Monster superclass ( Saturday )
 
    - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake )
 
-3. Create Battle ( through an interface ) ( By Sunday )
+3. Create Battle ( through an interface ) ( Sunday )
 	
    - Add Battle.java ( for display )
 
-4. Item superclass ( By Sunday )
+4. Item superclass ( Sunday )
 
    - Add subclasses ( First-Aid kit, Adrenaline Potion )
 
-5. Tile class ( uses items ) ( By Sunday )
+5. Tile class ( uses items ) ( Sunday )
 
-6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( By Monday ) 
+6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( Monday ) 
 
-7. Create a startup screen for user to choose their class. ( By Tuesday )
+7. Create a startup screen for user to choose their class. ( Tuesday )
 
-8. Create shops after completion of a maze. ( By Wednesday )
+8. Create shops after completion of a maze. ( Wednesday )
  
-9. Tutorial ( By Thursday )
+9. Tutorial ( Thursday )
 
