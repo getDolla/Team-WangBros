@@ -24,7 +24,7 @@ public class MazeGen{
     //generate( maze );
     }
 
-    public static int extendRow( Object[][] array , int n ) { // should only be called starting at row 3
+    private static int extendRow( Object[][] array , int n ) { // should only be called starting at row 3
 	
 	int high = 0; 
 	for ( int c = 1; c < array[n].length - 1; c += 2 ) {
@@ -146,7 +146,7 @@ public class MazeGen{
     return array;
     }
 
-    public static void showmaze( Object[][] array ) {
+    private static void showmaze( Object[][] array ) {
         for( Object[] a : array ) {
             for( Object b : a ) {
                 System.out.print( b );
@@ -155,7 +155,7 @@ public class MazeGen{
         }
     }
 
-    public static void removeNums( Object[][] array ) {
+    private static void removeNums( Object[][] array ) {
 	for (int i = 0; i < array.length; i ++ ) {
 	    for (int c = 0; c < array[i].length; c++ ) {
 		if (array[i][c] instanceof Integer) {
