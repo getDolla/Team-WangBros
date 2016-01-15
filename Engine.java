@@ -93,24 +93,25 @@ public class Engine {
 	while (input.hasNext()) {
 	    
 	    String in = input.nextLine();
+	    if (in.toUpperCase().equals("EXIT")) {
+		break;
+		}
+		else {
 	    if (in.toUpperCase().equals("W")) { //FPS keys :D
 		moveUp(character.getRLocation(), (character.getCLocation()));
-		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("A")) {
 		moveLeft(character.getRLocation(), (character.getCLocation()));
-		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("S")) {
 		moveDown(character.getRLocation(), (character.getCLocation()));
-		newlvl();
 	    }
 	    else if (in.toUpperCase().equals("D")) {
 		moveRight(character.getRLocation(), (character.getCLocation()));
-		newlvl();
 	    }
-	    else if (in.toUpperCase().equals("EXIT")) {
-		break;
+
+	    newlvl();
+	    
 	    }
 	    clearConsole();
 	    printMap();
