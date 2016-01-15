@@ -1,7 +1,7 @@
 public class MazeGen{
     //instance variables
-    private int r, c;
-    private Object[][] maze;
+    public int r, c;
+    public Object[][] maze;
 
     public MazeGen( int x, int y ) {
     if( (x>1) || (x<43) ) {

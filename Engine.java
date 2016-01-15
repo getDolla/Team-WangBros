@@ -113,8 +113,6 @@ public class Engine {
 	    else if (in.toUpperCase().equals("D")) {
 		moveRight(character.getRLocation(), (character.getCLocation()));
 	    }
-
-	    newlvl();
 	    
 	    }
 	    clearConsole();
