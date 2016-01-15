@@ -25,7 +25,7 @@ _________ _______         ______   _______    _       _________ _______ ________
 
 5. Tile class ( uses items ) ( By Sunday )
 
-6. Display ( combine Engine and add stats on the side ) ( By Monday ) 
+6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( By Monday ) 
 
 7. Create a startup screen for user to choose their class. ( By Tuesday )
 
