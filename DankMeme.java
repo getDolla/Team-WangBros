@@ -1,4 +1,4 @@
-public class DankMeme {
+public class DankMeme extends Character {
     public DankMeme() {
 	super();
     }

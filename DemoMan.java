@@ -1,4 +1,4 @@
-public class DemoMan {
+public class DemoMan extends Character {
     public DemoMan() {
 	super();
     }

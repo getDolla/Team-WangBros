@@ -1,4 +1,4 @@
-public class Ninja {
+public class Ninja extends Character {
     public Ninja() {
 	super();
     }
