@@ -4,6 +4,7 @@ public class Floor extends Tile {
     public Floor() {
 	super();
 	passable = true;
+	appearance = " ";
     }
 
     public Floor(Item item) {
@@ -18,6 +19,10 @@ public class Floor extends Tile {
 	else { // probably else if
 	}
 	
+    }
+
+    public String toString() {
+	return super.toString();
     }
 
 }
