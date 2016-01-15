@@ -79,7 +79,7 @@ public class MazeGen{
 	    }
 	}
 	for( int i = 1; i < array[n].length - 2; i+=2 ) {
-	    //showmaze (array);
+	    //showMaze (array);
 	    if( Math.random() * 2 < 1 && ((Integer)array[n][i+2]).compareTo((Integer)array[n][i]) != 0) { // second condition makes sure that cells of the same set are not combined
 		array[n][i+1] = " ";
 		array[n][i+2] = array[n][i];
@@ -107,7 +107,7 @@ public class MazeGen{
 	}
 	
 	
-	//showmaze( array );
+	//showMaze( array );
 	
 	// First, generate the first row
 	mergeRow( array, 1, 1 ); // row 1, counter starts at 1
@@ -137,16 +137,16 @@ public class MazeGen{
 	    }
 	}
 	
-    //showmaze( array );
+    //showMaze( array );
 
     removeNums( array );
    
-    //showmaze( array );
+    //showMaze( array );
 
     return array;
     }
 
-    private static void showmaze( Object[][] array ) {
+    private static void showMaze( Object[][] array ) {
         for( Object[] a : array ) {
             for( Object b : a ) {
                 System.out.print( b );
