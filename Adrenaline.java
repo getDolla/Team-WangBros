@@ -1,4 +1,4 @@
-public class Adrenaline extends Item {
+public class Adrenaline extends Consumable {
     public int boost = 0;
     public boolean used;
 
@@ -8,9 +8,4 @@ public class Adrenaline extends Item {
 	used = false;
     }
 
-    public int drink( Character c ) {
-    	c.setSpeed( c.getSpeed() + boost );
-    	used = true;
-    	return c.getSpeed();
-    }
 }

@@ -128,42 +128,55 @@ public class Character {
     }
 
     public void use( Item i ) {
-         if ( i instanceof Weapon ) {
-            if ( i instanceof Twig ) {
-                Twig w = (Twig) i;
-            }
 
-            else {
-                Sword w = (Sword) i;
-            }
+	    if ( i instanceof Weapon ) {
+		getBuff((Weapon)i);
+	    }
+	    else if ( i instanceof Armor ) {
+		setCharstat((Armor)i);
+	    }
 
-            w.getBuff(this);
-        }
-
-        else if ( i instanceof Armor ) {
-            if ( i instanceof Light ) {
-                Light a = (Light) i;
-            }
-
-            else if ( i instanceof Medium ) {
-                Medium a = (Medium) i;
-            }
-
-            else {
-                Heavy a = (Heavy) i;
-            }
-                a.setCharstat( this );
-        }
-
-        else if ( i instanceof Adrenaline ) {
-            ((Adrenaline) i).drink( this );
-            adren.remove( (Adrenaline) i );
-        }
-
-        else if ( i instanceof HpPotion ) {
-            ((HpPotion) i).drink( this );
-            healthdrinks.remove( (HpPotion) i );
-        } 
+	    else if ( i instanceof Adrenaline ) {
+		drink((Consumable)i);
+		adren.remove( (Adrenaline) i );
+	    }
+	    
+	    else if ( i instanceof HpPotion ) {
+		drink((Consumable)i);
+		healthdrinks.remove( (HpPotion) i );
+	    } 
+    }
+    
+    public void setCharstat( Armor a ) {
+	setHp( hp * a.equip() );
+	setSpeed( speed - a.debuff );
     }
 
+    public int drink( Consumable i ) {
+	if ( i instanceof HpPotion ) {
+	    if( (hp + i.boost) < normalstats[0] ) {
+    		setHp( hp + i.boost );
+	    }
+	    
+	    else {
+    		setHp( normalstats[0] ); 
+	    }
+	    
+	    i.used = true;
+	    return hp;
+	}
+	else if ( i instanceof Adrenaline ) {
+	    
+	    setSpeed( speed + i.boost );
+	    i.used = true;
+	    return speed;
+	}
+	return 0; //??
+    }
+
+    public int getBuff( Weapon i ) {
+	setDamage( damage + i.equip() );
+	return damage;
+    }
+    
 }
