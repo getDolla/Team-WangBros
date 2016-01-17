@@ -15,7 +15,7 @@ public class Floor extends Tile {
 
     public void interact(Character character) {
 	if (item != null) {
-	    character.use(item);
+	    //	    character.use(item);
 	    item = null;
 	    appearance = " ";
 	}

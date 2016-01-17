@@ -160,10 +160,12 @@ public class MazeGen{
 	    for (int c = 0; c < array[i].length; c++ ) {
 		if (array[i][c] instanceof Integer) {
 		    if (Math.random() < 1.0/10) {
-			array[i][c] = new Floor(new HpPotion());
+			Item a = new HpPotion();
+			array[i][c] = new Floor(a);
 		    }
 		    else if (Math.random() < 1.0/9) {
-			array[i][c] = new Floor(new Adrenaline());
+			Item a = new Adrenaline();
+			array[i][c] = new Floor(a);
 		    }
 		    else {
 			array[i][c] = new Floor();
