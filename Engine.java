@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner; 
 public class Engine {
     
     public static Object[][] userMap; // One map for all
