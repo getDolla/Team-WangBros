@@ -6,7 +6,7 @@ public class Armor extends Equipment {
 	}
 
 	public void setCharstat( Character c ) {
-		c.setHp( c.getHp() * boost );
+		c.setHp( c.getHp() * this.equip() );
 		c.setSpeed( c.getSpeed() - debuff );
 	}
 }
