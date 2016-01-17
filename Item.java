@@ -7,6 +7,11 @@ public abstract class Item {
     public Item() { //mostly for money
     }
 
+    public Item(String name, int price) {
+	this.name = name;
+	this.price = price;
+    }
+
     public String toString() {
 		return appearance;
     }

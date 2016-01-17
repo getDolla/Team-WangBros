@@ -60,7 +60,7 @@ public class MazeGen{
 	    
 	    for ( int i = end - (number * 2); i < end; i += 2 ) { // this iteration will guarantee that at least one will extend)
 		if ((Math.random() * number) < 1.0) {
-		    array[n + 1][i] = new Floor();
+		    array[n + 1][i] = " ";
 		    array[n + 2][i] = array[n][i]; // This will always work because extend should always be before the last row
 		}
 		else {
@@ -81,7 +81,7 @@ public class MazeGen{
 	for( int i = 1; i < array[n].length - 2; i+=2 ) {
 	    //showMaze (array);
 	    if( Math.random() * 2 < 1 && ((Integer)array[n][i+2]).compareTo((Integer)array[n][i]) != 0) { // second condition makes sure that cells of the same set are not combined
-		array[n][i+1] = new Floor();
+		array[n][i+1] = " ";
 		array[n][i+2] = array[n][i];
 		
 	    }
@@ -133,7 +133,7 @@ public class MazeGen{
 	for ( int c = 1; c < array[l].length - 2; c+=2 ) {
 	    if ((((Integer)array[l][c]).compareTo((Integer)array[l][c+2])) != 0) {
 		array[l][c+2] = array[l][c];
-		array[l][c+1] = new Floor();
+		array[l][c+1] = " ";
 	    }
 	}
 	
@@ -159,7 +159,15 @@ public class MazeGen{
 	for (int i = 0; i < array.length; i ++ ) {
 	    for (int c = 0; c < array[i].length; c++ ) {
 		if (array[i][c] instanceof Integer) {
-		    array[i][c] = new Floor();
+		    if (Math.random() < 1.0/10) {
+			array[i][c] = new Floor(new HpPotion());
+		    }
+		    else if (Math.random() < 1.0/9) {
+			array[i][c] = new Floor(new Adrenaline());
+		    }
+		    else {
+			array[i][c] = new Floor();
+		    }
 		}
 	    }
 	}
