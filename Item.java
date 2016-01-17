@@ -1,14 +1,14 @@
-public class Item {
+public abstract class Item {
     public String name;
     public int price;
+    public String appearance = " ";
 
-    public Item( String s, int p ) { //mostly for money
-	name = s;
-	price = p;
+
+    public Item() { //mostly for money
     }
 
     public String toString() {
-	return name;
+	return appearance;
     }
 
 }
