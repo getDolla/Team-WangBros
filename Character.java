@@ -3,6 +3,7 @@ public class Character {
     protected int hp, speed, money, damage, luck;
     public int[] normalstats = new int[4];
     protected int[] location = { 1, 1 }; //initial start point
+    public Floor tileUnder = new Floor();
 
     public Character() {
 	appearance = "*";

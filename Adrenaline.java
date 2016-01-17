@@ -1,11 +1,16 @@
 public class Adrenaline extends Item {
-    public int boost;
+    public int boost = 0;
+    public boolean used;
 
-    public Adrenaline () {
-	name = "Adrenaline";
-	price = 10; //change if necessary
-	boost = 10; //change if necessary
-	appearance = "A";
+    public Adrenaline() {
+	super( "Adrenaline", 250 );
+	boost = 5;
+	used = false;
     }
 
+    public int drink( Character c ) {
+    	c.setSpeed( c.getSpeed() + boost );
+    	used = true;
+    	return c.getSpeed();
+    }
 }
