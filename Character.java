@@ -1,6 +1,7 @@
 public class Character {
     public String appearance,name;
     protected int hp, speed, money, damage, luck;
+    public int[] normalstats = new int[4];
     protected int[] location = { 1, 1 }; //initial start point
 
     public Character() {
@@ -57,6 +58,43 @@ public class Character {
 
     public int getLuck() {
 	return luck;
+    }
+
+    public int setHp(int hp) {
+	int old = this.hp;
+	this.hp = hp;
+	return old;
+    }
+
+    public int setSpeed(int speed) {
+	int old = this.speed;
+	this.speed = speed;
+	return old;
+    }
+
+    public int setMoney(int money) {
+	int old = this.money;
+	this.money = money;
+	return old;
+    }
+
+    public int setDamage(int damage) {
+	int old = this.damage;
+	this.damage = damage;
+	return old;
+    }
+
+    public int setLuck(int luck) {
+	int old = this.luck;
+	this.luck = luck;
+	return old;
+    }
+
+    public void resetStats() {
+        hp = normalstats[0];
+        speed = normalstats[1];
+        damage = normalstats[2];
+        luck = normalstats[3];
     }
 
 }
