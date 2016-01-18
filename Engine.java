@@ -3,9 +3,10 @@ public class Engine {
     
     public static Object[][] userMap; // One map for all
     public static Character character = new Character(); // One character for all
+    public static Graphics graphics = new Graphics();
 
-    public static void printMap() {
-	for (Object[] f : userMap) {
+    public static void printArray(Object[][] array) {
+	for (Object[] f : array) {
 	    for (Object s : f) {
 		System.out.print(s);
 	    }
@@ -36,6 +37,11 @@ public class Engine {
 	    character.setRLocation(r - 1);
 	}
 	newLvl();
+	clearConsole();
+	graphics.updateInventory(graphics.inventory, character);
+	graphics.updateStats(graphics.stats, character);
+	graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
     }
 
     public static void moveDown(int r, int c) {
@@ -46,6 +52,11 @@ public class Engine {
 	    character.setRLocation(r + 1);
 	}
 	newLvl();
+	clearConsole();
+	graphics.updateInventory(graphics.inventory, character);
+	graphics.updateStats(graphics.stats, character);
+	graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
     }
 
     public static void moveLeft(int r, int c) {
@@ -56,6 +67,11 @@ public class Engine {
 	    character.setCLocation(c - 1);
 	}
 	newLvl();
+	clearConsole();
+	graphics.updateInventory(graphics.inventory, character);
+	graphics.updateStats(graphics.stats, character);
+	graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
     }
     
     public static void moveRight(int r, int c) {
@@ -66,6 +82,11 @@ public class Engine {
 	    character.setCLocation(c + 1);
 	}
 	newLvl();
+	clearConsole();
+	graphics.updateInventory(graphics.inventory, character);
+	graphics.updateStats(graphics.stats, character);
+	graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
     }
 
     public static boolean isEnd() {
@@ -83,7 +104,6 @@ public class Engine {
 
     public static void autoPickup( int r, int c ) {
     	if( (userMap[r][c] instanceof Floor) && !((Floor) userMap[r][c]).item.name.equals( "None" ) ) {
-    		//System.out.println( userMap[r][c] );
     		character.pickup( ((Floor) userMap[r][c]).item );
     	}
     }
@@ -94,10 +114,14 @@ public class Engine {
 	String name = rawName.nextLine();
 
 	*/
+
 	fillMap();
 	Scanner input = new Scanner(System.in);
 	clearConsole();
-	printMap();
+	graphics.updateInventory(graphics.inventory, character);
+	graphics.updateStats(graphics.stats, character);
+	graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
 	while (input.hasNext()) {
 	    
 	    String in = input.nextLine();
@@ -119,8 +143,7 @@ public class Engine {
 	    }
 	    
 	    }
-	    clearConsole();
-	    printMap();
+
 
 	}
     }
