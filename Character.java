@@ -1,19 +1,22 @@
 import java.util.ArrayList;
 
 public class Character {
-    public String appearance,name;
+    public String name;
+
+    public Floor appearance;
+
     protected int hp, speed, money, damage, luck;
     public int[] normalstats = new int[4];
     protected int[] location = { 1, 1 }; //initial start point
     public Floor tileUnder = new Floor();
 
-    public ArrayList armors = new ArrayList<Armor>();
-    public ArrayList sticks = new ArrayList<Weapon>();
-    public ArrayList adren = new ArrayList<Adrenaline>();
-    public ArrayList healthdrinks = new ArrayList<HpPotion>();
+    public ArrayList<Armor> armors = new ArrayList<Armor>();
+    public ArrayList<Weapon> sticks = new ArrayList<Weapon>();
+    public ArrayList<Adrenaline> adren = new ArrayList<Adrenaline>();
+    public ArrayList<HpPotion> healthdrinks = new ArrayList<HpPotion>();
     
     public Character() {
-	appearance = "*";
+	appearance = new Floor( "*" );
 	name = "Bob";
     }
     

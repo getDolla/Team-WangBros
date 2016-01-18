@@ -1,13 +1,13 @@
-public abstract class Item {
+public class Item {
     public String name;
     public String appearance = "&";
     public int price;
 
 
-    public Item() { //mostly for money
+    public Item() { 
     }
 
-    public Item(String name, int price) {
+    public Item(String name, int price) { //mostly for money
 	this.name = name;
 	this.price = price;
     }

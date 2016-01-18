@@ -7,6 +7,11 @@ public class Floor extends Tile {
 	appearance = " ";
     }
 
+    public Floor( String s ) {
+    	this();
+    	appearance = s;
+    }
+
     public Floor(Item item) {
 	this();
 	this.item = item;
