@@ -167,6 +167,10 @@ public class MazeGen{
 			Item a = new Adrenaline();
 			array[i][c] = new Floor(a);
 		    }
+		    else if (Math.random() < 1.0/6) {
+			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
+			array[i][c] = new Floor(a);
+		    }
 		    else {
 			array[i][c] = new Floor();
 		    }
