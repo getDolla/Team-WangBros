@@ -30,6 +30,7 @@ public class Engine {
 
     public static void moveUp(int r, int c) {
 	if (!(userMap[r-1][c]  instanceof Wall)) { //if not blocked by border
+		autoPickup( r, c );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r - 1][c] = character;
 	    character.setRLocation(r - 1);
@@ -39,6 +40,7 @@ public class Engine {
 
     public static void moveDown(int r, int c) {
 	if (!(userMap[r+1][c]  instanceof Wall)) { //if not blocked by border
+		autoPickup( r, c );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r + 1][c] = character;
 	    character.setRLocation(r + 1);
@@ -48,6 +50,7 @@ public class Engine {
 
     public static void moveLeft(int r, int c) {
 	if (!(userMap[r][c-1]  instanceof Wall)) { //if not blocked by border
+		autoPickup( r, c );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c - 1] = character;
 	    character.setCLocation(c - 1);
@@ -57,6 +60,7 @@ public class Engine {
     
     public static void moveRight(int r, int c) {
 	if (!(userMap[r][c+1] instanceof Wall)) { //if not blocked by border
+		autoPickup( r, c );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c + 1] = character;
 	    character.setCLocation(c + 1);
@@ -75,6 +79,12 @@ public class Engine {
 	if(isEnd()) { 
 	    fillMap();
 	}
+    }
+
+    public static void autoPickup( int r, int c ) {
+    	if( !userMap[r][c].item.name.equals( "None" ) ) {
+    		character.pickup( userMap[r][c].item );
+    	}
     }
 
     public static void main(String[] args) {

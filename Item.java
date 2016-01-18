@@ -1,6 +1,6 @@
 public abstract class Item {
     public String name;
-    public String appearance = "£";
+    public String appearance = "&";
     public int price;
 
 

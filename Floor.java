@@ -1,5 +1,5 @@
 public class Floor extends Tile {
-    private Item item;
+    public Item item = new Item( "None", 0 );
 
     public Floor() {
 	super();
