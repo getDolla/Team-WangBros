@@ -15,7 +15,7 @@ public class DemoMan extends Character {
     }
 
     public DemoMan(String name) {
-	this()
+	this();
 	this.name = name;
     }
 }

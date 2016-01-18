@@ -15,7 +15,7 @@ public class DankMeme extends Character {
     }
 
     public DankMeme(String name) {
-	this()
+	this();
 	this.name = name;
     }
 }

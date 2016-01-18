@@ -15,7 +15,7 @@ public class Tank extends Character{
     }
 
     public Tank(String name) {
-	this()
+	this();
 	this.name = name;
     }
 }

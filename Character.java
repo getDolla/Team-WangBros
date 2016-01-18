@@ -181,5 +181,12 @@ public class Character {
 	setDamage( damage + i.equip() );
 	return damage;
     }
+
+    public void displaystats() {
+        System.out.print( "Health : " + hp + "\n" );
+        System.out.print( "Speed : " + speed + "\n" );
+        System.out.print( "Damage : " + damage + "\n" );
+        System.out.print( "Luck : " + luck + "\n" );
+    }
     
 }

@@ -15,7 +15,7 @@ public class Ninja extends Character {
     }
 
     public Ninja(String name) {
-	this()
+	this();
 	this.name = name;
     }
 }
