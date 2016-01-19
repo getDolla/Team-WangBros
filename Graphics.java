@@ -49,8 +49,9 @@ public class Graphics {
 		graphics[i][c] = inventory[i][c];
 	    }
 	}
+	int ctr = -1;
 	for( int i = inventory.length + 1; i < graphics.length; i++ ) {
-	    graphics[i][0] = stats[i - inventory.length];
+	    graphics[i][0] = stats[++ctr];
 	}
     }
 
