@@ -107,6 +107,39 @@ public class Engine {
     	}
     }
 
+    public static void move() {
+	fillMap();
+	Scanner input = new Scanner(System.in);
+	clearConsole();
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
+	while (input.hasNext()) {
+	    
+	    String in = input.nextLine();
+	    if (in.toUpperCase().equals("EXIT")) { // SHOULD MODIFY
+		break;
+	    }
+	    else {
+		if (in.toUpperCase().equals("W")) { //FPS keys :D
+		    moveUp(character.getRLocation(), (character.getCLocation()));
+		}
+		else if (in.toUpperCase().equals("A")) {
+		    moveLeft(character.getRLocation(), (character.getCLocation()));
+		}
+		else if (in.toUpperCase().equals("S")) {
+		moveDown(character.getRLocation(), (character.getCLocation()));
+		}
+		else if (in.toUpperCase().equals("D")) {
+		    moveRight(character.getRLocation(), (character.getCLocation()));
+		}
+		
+	    }
+   
+	}
+    }
+    
     public static void main(String[] args) {
 	/*
 	Scanner rawName = new Scanner(System.in);
@@ -126,24 +159,24 @@ public class Engine {
 	    String in = input.nextLine();
 	    if (in.toUpperCase().equals("EXIT")) {
 		break;
+	    }
+	    else {
+		if (in.toUpperCase().equals("W")) { //FPS keys :D
+		    moveUp(character.getRLocation(), (character.getCLocation()));
 		}
-		else {
-	    if (in.toUpperCase().equals("W")) { //FPS keys :D
-		moveUp(character.getRLocation(), (character.getCLocation()));
-	    }
-	    else if (in.toUpperCase().equals("A")) {
-		moveLeft(character.getRLocation(), (character.getCLocation()));
-	    }
-	    else if (in.toUpperCase().equals("S")) {
+		else if (in.toUpperCase().equals("A")) {
+		    moveLeft(character.getRLocation(), (character.getCLocation()));
+		}
+		else if (in.toUpperCase().equals("S")) {
 		moveDown(character.getRLocation(), (character.getCLocation()));
-	    }
-	    else if (in.toUpperCase().equals("D")) {
-		moveRight(character.getRLocation(), (character.getCLocation()));
+		}
+		else if (in.toUpperCase().equals("D")) {
+		    moveRight(character.getRLocation(), (character.getCLocation()));
+		}
+		
 	    }
 	    
-	    }
-
-
+	    
 	}
     }
 }
