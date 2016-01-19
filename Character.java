@@ -151,7 +151,7 @@ public class Character {
     }
     
     public void setCharstat( Armor a ) {
-	setHp( hp * a.equip() );
+	setHp( (int) (hp * a.equip()) );
 	setSpeed( speed - a.debuff );
     }
 
@@ -178,7 +178,7 @@ public class Character {
     }
 
     public int getBuff( Weapon i ) {
-	setDamage( damage + i.equip() );
+	setDamage( (int) (damage + i.equip()) );
 	return damage;
     }
 

@@ -3,7 +3,6 @@ public class Engine {
     
     public static Object[][] userMap; // One map for all
     public static Character character = new Character(); // One character for all
-    public static Graphics graphics = new Graphics();
 
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
@@ -38,10 +37,10 @@ public class Engine {
 	}
 	newLvl();
 	clearConsole();
-	graphics.updateInventory(graphics.inventory, character);
-	graphics.updateStats(graphics.stats, character);
-	graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
     }
 
     public static void moveDown(int r, int c) {
@@ -53,10 +52,10 @@ public class Engine {
 	}
 	newLvl();
 	clearConsole();
-	graphics.updateInventory(graphics.inventory, character);
-	graphics.updateStats(graphics.stats, character);
-	graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
     }
 
     public static void moveLeft(int r, int c) {
@@ -68,10 +67,10 @@ public class Engine {
 	}
 	newLvl();
 	clearConsole();
-	graphics.updateInventory(graphics.inventory, character);
-	graphics.updateStats(graphics.stats, character);
-	graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
     }
     
     public static void moveRight(int r, int c) {
@@ -83,10 +82,10 @@ public class Engine {
 	}
 	newLvl();
 	clearConsole();
-	graphics.updateInventory(graphics.inventory, character);
-	graphics.updateStats(graphics.stats, character);
-	graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
     }
 
     public static boolean isEnd() {
@@ -118,10 +117,10 @@ public class Engine {
 	fillMap();
 	Scanner input = new Scanner(System.in);
 	clearConsole();
-	graphics.updateInventory(graphics.inventory, character);
-	graphics.updateStats(graphics.stats, character);
-	graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap, graphics.graphics));
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
 	while (input.hasNext()) {
 	    
 	    String in = input.nextLine();

@@ -1,17 +1,17 @@
 public class Equipment extends Item { 
-	public int boost = 0;
+	public double boost = 0;
 	public boolean equipped = false;
 
 	public Equipment( String s, int p ){
 		super(s, p);
 	}
 
-	public int equip() {
+	public double equip() {
 		equipped = true;
 		return boost;
 	}
 
-	public int unequip() {
+	public double unequip() {
 		equipped = false;
 		return 0;
 	}

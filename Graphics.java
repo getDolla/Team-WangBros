@@ -1,36 +1,41 @@
 public class Graphics {
     // 
-    public Object[][] inventory = new Object[8][10];
-    public String[] stats = new String[5];
-    public Object[][] graphics = new Object[13][10];
+    public static Object[][] inventory = new Object[4][2];
+    public static String[] stats = new String[5];
+    public static Object[][] graphics = new Object[9][2];
 
-    
-    
 
-    public static void updateInventory (Object[][] inventory, Character character) {
-	inventory[0][0] = "Armor";
-	Object[] armors = character.armors.toArray();
-	for (int i = 0; i < armors.length; i++) {
-	    inventory[1][i] = armors[i];
-	}
-	inventory[2][0] = "Weapons";
-	Object[] sticks = character.sticks.toArray();
-	for (int i = 0; i < sticks.length; i++) {
-	    inventory[3][i] = sticks[i];
-	}
-	inventory[4][0] = "Adrenaline";
-	Object[] adren = character.adren.toArray();
-	for (int i = 0; i < adren.length; i++) {
-	    inventory[5][i] = adren[i];
-	}
-	inventory[6][0] = "Health Potions";
-	Object[] healthdrinks = character.healthdrinks.toArray();
-	for (int i = 0; i < healthdrinks.length; i++) {
-	    inventory[7][i] = healthdrinks[i];
-	}
-    }
+    public static void updateInventory ( Character character) {
+	inventory[0][0] = "Armors: ";
 
-    public static void updateStats ( String[] stats, Character character ) {
+	int l = 0;
+	int m = 0;
+	int h = 0;
+	for( Armor a : character.armors ) {
+		if( a instanceof Light ) {
+			++l;
+		}
+		else if( a instanceof Medium ) {
+			++m;
+		}
+		else if ( a instanceof Heavy ) {
+			++h;
+		}
+	}
+
+	inventory[0][1] = "Light- " + l + "x    " + "Medium- " + m + "x    " + "Heavy- " + h + "x";
+
+	inventory[1][0] = "Weapons: ";
+	inventory[1][1] = character.sticks.size() + "x";
+
+	inventory[2][0] = "Adrenaline: ";
+	inventory[2][1] = character.adren.size() + "x";
+
+	inventory[3][0] = "Health Potions: ";
+	inventory[3][1] = character.healthdrinks.size() + "x";
+	}
+
+    public static void updateStats ( Character character ) {
 	stats[0] = "Hp = " + character.hp;
 	stats[1] = "Speed = "  + character.speed;
 	stats[2] = "Damage = " + character.damage;
@@ -38,18 +43,18 @@ public class Graphics {
 	stats[4] = "Money = " + character.money;
     }
     
-    public void updateGraphics () {
+    public static void updateGraphics () {
 	for( int i = 0; i < inventory.length; i++ ) {
 	    for (int c = 0; c <inventory[i].length; c++) {
 		graphics[i][c] = inventory[i][c];
 	    }
 	}
-	for( int i = inventory.length; i < graphics.length; i++ ) {
+	for( int i = inventory.length + 1; i < graphics.length; i++ ) {
 	    graphics[i][0] = stats[i - inventory.length];
 	}
     }
 
-    public static Object[][] displayMazeGraphics(Object[][] maze, Object[][] graphics) {
+    public static Object[][] displayMazeGraphics(Object[][] maze) {
         Object[][] Display = new Object[21][51]; // 25*2+1 length and 10*2+1 width(vertical) for maze, 10 for inventory 
 	for (int c = 0; c < maze.length; c ++) {
 	    for (int i = 0; i < maze[c].length; i++) {
@@ -64,6 +69,7 @@ public class Graphics {
 	    }
 	}
 	//remove nulls
+	
 	for (int c = 0; c < Display.length; c++) {
 	    for (int i = 0; i < Display[c].length; i++) {
 		if (Display[c][i] == null) {
