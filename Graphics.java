@@ -2,7 +2,7 @@ public class Graphics {
     // 
     public static Object[][] inventory = new Object[4][2];
     public static String[] stats = new String[5];
-    public static Object[][] graphics = new Object[9][2];
+    public static Object[][] graphics = new Object[10][2];
 
 
     public static void updateInventory ( Character character) {
