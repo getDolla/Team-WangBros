@@ -3,7 +3,7 @@ public class Graphics {
     public static Object[][] inventory = new Object[4][2];
     public static String[] stats = new String[5];
     public static Object[][] graphics = new Object[10][2];
-
+    public static Object[][] battle = new Object[10][10]; // PLACEHOLDER
 
     public static void updateInventory ( Character character) {
 	inventory[0][0] = "Armors: ";

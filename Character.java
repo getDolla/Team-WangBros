@@ -9,6 +9,8 @@ public class Character {
     public int[] normalstats = new int[4];
     protected int[] location = { 1, 1 }; //initial start point
     public Floor tileUnder = new Floor();
+    
+    public boolean inBattle = false;
 
     public ArrayList<Armor> armors = new ArrayList<Armor>();
     public ArrayList<Weapon> sticks = new ArrayList<Weapon>();
