@@ -5,6 +5,7 @@ public class JohnCena extends Monster {
 		speed = 15;
 		damage = 70;
 
+		name = "The Boss: Juan CenaporFavor"
 		//stuff to add
 
 	}

@@ -5,6 +5,8 @@ public class Boogeyman extends Monster {
 		speed = 5;
 		damage = 50;
 
+		name = "Boogeyman";
+
 		//stuff to add
 
 	}

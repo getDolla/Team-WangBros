@@ -8,30 +8,47 @@ _________ _______         ______   _______    _       _________ _______ ________
    )_(   (_______)       (______/ (_______)  (_______/\_______/\_______)   )_(   
    
    MazeCeption by Yikai Wang and Richard Wang (Team-WangBros)
-                                                                                 
-1. Update Character superclass ( Friday ) - CREATED
 
-   - Add subclasses ( Tank, Ninja, DankMeme, DemoMan ) 
+--------------------------------------------------------------------------------------------------------
+						AGENDA:
+						DATE ( 1/19/16 ):
+	- Create Battle
+		
+		- Create Battle Displays
+		
+		- Display Enemy Hp ( and stats - maybe )
 
-2. Create Monster superclass ( Friday ) -CREATED
+	- Create Startup Screen
+		
+		- Add more intricacies in individual classes
 
-   - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake )
+---------------------------------------------------------------------------------------------------------                                                                                 
 
-3. Item superclass ( Sunday )
+1. Update Character superclass ( Friday 1/15/16 ) - CREATED 1/15/16
 
-   - Add subclasses ( First-Aid kit, Adrenaline Potion )
+   - Add subclasses ( Tank, Ninja, DankMeme, DemoMan ) - CREATED 1/16/16
 
-4. Tile class ( uses items ) ( Sunday )
+2. Create Monster superclass ( Friday 1/15/16 ) -CREATED 1/15/16
 
-5. Create Battle ( through an interface ) ( Sunday )
+   - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake ) - CREATED 1/16/16
+
+3. Item superclass ( Sunday 1/17/16 ) - CREATED 1/15/16
+
+   - Add subclasses ( Hp Potion, Adrenaline Potion ) - CREATED 1/16/16
+
+4. Tile class ( uses items ) ( Sunday 1/17/16 ) - CREATED 1/16/16
+
+4.5. Testing! ( Sunday 1/17/16 )
+
+5. Create Battle ( through an interface ) ( Sunday 1/17/16 )
 	
-   - Add Battle.java ( for display )
+   - Add Battle.java ( for interaction )
 
-6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( Monday ) 
+6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( Monday 1/18/16 ) - CREATED 1/17/16
 
-7. Create a startup screen for user to choose their class. ( Tuesday )
+7. Create a startup screen for user to choose their class. ( Tuesday 1/19/16 )
 
-8. Create shops after completion of a maze. ( Wednesday )
+8. Create shops after completion of a maze. ( Wednesday 1/20/16 )
  
-9. Tutorial ( Thursday )
+9. Tutorial ( Thursday 1/21/16 )
 

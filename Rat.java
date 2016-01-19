@@ -5,6 +5,7 @@ public class Rat extends Monster {
 		speed = 7;
 		damage = 7;
 
+		name = "Rat";
 		//stuff to add
 
 	}

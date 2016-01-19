@@ -1,14 +1,19 @@
 public class Item {
     public String name;
+    public String appearance = "&";
     public int price;
 
-    public Item( String s, int p ) { //mostly for money
-	name = s;
-	price = p;
+
+    public Item() { 
+    }
+
+    public Item(String name, int price) { //mostly for money
+	this.name = name;
+	this.price = price;
     }
 
     public String toString() {
-	return name;
+		return appearance;
     }
 
 }

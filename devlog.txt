@@ -12,10 +12,34 @@ Format:                                   |
 v.#.# mm-dd-yy - <First Name> <Last Name> |
 - Stuff Done                              |
 ------------------------------------------+
-v.0.9 01-13-16 - Yikai Wang
-- Added continuation of maze
 
-v.0.8 01-12-16 - Yikai Wang
+v.1.3 01-18-16 - Yikai Wang and Richard Wang ( No Change in Functionality )
+  Yikai:
+- Optimized Graphics
+  Richard:
+- Created boolean games and game array in Graphics
+
+v.1.3 01-17-16 - Yikai Wang and Richard Wang
+  Yikai:
+- Created autopickup.
+  Richard:
+- Created Graphics for displaying stats and inventory.
+
+v.1.2 01-16-16 - Richard Wang
+- Fixed the errors of use and pickup by transferring methods from classes.
+- Created Consumable superclass to more easily direct the methods of several Items.
+
+v.1.0 01-16-16 - Yikai Wang
+- Created rudimentary Monster, Character, and Item subclasses.
+- Created methods to use and pickup (not implemented yet).
+
+v.0.9 01-15-16 - Richard Wang
+- Implemented new Tile class into Maze.
+
+v.0.8 01-13-16 - Yikai Wang
+- Added continuation of maze.
+
+v.0.7 01-12-16 - Yikai Wang
 - Tweaked mazegen, Character, and Engine so that movement works and is fluent.
 - Fixed movement bug from said tweaking by adding additional conditional.
 

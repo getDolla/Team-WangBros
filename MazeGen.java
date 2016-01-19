@@ -47,7 +47,7 @@ public class MazeGen{
 
 	    int number = 1; // checks number of times a number appears so that at least one cell is guaranteed to extend
 	    for ( int i = end + 2; i < array.length - 1; i += 2 ) {
-		if ( ((Integer)array[n][i]).compareTo((Integer)array[n][i - 2]) != 0 ) {
+		if ( (array[n][i] instanceof Integer && array[n][i - 2] instanceof Integer) && ((Integer)array[n][i]).compareTo((Integer)array[n][i - 2]) != 0 ) {
 		    end = i;
 		    break; // breaks when first occurence of inequality
 		} 
@@ -96,11 +96,11 @@ public class MazeGen{
 	for( int i = 0; i < array.length; i++ ) {
 	    for( int n = 0; n < array[i].length; n++ ) {
 		if( i%2 == 0 ) {
-                    array[i][n] = "-";
+                    array[i][n] = new Wall(false);
 		}
 		else {
 		    if( n%2 == 0 ) {
-			array[i][n] = "|";
+			array[i][n] = new Wall(true);
 		    }
 		}
 	    }
@@ -159,10 +159,51 @@ public class MazeGen{
 	for (int i = 0; i < array.length; i ++ ) {
 	    for (int c = 0; c < array[i].length; c++ ) {
 		if (array[i][c] instanceof Integer) {
-		    array[i][c] = " ";
+		    if (Math.random() < 1.0/10) {
+			Item a = new HpPotion();
+			Monster m = genMonster();
+			array[i][c] = new Floor(a,m);
+		    }
+		    else if (Math.random() < 1.0/9) {
+			Item a = new Adrenaline();
+			Monster m = genMonster();
+			array[i][c] = new Floor(a,m);
+		    }
+		    else if (Math.random() < 1.0/6) {
+			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
+			Monster m = genMonster();
+			array[i][c] = new Floor(a,m);
+		    }
+		    else {
+			array[i][c] = new Floor();
+		    }
 		}
 	    }
 	}
+    }
+
+    private static Monster genMonster() {
+	if ( Math.random() < 1.0/2 ) {
+	    return (new Orc());
+	}
+
+	else if( Math.random() < 1.0/5 ) {
+	    return (new Snake());
+	}
+
+	else if( Math.random() < 1.0/6 ) {
+	    return (new Rat());
+	}
+
+	else if( Math.random() < 1.0/4 ) {
+	    return (new Boogeyman());
+	}
+
+	else if( Math.random() < 1.0/15) {
+	    return (new JohnCena());
+	}
+
+	return (new Monster());
     }
 
     public static void main( String[] args ) {
@@ -172,5 +213,6 @@ public class MazeGen{
 	//System.out.print("\033[H\033[2J");  
 	//System.out.flush();  
         generate(juan.maze);
+	showMaze(juan.maze);
     }
 }

@@ -10,15 +10,19 @@ public class Wall extends Tile {
     public Wall(boolean isVert) {
 	this();
 	if (isVert) {
-	    super.appearance = "|";
+	    appearance = "|";
 	}
 	else {
-	    super.appearance = "-";
+	    appearance = "-";
 	}
     }
 
     public void interact(Character character) {
 	//nothing
+    }
+
+    public String toString() {
+	return super.toString();
     }
     
 }

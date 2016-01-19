@@ -1,6 +1,6 @@
 public abstract class Monster {
-	public String appearance;
-	protected int hp, speed, damage;
+	public String appearance, name;
+	public int hp, speed, damage;
 	public String[][] image;
 
 	public Monster() {
@@ -11,6 +11,8 @@ public abstract class Monster {
 		else {
 			appearance = "ë"
 		}
+
+		name = "NaBrO";
 
 		//stuff to add later
 	}
