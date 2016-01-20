@@ -1,4 +1,5 @@
 public class DankMeme extends Character {
+
     public DankMeme() {
 	super();
 	hp = 200;
@@ -17,5 +18,11 @@ public class DankMeme extends Character {
     public DankMeme(String name) {
 	this();
 	this.name = name;
+    }
+
+    public void attack( Object mon, BattleMap map ) {
+	super();
+	// graphics here
+	
     }
 }

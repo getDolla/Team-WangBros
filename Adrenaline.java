@@ -8,4 +8,8 @@ public class Adrenaline extends Consumable {
 	used = false;
     }
 
+    public String toString() {
+	return "A";
+    }
+
 }

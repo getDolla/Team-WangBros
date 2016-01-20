@@ -7,4 +7,8 @@ public class HpPotion extends Consumable {
 	boost = (int) ( Math.random() * 101 ) + 50;
 	used = false;
     }
+
+    public String toString () {
+	return "+";
+    }
 }

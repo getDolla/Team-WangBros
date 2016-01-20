@@ -3,6 +3,8 @@ public class Engine {
     
     public static Object[][] userMap; // One map for all
     public static Character character = new Character(); // One character for all
+    public static BattleMap battleMap; // requires refreshing probably
+
 
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
@@ -30,7 +32,7 @@ public class Engine {
 
     public static void moveUp(int r, int c) {
 	if (!(userMap[r-1][c]  instanceof Wall)) { //if not blocked by border
-		autoPickup( r-1, c );
+	    autoPickup( r-1, c );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r - 1][c] = character.appearance;
 	    character.setRLocation(r - 1);
@@ -45,7 +47,7 @@ public class Engine {
 
     public static void moveDown(int r, int c) {
 	if (!(userMap[r+1][c]  instanceof Wall)) { //if not blocked by border
-		autoPickup( r+1, c );
+	    autoPickup( r+1, c );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r + 1][c] = character.appearance;
 	    character.setRLocation(r + 1);
@@ -60,7 +62,7 @@ public class Engine {
 
     public static void moveLeft(int r, int c) {
 	if (!(userMap[r][c-1]  instanceof Wall)) { //if not blocked by border
-		autoPickup( r, c-1 );
+	    autoPickup( r, c-1 );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c - 1] = character.appearance;
 	    character.setCLocation(c - 1);
@@ -75,7 +77,7 @@ public class Engine {
     
     public static void moveRight(int r, int c) {
 	if (!(userMap[r][c+1] instanceof Wall)) { //if not blocked by border
-		autoPickup( r, c+1 );
+	    autoPickup( r, c+1 );
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c + 1] = character.appearance;
 	    character.setCLocation(c + 1);
@@ -86,6 +88,7 @@ public class Engine {
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
 	printArray(Graphics.displayMazeGraphics(userMap));
+    
     }
 
     public static boolean isEnd() {
@@ -103,7 +106,7 @@ public class Engine {
 
     public static void autoPickup( int r, int c ) {
     	if( (userMap[r][c] instanceof Floor) && !((Floor) userMap[r][c]).item.name.equals( "None" ) ) {
-    		character.pickup( ((Floor) userMap[r][c]).item );
+	    character.pickup( ((Floor) userMap[r][c]).item );
     	}
     }
 
@@ -129,7 +132,7 @@ public class Engine {
 		    moveLeft(character.getRLocation(), (character.getCLocation()));
 		}
 		else if (in.toUpperCase().equals("S")) {
-		moveDown(character.getRLocation(), (character.getCLocation()));
+		    moveDown(character.getRLocation(), (character.getCLocation()));
 		}
 		else if (in.toUpperCase().equals("D")) {
 		    moveRight(character.getRLocation(), (character.getCLocation()));
@@ -139,11 +142,27 @@ public class Engine {
    
 	}
     }
+
+    public static void retBattle ( Character character, Monster monster, BattleMap battleMap ) {
+	if ( monster.hp > 0 && character.hp > 0 ) {
+	    Scanner in = new Scanner(System.in);
+	    String input = in.nextLine();
+	    if (input.equals("1")) {
+		character.attack(monster);
+	    }
+	} 
+	else if ( monster.hp > 0 ) {
+	    System.out.println("You won!");
+	}
+	else if ( character.hp > 0 ) {
+	    System.out.println("You died...");
+	}
+    }
     
     public static void main(String[] args) {
 	/*
-	Scanner rawName = new Scanner(System.in);
-	String name = rawName.nextLine();
+	  Scanner rawName = new Scanner(System.in);
+	  String name = rawName.nextLine();
 
 	*/
 
@@ -168,7 +187,7 @@ public class Engine {
 		    moveLeft(character.getRLocation(), (character.getCLocation()));
 		}
 		else if (in.toUpperCase().equals("S")) {
-		moveDown(character.getRLocation(), (character.getCLocation()));
+		    moveDown(character.getRLocation(), (character.getCLocation()));
 		}
 		else if (in.toUpperCase().equals("D")) {
 		    moveRight(character.getRLocation(), (character.getCLocation()));

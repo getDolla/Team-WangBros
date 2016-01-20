@@ -1,4 +1,6 @@
 public class Ninja extends Character {
+
+
     public Ninja() {
 	super();
 	hp = 200;
@@ -12,10 +14,29 @@ public class Ninja extends Character {
 	normalstats[1] = speed;
 	normalstats[2] = damage;
 	normalstats[3] = luck;
+
+	image = { 
+	    { " ","_","_","_","_","_","_","_"," " },
+	    { " ","|"," ","-"," ","-"," ","|"," " },
+	    { " ","\\","_","_","v","_","_","/"," " },
+	    { " "," "," "," ","|"," "," "," "," " },
+	    { " "," ","/","-","-","-","\\"," "," " },
+	    { " ","+"," "," ","|"," "," "," "," " },
+	    { " ","|"," "," ","|"," "," "," "," " },
+	    { " ","|"," ","/"," ","\\"," "," "," " }
+	}
+
     }
 
     public Ninja(String name) {
 	this();
 	this.name = name;
     }
+
+    public void attack( Monster mon, BattleMap map ) {
+	super();
+	// graphics here
+	
+    }
+
 }

@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Character {
     public String name;
 
-    public Floor appearance;
+    public Floor appearance; // Outside of battle
+    public String[9][9] image; // For battle
 
     protected int hp, speed, money, damage, luck;
     public int[] normalstats = new int[4];
@@ -11,6 +12,7 @@ public class Character {
     public Floor tileUnder = new Floor();
     
     public boolean inBattle = false;
+    public Monster enemy = null;
 
     public ArrayList<Armor> armors = new ArrayList<Armor>();
     public ArrayList<Weapon> sticks = new ArrayList<Weapon>();
@@ -72,6 +74,8 @@ public class Character {
     public int getLuck() {
 	return luck;
     }
+
+    // mutators
 
     public int setHp(int hp) {
 	int old = this.hp;
@@ -190,5 +194,13 @@ public class Character {
         System.out.print( "Damage : " + damage + "\n" );
         System.out.print( "Luck : " + luck + "\n" );
     }
+
+    public void attack( Object mon, BattleMap ) {
+	Monster monster = mon;
+	if ( Math.random() * monster.speed < 45 ) {
+	    monster.setHp( monster.getHp - ( damage ) );
+	}
+    }
+    
     
 }

@@ -161,17 +161,17 @@ public class MazeGen{
 		if (array[i][c] instanceof Integer) {
 		    if (Math.random() < 1.0/10) {
 			Item a = new HpPotion();
-			Monster m = genMonster();
+			//	Monster m = genMonster();
 			array[i][c] = new Floor(a,m);
 		    }
 		    else if (Math.random() < 1.0/9) {
 			Item a = new Adrenaline();
-			Monster m = genMonster();
+			//Monster m = genMonster();
 			array[i][c] = new Floor(a,m);
 		    }
 		    else if (Math.random() < 1.0/6) {
 			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
-			Monster m = genMonster();
+			//Monster m = genMonster();
 			array[i][c] = new Floor(a,m);
 		    }
 		    else {

@@ -18,4 +18,10 @@ public class Tank extends Character{
 	this();
 	this.name = name;
     }
+
+    public void attack( Object mon, BattleMap map ) {
+	super();
+	// graphics here
+	
+    }
 }
