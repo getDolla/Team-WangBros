@@ -9,7 +9,7 @@ public class Monster {
 	}
 
 	else {
-	    appearance = "ë"
+	    appearance = "ë";
 		}
 
 	name = "NaBrO";
@@ -35,8 +35,12 @@ public class Monster {
 	return speed;
     }
 
-    public int getMoney() {
-	return money;
+    public int getDamage() {
+	return damage;
+    }
+
+    public String getName() {
+	return name;
     }
 
     // mutators
@@ -63,11 +67,13 @@ public class Monster {
 	return ( hp <= 0 );
     }
 
-    public abstract int attack() {}
+    public int attack() {
+	return 0;// placeholder
+    }
 
     public int lowerhealth( int hit ) {
-	int temp = health;
-	health -= hit;
+	int temp = hp;
+	hp -= hit;
 	return temp;
     }
 }

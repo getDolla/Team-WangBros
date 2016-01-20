@@ -20,7 +20,6 @@ public class DemoMan extends Character {
     }
 
     public void attack( Object mon, BattleMap map ) {
-	super();
 	// graphics here
 	
     }

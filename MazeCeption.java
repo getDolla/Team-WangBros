@@ -4,10 +4,10 @@ public class MazeCeption {
     protected int stage = 0;
     
     public MazeCeption() {
-	newgame();
+	newGame();
     }
     
-    public void newgame() {
+    public void newGame() {
 	System.out.println( "Welcome to MazeCeption!" );
 	
 	System.out.println( "Choose your character:" );
@@ -55,8 +55,13 @@ public class MazeCeption {
     }
 	
     public void play() {
-	while (!Engine.character.inBattle) {
-	    Engine.move();
+	while ( Engine.character.getHp() > 0 ) {
+	    while (!Engine.character.inBattle) {
+		Engine.move();
+	    }
+	    while (Engine.character.inBattle) {
+		    Engine.battle();
+	    }
 	}
     }
     

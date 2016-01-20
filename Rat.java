@@ -11,6 +11,6 @@ public class Rat extends Monster {
 	}
 
 	public int attack() { //stuff to add
-
+	    return 0;
 	}
 }

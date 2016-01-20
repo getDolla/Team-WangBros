@@ -2,9 +2,9 @@ public class Graphics {
     // 
     public static Object[][] inventory = new Object[4][2];
     public static String[] stats = new String[5]; 
-    public static String[] monStats = new String[3];
+    public static String[] monStats = new String[4];
     public static Object[][] graphics = new Object[10][2]; // Should not include monStats
-    public Object[][] Display = new Object[21][51]; // 25*2+1 length and 10*2+1 width(vertical) for maze, 10 for inventory 
+    public static Object[][] Display = new Object[21][51]; // 25*2+1 length and 10*2+1 width(vertical) for maze, 10 for inventory 
 
     public static void updateInventory ( Character character) {
 	inventory[0][0] = "Armors: ";
@@ -45,9 +45,10 @@ public class Graphics {
     }
 
     public static void updateMonStats ( Monster monster ) {
-	monStats[0] = "Hp = " + monster.getHp();
-	monStats[1] = "Speed = " + monster.getSpeed();
-	monStats[2] = "Damage = " + monster.getDamage();
+	monStats[0] = "Name = " + monster.getName();
+	monStats[1] = "Hp = " + monster.getHp();
+	monStats[2] = "Speed = " + monster.getSpeed();
+	monStats[3] = "Damage = " + monster.getDamage();
     }
 
     public static void updateGraphics () {
@@ -63,6 +64,7 @@ public class Graphics {
     }
 
     public static Object[][] displayMazeGraphics(Object[][] maze) {
+	Display = new Object[21][51];
 
 	for (int c = 0; c < maze.length; c ++) {
 	    for (int i = 0; i < maze[c].length; i++) {
@@ -88,7 +90,8 @@ public class Graphics {
 	return Display;
     }
 
-    public static void displayBattleGraphics( String[][] battleMap, String[] monStats ){
+    public static Object[][] displayBattleGraphics( String[][] battleMap ){
+	Display = new Object[21][51];
 
 	for (int c = 0; c < battleMap.length; c ++) {
 	    for (int i = 0; i < battleMap[c].length; i++) {

@@ -141,6 +141,7 @@ public class MazeGen{
 
     removeNums( array );
    
+    removeStrings( array );
     //showMaze( array );
 
     return array;
@@ -161,18 +162,18 @@ public class MazeGen{
 		if (array[i][c] instanceof Integer) {
 		    if (Math.random() < 1.0/10) {
 			Item a = new HpPotion();
-			//	Monster m = genMonster();
-			array[i][c] = new Floor(a,m);
+			//		Monster m = genMonster();
+			array[i][c] = new Floor(a);
 		    }
 		    else if (Math.random() < 1.0/9) {
 			Item a = new Adrenaline();
 			//Monster m = genMonster();
-			array[i][c] = new Floor(a,m);
+			array[i][c] = new Floor(a);
 		    }
 		    else if (Math.random() < 1.0/6) {
 			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
 			//Monster m = genMonster();
-			array[i][c] = new Floor(a,m);
+			array[i][c] = new Floor(a);
 		    }
 		    else {
 			array[i][c] = new Floor();
@@ -182,6 +183,34 @@ public class MazeGen{
 	}
     }
 
+    public static void removeStrings(Object[][] array) {
+	for (int i = 0; i < array.length; i ++) {
+	    for (int c = 0; c < array[i].length; c++ ) {
+		if (array[i][c] instanceof String && array[i][c].equals(" ")){
+		    if (Math.random() < 1.0/10) {
+			Item a = new HpPotion();
+			//		Monster m = genMonster();
+			array[i][c] = new Floor(a);
+		    }
+		    else if (Math.random() < 1.0/9) {
+			Item a = new Adrenaline();
+			//Monster m = genMonster();
+			array[i][c] = new Floor(a);
+		    }
+		    else if (Math.random() < 1.0/6) {
+			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
+			//Monster m = genMonster();
+			array[i][c] = new Floor(a);
+		    }
+		    else {
+			array[i][c] = new Floor();
+		    }
+		}
+	    }
+	}
+    }
+
+    /*
     private static Monster genMonster() {
 	if ( Math.random() < 1.0/2 ) {
 	    return (new Orc());
@@ -205,7 +234,7 @@ public class MazeGen{
 
 	return (new Monster());
     }
-
+    */
     public static void main( String[] args ) {
 
         MazeGen juan = new MazeGen(8,8);

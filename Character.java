@@ -4,7 +4,7 @@ public class Character {
     public String name;
 
     public Floor appearance; // Outside of battle
-    public String[9][9] image; // For battle
+    public String[][] image; // For battle
 
     protected int hp, speed, money, damage, luck;
     public int[] normalstats = new int[4];
@@ -195,10 +195,16 @@ public class Character {
         System.out.print( "Luck : " + luck + "\n" );
     }
 
-    public void attack( Object mon, BattleMap ) {
-	Monster monster = mon;
+    public void attack( Object mon) {
+	Monster monster;
+	if (mon instanceof Object){
+	    monster = (Monster) mon;
+	}
+	else {
+	    throw new ClassCastException("\n Error L203"); // DEBUGGING
+	}
 	if ( Math.random() * monster.speed < 45 ) {
-	    monster.setHp( monster.getHp - ( damage ) );
+	    monster.setHp( monster.getHp() - ( damage ) );
 	}
     }
     

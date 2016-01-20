@@ -4,6 +4,7 @@ public class Engine {
     public static Object[][] userMap; // One map for all
     public static Character character = new Character(); // One character for all
     public static BattleMap battleMap; // requires refreshing probably
+    public static Monster monster = new Snake(); // only one monster to exist at a time
 
 
     public static void printArray(Object[][] array) {
@@ -36,6 +37,10 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r - 1][c] = character.appearance;
 	    character.setRLocation(r - 1);
+	    if ( ((Floor) userMap[r - 1][c]).isMon() ) {
+		monster = new Snake();
+		character.inBattle = true;
+	    }
 	}
 	newLvl();
 	clearConsole();
@@ -51,6 +56,10 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r + 1][c] = character.appearance;
 	    character.setRLocation(r + 1);
+	    if ( ((Floor) userMap[r + 1][c]).isMon() ) {
+		monster = new Snake();
+		character.inBattle = true;
+	    }
 	}
 	newLvl();
 	clearConsole();
@@ -66,6 +75,10 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c - 1] = character.appearance;
 	    character.setCLocation(c - 1);
+	    if ( ((Floor) userMap[r][c - 1]).isMon() ) {
+		monster = new Snake();
+		character.inBattle = true;
+	    }
 	}
 	newLvl();
 	clearConsole();
@@ -81,6 +94,10 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c + 1] = character.appearance;
 	    character.setCLocation(c + 1);
+	    if ( ((Floor) userMap[r][c + 1]).isMon() ) {
+		monster = new Snake();
+		character.inBattle = true;
+	    }
 	}
 	newLvl();
 	clearConsole();
@@ -88,6 +105,7 @@ public class Engine {
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
 	printArray(Graphics.displayMazeGraphics(userMap));
+
     
     }
 
@@ -118,7 +136,7 @@ public class Engine {
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
 	printArray(Graphics.displayMazeGraphics(userMap));
-	while (input.hasNext()) {
+	while (input.hasNext() && character.inBattle == false) {
 	    
 	    String in = input.nextLine();
 	    if (in.toUpperCase().equals("EXIT")) { // SHOULD MODIFY
@@ -158,6 +176,23 @@ public class Engine {
 	    System.out.println("You died...");
 	}
     }
+
+    public static void battle() {
+	clearConsole();
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	Graphics.updateMonStats(monster);
+	battleMap = new BattleMap(character, new Snake());
+	printArray(Graphics.displayBattleGraphics( battleMap.map )); 
+	Scanner input = new Scanner(System.in);
+	String in = input.nextLine();
+	if (in.equals("1")){}
+	else if (in.equals("2")){}
+	else if (in.equals("3")){}
+	else if (in.equals("4")){}
+    }
+
     
     public static void main(String[] args) {
 	/*

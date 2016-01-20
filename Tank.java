@@ -20,7 +20,6 @@ public class Tank extends Character{
     }
 
     public void attack( Object mon, BattleMap map ) {
-	super();
 	// graphics here
 	
     }

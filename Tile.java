@@ -6,9 +6,7 @@ public abstract class Tile {
 
     public Tile() {
 	spawnRate = .10;
-    };
-
-    public abstract void interact(Character character);
+    }
 
     public String toString() {
 	return appearance;

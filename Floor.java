@@ -6,6 +6,7 @@ public class Floor extends Tile {
 	super();
 	passable = true;
 	appearance = " ";
+	spawnRate = 1;
     }
 
     public Floor( String s ) {
@@ -25,6 +26,8 @@ public class Floor extends Tile {
 	appearance = item.toString();
     }
 
+    // I think this is dead code
+    /*
     public void interact(Character character) {
 	if (item != null) {
 	    item = null;
@@ -34,6 +37,11 @@ public class Floor extends Tile {
 	    character.inBattle = true;
 	    character.enemy = new Snake();
 	}
+    }
+    */
+
+    public boolean isMon() {
+	return (Math.random() < spawnRate);
     }
 
     public String toString() {
