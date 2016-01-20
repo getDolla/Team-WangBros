@@ -6,6 +6,7 @@ public class Snake extends Monster {
 	hp = 50;
 	speed = 20;
 	damage = 15;
+	name = "Snake";
 	image = new String[][]{  
 	    {" ","_","_","_","_","_","_"," "," "," "," " },
 	    { "<"," ","."," "," ","."," ",">"," "," "," " },

@@ -17,7 +17,15 @@ public class Floor extends Tile {
     public Floor(Item item) {
 	this();
 	this.item = item;
+	if ( !this.item.name.equals( "None" ) ) {
+	    this.monster = genMonster();
+	}
+	if ( hasMon() ) {
+	    appearance = this.monster.toString();
+	}
+	else {
 	appearance = item.toString();
+	}
     }
 
     public Floor(Item item, Monster monster) {
@@ -26,8 +34,32 @@ public class Floor extends Tile {
 	appearance = item.toString();
     }
 
-    public boolean isMon() {
-	return (Math.random() < spawnRate);
+    private static Monster genMonster() {
+	if ( Math.random() < 1.0/2 ) {
+	    return (new Snake());
+	}
+	/*
+	else if( Math.random() < 1.0/5 ) {
+	    return (new Orc());
+	}
+
+	else if( Math.random() < 1.0/6 ) {
+	    return (new Rat());
+	}
+
+	else if( Math.random() < 1.0/4 ) {
+	    return (new Boogeyman());
+	}
+
+	else if( Math.random() < 1.0/15) {
+	    return (new JohnCena());
+	    } */
+
+	return (new Monster());
+    }
+
+    public boolean hasMon() {
+	return !this.monster.name.equals( "NaBro" );
     }
 
     public String toString() {

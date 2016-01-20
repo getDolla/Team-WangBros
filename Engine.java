@@ -37,8 +37,7 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r - 1][c] = character.appearance;
 	    character.setRLocation(r - 1);
-	    if ( ((Floor) userMap[r - 1][c]).isMon() ) {
-		monster = new Snake();
+	    if ( ((Floor) userMap[r-1][c]).hasMon() ) {
 		character.inBattle = true;
 	    }
 	}
@@ -56,8 +55,7 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r + 1][c] = character.appearance;
 	    character.setRLocation(r + 1);
-	    if ( ((Floor) userMap[r + 1][c]).isMon() ) {
-		monster = new Snake();
+	    if ( ((Floor) userMap[r+1][c]).hasMon() ) {
 		character.inBattle = true;
 	    }
 	}
@@ -75,8 +73,7 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c - 1] = character.appearance;
 	    character.setCLocation(c - 1);
-	    if ( ((Floor) userMap[r][c - 1]).isMon() ) {
-		monster = new Snake();
+	    if ( ((Floor) userMap[r][c - 1]).hasMon() ) {
 		character.inBattle = true;
 	    }
 	}
@@ -94,8 +91,7 @@ public class Engine {
 	    userMap[r][c] = character.tileUnder;
 	    userMap[r][c + 1] = character.appearance;
 	    character.setCLocation(c + 1);
-	    if ( ((Floor) userMap[r][c + 1]).isMon() ) {
-		monster = new Snake();
+	    if ( ((Floor) userMap[r][c + 1]).hasMon() ) {
 		character.inBattle = true;
 	    }
 	}
