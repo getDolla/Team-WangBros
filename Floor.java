@@ -1,12 +1,12 @@
 public class Floor extends Tile {
     public Item item = new Item( "None", 0 );
-    public Monster monster = new Monster();
+    public Monster monster = new Monster(); // FLAG
 
     public Floor() {
 	super();
 	passable = true;
 	appearance = " ";
-	spawnRate = 1;
+	spawnRate = .25;
     }
 
     public Floor( String s ) {
@@ -22,23 +22,9 @@ public class Floor extends Tile {
 
     public Floor(Item item, Monster monster) {
 	this(item);
-	this.monster = monster;
+	this.monster = monster; //FLAG
 	appearance = item.toString();
     }
-
-    // I think this is dead code
-    /*
-    public void interact(Character character) {
-	if (item != null) {
-	    item = null;
-	    appearance = " ";
-	}
-	if (Math.random() < spawnRate) {
-	    character.inBattle = true;
-	    character.enemy = new Snake();
-	}
-    }
-    */
 
     public boolean isMon() {
 	return (Math.random() < spawnRate);

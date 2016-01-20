@@ -3,8 +3,8 @@ public class Engine {
     
     public static Object[][] userMap; // One map for all
     public static Character character = new Character(); // One character for all
-    public static BattleMap battleMap; // requires refreshing probably
-    public static Monster monster = new Snake(); // only one monster to exist at a time
+    public static BattleMap battleMap;
+    public static Monster monster = new Snake(); // only one monster to exist at a time FLAG
 
 
     public static void printArray(Object[][] array) {
@@ -139,7 +139,7 @@ public class Engine {
 	while (input.hasNext() && character.inBattle == false) {
 	    
 	    String in = input.nextLine();
-	    if (in.toUpperCase().equals("EXIT")) { // SHOULD MODIFY
+	    if (in.toUpperCase().equals("EXIT")) { // SHOULD MODIFY FLAG
 		break;
 	    }
 	    else {
@@ -161,36 +161,27 @@ public class Engine {
 	}
     }
 
-    public static void retBattle ( Character character, Monster monster, BattleMap battleMap ) {
-	if ( monster.hp > 0 && character.hp > 0 ) {
-	    Scanner in = new Scanner(System.in);
-	    String input = in.nextLine();
-	    if (input.equals("1")) {
-		character.attack(monster);
-	    }
-	} 
-	else if ( monster.hp > 0 ) {
-	    System.out.println("You won!");
-	}
-	else if ( character.hp > 0 ) {
-	    System.out.println("You died...");
-	}
-    }
 
     public static void battle() {
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	Graphics.updateMonStats(monster);
-	battleMap = new BattleMap(character, new Snake());
-	printArray(Graphics.displayBattleGraphics( battleMap.map )); 
-	Scanner input = new Scanner(System.in);
-	String in = input.nextLine();
-	if (in.equals("1")){}
-	else if (in.equals("2")){}
-	else if (in.equals("3")){}
-	else if (in.equals("4")){}
+	while ( monster.hp > 0 && character.hp > 0 ) {
+	    clearConsole();
+	    Graphics.updateInventory(character);
+	    Graphics.updateStats(character);
+	    Graphics.updateGraphics();
+	    Graphics.updateMonStats(monster);
+	    battleMap = new BattleMap(character, new Snake());
+	    printArray(Graphics.displayBattleGraphics( battleMap.map )); 
+	    Scanner input = new Scanner(System.in);
+	    String in = input.nextLine();
+	    // use CurrentTimeMillis along with BattleMap to animate attack FLAG
+	    if (in.equals("1")){}
+	    else if (in.equals("2")){}
+	    else if (in.equals("3")){}
+	    else if (in.equals("4")){}
+	    // use CurrentTimeMillis along with BattleMap for animal attack FLAG
+
+	}
+	character.inBattle = false;
     }
 
     

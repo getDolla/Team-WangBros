@@ -11,16 +11,16 @@ _________ _______         ______   _______    _       _________ _______ ________
 
 --------------------------------------------------------------------------------------------------------
 						AGENDA:
-						DATE ( 1/19/16 ):
+						DATE ( 1/20/16 ):
 	- Create Battle
 		
-		- Create Battle Displays
-		
-		- Display Enemy Hp ( and stats - maybe )
+		- Create Battle Displays *
 
 	- Create Startup Screen
 		
-		- Add more intricacies in individual classes
+		- Add more intricacies in individual classes *
+
+	- Create Shops
 
 ---------------------------------------------------------------------------------------------------------                                                                                 
 
