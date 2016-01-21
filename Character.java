@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Character {
+public abstract class Character {
     public String name;
 
     public Floor appearance; // Outside of battle
@@ -18,6 +18,8 @@ public class Character {
     public ArrayList<Weapon> sticks = new ArrayList<Weapon>();
     public ArrayList<Adrenaline> adren = new ArrayList<Adrenaline>();
     public ArrayList<HpPotion> healthdrinks = new ArrayList<HpPotion>();
+
+    public String[] attackNames= new String[4];
     
     public Character() {
 	appearance = new Floor( "*" );
@@ -194,7 +196,7 @@ public class Character {
         System.out.print( "Damage : " + damage + "\n" );
         System.out.print( "Luck : " + luck + "\n" );
     }
-
+    /*
     public void attack( Object mon) {
 	Monster monster;
 	if (mon instanceof Object){
@@ -207,6 +209,30 @@ public class Character {
 	    monster.setHp( monster.getHp() - ( damage ) );
 	}
     }
+    */
+    //FLAG - PROBABLY SHOULD BE IN SUBCLASSES
+
+    // Feel free to make first parameter Object and try to catch errors
+    public abstract void attack1( Monster mon, BattleMap map );
+    public abstract void attack2( Monster mon, BattleMap map );
+    public abstract void attack3( Monster mon, BattleMap map );
+    public abstract void attack4( Monster mon, BattleMap map );
     
+
+    protected static String[][] convertString( String[] array ) { // to make image
+	String[][] retStr = new String[array.length][array[0].length()];
+	for (int c = 0; c < retStr.length; c ++) {
+	    for (int i = 0; i < retStr[c].length; i++) {
+		retStr[c][i] = array[c].substring(i,i+1);
+	    }
+	}
+	return retStr;
+    }
+
+    public void printAttacks(){
+	for (int i = 0; i < attackNames.length; i++) {//safer measure is i < 4
+	    System.out.println((i+1) + ":" + attackNames[i] + "\t");
+	}
+    }
     
 }

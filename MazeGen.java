@@ -47,7 +47,7 @@ public class MazeGen{
 
 	    int number = 1; // checks number of times a number appears so that at least one cell is guaranteed to extend
 	    for ( int i = end + 2; i < array.length - 1; i += 2 ) {
-		if ( (array[n][i] instanceof Integer && array[n][i - 2] instanceof Integer) && ((Integer)array[n][i]).compareTo((Integer)array[n][i - 2]) != 0 ) {
+		if (((Comparable)array[n][i]).compareTo((Comparable)array[n][i - 2]) != 0 ) {
 		    end = i;
 		    break; // breaks when first occurence of inequality
 		} 

@@ -13,6 +13,13 @@ v.#.# mm-dd-yy - <First Name> <Last Name> |
 - Stuff Done                              |
 ------------------------------------------+
 
+Testing Versions:
+
+Functional Versions:
+
+v.1.5 01-20-16 - Richard Wang
+- Battle Works
+
 v.1.4 01-19-16 - Richard Wang
 - Created Battle Display (WooHoo!)
 

@@ -67,13 +67,22 @@ public class Monster {
 	return ( hp <= 0 );
     }
 
-    public int attack() {
-	return 0;// placeholder
-    }
+    public void attack( Character chara, BattleMap map )
+    {} // FLAG - IN CASE WE WANT TO MAKE THIS ABSTRACT
 
-    public int lowerhealth( int hit ) {
+    public int lowerHealth( int hit ) {
 	int temp = hp;
 	hp -= hit;
 	return temp;
+    }
+
+    protected static String[][] convertString( String[] array ) { //to make image
+	String[][] retStr = new String[array.length][array[0].length()];
+	for (int c = 0; c < retStr.length; c ++) {
+	    for (int i = 0; i < retStr[c].length; i++) {
+		retStr[c][i] = array[c].substring(i,i+1);
+	    }
+	}
+	return retStr;
     }
 }

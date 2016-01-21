@@ -19,8 +19,10 @@ public class DemoMan extends Character {
 	this.name = name;
     }
 
-    public void attack( Object mon, BattleMap map ) {
-	// graphics here
-	
-    }
+
+    public void attack1( Monster mon, BattleMap map ){}
+    public void attack2( Monster mon, BattleMap map ){}
+    public void attack3( Monster mon, BattleMap map ){}
+    public void attack4( Monster mon, BattleMap map ){}
+
 }

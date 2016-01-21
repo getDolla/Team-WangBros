@@ -7,20 +7,18 @@ public class Snake extends Monster {
 	speed = 20;
 	damage = 15;
 	name = "Snake";
-	image = new String[][]{  
-	    {" ","_","_","_","_","_","_"," "," "," "," " },
-	    { "<"," ","."," "," ","."," ",">"," "," "," " },
-	    { " ","\\"," ",".","."," ","/"," ","|"," "," " },
-	    { " "," ","\\","_","_","/","|"," ","|"," "," "},
-	    { " "," ","_","_","|","/"," ","/"," "," "," " },
-	    { " "," ","\\"," ","^"," ","/","_","_","_","_" },
-	    { " "," "," ","\\","_","_","_","_","_","_","/" }
-	};
+	image = convertString( new String[]{" ______    ",
+				"< .  . >   ",
+				" \\ .. / |  ",
+				"  \\__/| |  ",
+				"  __|/ /   ",
+				"  \\ ^ /____",
+				"   \\______/"} );
 	//stuff to add
 
     }
 
-    public int attack() { //stuff to add
-	return 0;
+    public void attack(Character chara, BattleMap map) { //stuff to add
+        chara.setHp(chara.getHp() - damage);
     }
 }

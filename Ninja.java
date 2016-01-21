@@ -15,16 +15,18 @@ public class Ninja extends Character {
 	normalstats[2] = damage;
 	normalstats[3] = luck;
 
-	image = new String[][] { 
-	    {" ","_","_","_","_","_","_","_"," " },
-	    {" ","|"," ","-"," ","-"," ","|"," " },
-	    {" ","\\","_","_","v","_","_","/"," " },
-	    {" "," "," "," ","|"," "," "," "," " },
-	    {" "," ","/","-","-","-","\\"," "," " },
-	    {" ","+"," "," ","|"," "," "," "," " },
-	    {" ","|"," "," ","|"," "," "," "," " },
-	    {" ","|"," ","/"," ","\\"," "," "," " }
-	};
+	image = convertString(new String[] 
+	    {"_______",
+	     "| - - |",
+	     "\\__v__/",
+	     "   |   ",
+	     " /---\\ ",
+	     "+  |   ",
+	     "|  |   ",
+	     "| / \\  "}
+			      );
+
+	attackNames = new String[] { "Munburedo","Kyuketsuki","Surasshu","Kangaeru" }; // Translation = Moon Blade, Vampire, Slash, Meditate
 
     }
 
@@ -33,9 +35,22 @@ public class Ninja extends Character {
 	this.name = name;
     }
 
-    public void attack( Monster mon, BattleMap map ) {
-	// graphics here
-	
+    public void attack1( Monster mon, BattleMap map ) {
+	mon.lowerHealth(damage + (int)(damage * speed / 100.0));
+    }
+
+    public void attack2( Monster mon, BattleMap map ) {
+	mon.lowerHealth(damage);
+	hp += (int)(damage/2.0);
+    }
+
+    public void attack3( Monster mon, BattleMap map ) {
+	mon.lowerHealth(damage);
+	speed = (int) (speed * 1.05);
+    }
+
+    public void attack4( Monster mon, BattleMap map ) {
+	speed = (int) (speed * 1.1);
     }
 
 }

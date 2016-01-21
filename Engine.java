@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Engine {
     
     public static Object[][] userMap; // One map for all
-    public static Character character = new Character(); // One character for all
+    public static Character character; // One character for all
     public static BattleMap battleMap;
     public static Monster monster = new Snake(); // only one monster to exist at a time FLAG
 
@@ -31,6 +31,15 @@ public class Engine {
 	System.out.flush();  
     }
 
+    private static void updateMazeGraphics(){
+	newLvl();
+	clearConsole();
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
+    }
+
     public static void moveUp(int r, int c) {
 	if (!(userMap[r-1][c]  instanceof Wall)) { //if not blocked by border
 	    autoPickup( r-1, c );
@@ -41,12 +50,7 @@ public class Engine {
 		character.inBattle = true;
 	    }
 	}
-	newLvl();
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
+	updateMazeGraphics();
     }
 
     public static void moveDown(int r, int c) {
@@ -59,12 +63,7 @@ public class Engine {
 		character.inBattle = true;
 	    }
 	}
-	newLvl();
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
+	updateMazeGraphics();
     }
 
     public static void moveLeft(int r, int c) {
@@ -77,12 +76,7 @@ public class Engine {
 		character.inBattle = true;
 	    }
 	}
-	newLvl();
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
+	updateMazeGraphics();
     }
     
     public static void moveRight(int r, int c) {
@@ -95,14 +89,7 @@ public class Engine {
 		character.inBattle = true;
 	    }
 	}
-	newLvl();
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
-
-    
+    	updateMazeGraphics();
     }
 
     public static boolean isEnd() {
@@ -157,67 +144,53 @@ public class Engine {
 	}
     }
 
+    public static void updateBattleGraphics() {
+	clearConsole();
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	Graphics.updateMonStats(monster);
+	printArray(Graphics.displayBattleGraphics( battleMap.map ));
+    }
 
     public static void battle() {
 	while ( monster.hp > 0 && character.hp > 0 ) {
-	    clearConsole();
+ 	    clearConsole();
 	    Graphics.updateInventory(character);
 	    Graphics.updateStats(character);
 	    Graphics.updateGraphics();
 	    Graphics.updateMonStats(monster);
 	    battleMap = new BattleMap(character, new Snake());
 	    printArray(Graphics.displayBattleGraphics( battleMap.map )); 
+	    character.printAttacks();
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
 	    // use CurrentTimeMillis along with BattleMap to animate attack FLAG
-	    if (in.equals("1")){}
-	    else if (in.equals("2")){}
-	    else if (in.equals("3")){}
-	    else if (in.equals("4")){}
-	    // use CurrentTimeMillis along with BattleMap for animal attack FLAG
+	    if (in.equals("1")){
+		character.attack1( monster, battleMap );
+	    }
+	    else if (in.equals("2")){
+		character.attack2( monster, battleMap );
+	    }
+	    else if (in.equals("3")){
+		character.attack3( monster, battleMap );
+	    }
+	    else if (in.equals("4")){
+		character.attack4( monster, battleMap );
+	    }
+	    // use CurrentTimeMillis along with BattleMap for monster attack FLAG
+ 	    clearConsole();
+	    Graphics.updateInventory(character);
+	    Graphics.updateStats(character);
+	    Graphics.updateGraphics();
+	    Graphics.updateMonStats(monster);
+	    battleMap = new BattleMap(character, new Snake());
+	    printArray(Graphics.displayBattleGraphics( battleMap.map )); 
+	    character.printAttacks();
 
 	}
 	character.inBattle = false;
     }
 
     
-    public static void main(String[] args) {
-	/*
-	  Scanner rawName = new Scanner(System.in);
-	  String name = rawName.nextLine();
-
-	*/
-
-	fillMap();
-	Scanner input = new Scanner(System.in);
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
-	while (input.hasNext()) {
-	    
-	    String in = input.nextLine();
-	    if (in.toUpperCase().equals("EXIT")) {
-		break;
-	    }
-	    else {
-		if (in.toUpperCase().equals("W")) { //FPS keys :D
-		    moveUp(character.getRLocation(), (character.getCLocation()));
-		}
-		else if (in.toUpperCase().equals("A")) {
-		    moveLeft(character.getRLocation(), (character.getCLocation()));
-		}
-		else if (in.toUpperCase().equals("S")) {
-		    moveDown(character.getRLocation(), (character.getCLocation()));
-		}
-		else if (in.toUpperCase().equals("D")) {
-		    moveRight(character.getRLocation(), (character.getCLocation()));
-		}
-		
-	    }
-	    
-	    
-	}
-    }
 }

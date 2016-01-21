@@ -11,7 +11,7 @@ public class Boogeyman extends Monster {
 
 	}
 
-	public int attack() { //stuff to add
-	    return 0;
-	}
+    public void attack(Character chara, BattleMap map) { //stuff to add
+        
+    }
 }

@@ -11,4 +11,8 @@ public class Orc extends Monster {
     }
     
 
+    public void attack(Character chara, BattleMap map) { //stuff to add
+        
+    }
+
 }
