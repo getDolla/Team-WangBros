@@ -59,7 +59,7 @@ public class Floor extends Tile {
     }
 
     public boolean hasMon() {
-	return !this.monster.name.equals( "NaBro" );
+	return !this.monster.name.equals( "NaBrO" );
     }
 
     public String toString() {

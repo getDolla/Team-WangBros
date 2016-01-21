@@ -33,7 +33,7 @@ public class MazeGen{
 	    }
 	}
 
-	int groups = 0; // keeps the number of groups for extension
+	int groups = 1; // keeps the number of groups for extension
 	for ( int c = 3; c < array[n].length - 1; c += 2 ) {
 	    if (((Integer) array[n][c]) != ((Integer)array[n][c - 2])) {
 		groups ++;
@@ -46,16 +46,22 @@ public class MazeGen{
 	    
 
 	    int number = 1; // checks number of times a number appears so that at least one cell is guaranteed to extend
-	    for ( int i = end + 2; i < array.length - 1; i += 2 ) {
-		if (((Comparable)array[n][i]).compareTo((Comparable)array[n][i - 2]) != 0 ) {
-		    end = i;
+	    int q; // for later use (right cells)
+	    for ( q = end + 2; q < array[0].length - 1; q += 2 ) {
+		if (((Comparable)array[n][q]).compareTo((Comparable)array[n][q - 2]) != 0 ) {
+		    end = q;
 		    break; // breaks when first occurence of inequality
 		} 
 		else {
-		    end++;
+		    end += 2;
 		    number++;
 		}
 	    }
+
+	    if ( q > array[0].length - 1 ){
+		end = q; // for the right most cells
+	    }
+
 	    // now the number of cells in the same group is calculated and the end is saved
 	    
 	    for ( int i = end - (number * 2); i < end; i += 2 ) { // this iteration will guarantee that at least one will extend)
@@ -66,8 +72,12 @@ public class MazeGen{
 		else {
 		    number --;
 		}
-	    }  
+	    } 
+	    
 	} 
+
+
+
 	return high + 1; // this will be used in mergeRow to number the next few rows
     }
 
