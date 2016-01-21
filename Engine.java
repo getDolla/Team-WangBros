@@ -4,7 +4,7 @@ public class Engine {
     public static Object[][] userMap; // One map for all
     public static Character character; // One character for all
     public static BattleMap battleMap;
-    public static Monster monster = new Snake(); // only one monster to exist at a time FLAG
+    public static Monster monster; // only one monster to exist at a time FLAG
 
 
     public static void printArray(Object[][] array) {
@@ -48,6 +48,7 @@ public class Engine {
 	    character.setRLocation(r - 1);
 	    if ( ((Floor) userMap[r-1][c]).hasMon() ) {
 		character.inBattle = true;
+		monster = ((Floor) userMap[r-1][c]).monster;
 	    }
 	}
 	updateMazeGraphics();
@@ -61,6 +62,7 @@ public class Engine {
 	    character.setRLocation(r + 1);
 	    if ( ((Floor) userMap[r+1][c]).hasMon() ) {
 		character.inBattle = true;
+		monster = ((Floor) userMap[r+1][c]).monster;
 	    }
 	}
 	updateMazeGraphics();
@@ -74,6 +76,7 @@ public class Engine {
 	    character.setCLocation(c - 1);
 	    if ( ((Floor) userMap[r][c - 1]).hasMon() ) {
 		character.inBattle = true;
+		monster = ((Floor) userMap[r][c - 1]).monster;
 	    }
 	}
 	updateMazeGraphics();
@@ -87,6 +90,7 @@ public class Engine {
 	    character.setCLocation(c + 1);
 	    if ( ((Floor) userMap[r][c + 1]).hasMon() ) {
 		character.inBattle = true;
+		monster = ((Floor) userMap[r][c + 1]).monster;
 	    }
 	}
     	updateMazeGraphics();
