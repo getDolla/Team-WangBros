@@ -1,6 +1,12 @@
 Obstacles Overcome:
-Making Various Classes to connect everything together
+The first major obstacle was to create the maze. Online sources for Eller's algorithm did not give a specific number for randomly merging cells of the maze.
+Another problem was making various classes to connect everything together. But discussing and testing parts of the game solved that issue. Overtime, we modified the files such that each relates to each other.
+
 Unresolved Issues:
-Battling Monsters
+We still need to create shops and modify Battle.java for all Monsters.
+
 Cool Stuff:
-Eller's Algorithm
+Eller's algorithm seemed to be the best maze generator but also the most puzzling one. We had to learn by ourselves how to implement it in Java. Debugging is also difficult because of its complexity.
+
+Mid-development Design Changes:
+
