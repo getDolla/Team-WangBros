@@ -1,0 +1,6 @@
+Obstacles Overcome:
+Making Various Classes to connect everything together
+Unresolved Issues:
+Battling Monsters
+Cool Stuff:
+Eller's Algorithm
