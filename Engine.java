@@ -29,7 +29,7 @@ public class Engine {
     public final static void clearConsole(){
 	System.out.print("\033[H\033[2J");  
 	System.out.flush();  
-    }
+     }
 
     private static void updateMazeGraphics(){
 	newLvl();
@@ -49,6 +49,7 @@ public class Engine {
 	    if ( ((Floor) userMap[r-1][c]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r-1][c]).monster;
+		System.out.println(monster.hp);
 	    }
 	}
 	updateMazeGraphics();
@@ -63,9 +64,10 @@ public class Engine {
 	    if ( ((Floor) userMap[r+1][c]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r+1][c]).monster;
+		System.out.println(monster.hp);
 	    }
 	}
-	updateMazeGraphics();
+
     }
 
     public static void moveLeft(int r, int c) {
@@ -77,6 +79,7 @@ public class Engine {
 	    if ( ((Floor) userMap[r][c - 1]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r][c - 1]).monster;
+		System.out.println(monster.hp);
 	    }
 	}
 	updateMazeGraphics();
@@ -91,6 +94,7 @@ public class Engine {
 	    if ( ((Floor) userMap[r][c + 1]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r][c + 1]).monster;
+		System.out.println(monster.hp);
 	    }
 	}
     	updateMazeGraphics();
@@ -116,39 +120,34 @@ public class Engine {
     }
 
     public static void move() {
-	fillMap();
-	Scanner input = new Scanner(System.in);
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
-	while (input.hasNext() && character.inBattle == false) {
-	    
+
+	    Scanner input = new Scanner(System.in);
+	    clearConsole();
+	    Graphics.updateInventory(character);
+	    Graphics.updateStats(character);
+	    Graphics.updateGraphics();
+	    printArray(Graphics.displayMazeGraphics(userMap));
+	if (! character.inBattle) {	
 	    String in = input.nextLine();
-	    if (in.toUpperCase().equals("EXIT")) { // SHOULD MODIFY FLAG
-		break;
+	    if (in.toUpperCase().equals("W")) { //FPS keys :D
+		moveUp(character.getRLocation(), (character.getCLocation()));
 	    }
-	    else {
-		if (in.toUpperCase().equals("W")) { //FPS keys :D
-		    moveUp(character.getRLocation(), (character.getCLocation()));
-		}
-		else if (in.toUpperCase().equals("A")) {
-		    moveLeft(character.getRLocation(), (character.getCLocation()));
-		}
-		else if (in.toUpperCase().equals("S")) {
-		    moveDown(character.getRLocation(), (character.getCLocation()));
-		}
-		else if (in.toUpperCase().equals("D")) {
-		    moveRight(character.getRLocation(), (character.getCLocation()));
-		}
-		
+	    else if (in.toUpperCase().equals("A")) {
+		moveLeft(character.getRLocation(), (character.getCLocation()));
 	    }
-   
+	    else if (in.toUpperCase().equals("S")) {
+		moveDown(character.getRLocation(), (character.getCLocation()));
+	    }
+	    else if (in.toUpperCase().equals("D")) {
+		moveRight(character.getRLocation(), (character.getCLocation()));
+	    }
+	
+	
 	}
     }
 
     public static void updateBattleGraphics() {
+	battleMap = new BattleMap(character,monster);
 	clearConsole();
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
@@ -159,13 +158,7 @@ public class Engine {
 
     public static void battle() {
 	while ( monster.hp > 0 && character.hp > 0 ) {
- 	    clearConsole();
-	    Graphics.updateInventory(character);
-	    Graphics.updateStats(character);
-	    Graphics.updateGraphics();
-	    Graphics.updateMonStats(monster);
-	    battleMap = new BattleMap(character, new Snake());
-	    printArray(Graphics.displayBattleGraphics( battleMap.map )); 
+	    updateBattleGraphics();
 	    character.printAttacks();
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
@@ -183,16 +176,15 @@ public class Engine {
 		character.attack4( monster, battleMap );
 	    }
 	    // use CurrentTimeMillis along with BattleMap for monster attack FLAG
- 	    clearConsole();
-	    Graphics.updateInventory(character);
-	    Graphics.updateStats(character);
-	    Graphics.updateGraphics();
-	    Graphics.updateMonStats(monster);
-	    battleMap = new BattleMap(character, new Snake());
-	    printArray(Graphics.displayBattleGraphics( battleMap.map )); 
-	    character.printAttacks();
+	    updateBattleGraphics();
+	    
+	    if (monster.hp > 0) {
+		monster.attack(character, battleMap);
+		updateBattleGraphics();
+	    }
 
 	}
+	
 	character.inBattle = false;
     }
 

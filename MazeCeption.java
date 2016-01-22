@@ -60,7 +60,7 @@ public class MazeCeption {
 		Engine.move();
 	    }
 	    while (Engine.character.inBattle) {
-		    Engine.battle();
+		Engine.battle();
 	    }
 	}
     }

@@ -34,7 +34,7 @@ public class Floor extends Tile {
 	appearance = item.toString();
     }
 
-    private static Monster genMonster() {
+    private Monster genMonster() {
 	if ( Math.random() < 1.0/2 ) {
 	    return (new Snake());
 	}
@@ -59,7 +59,7 @@ public class Floor extends Tile {
     }
 
     public boolean hasMon() {
-	return (monster != null);
+	return (!monster.name.equals("NaBrO"));
     }
 
     public String toString() {
