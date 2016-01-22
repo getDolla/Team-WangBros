@@ -79,7 +79,7 @@ public class Monster {
     protected static String[][] convertString( String[] array ) { //to make image
 	String[][] retStr = new String[array.length][array[0].length()];
 	for (int c = 0; c < retStr.length; c ++) {
-	    for (int i = 0; i < retStr[c].length; i++) {
+	    for (int i = 0; i < array[c].length(); i++) {
 		retStr[c][i] = array[c].substring(i,i+1);
 	    }
 	}

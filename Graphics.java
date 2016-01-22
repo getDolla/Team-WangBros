@@ -1,14 +1,39 @@
 public class Graphics {
     // 
-    public static Object[][] inventory = new Object[4][2];
-    public static String[] stats = new String[5]; 
-    public static String[] monStats = new String[4];
-    public static Object[][] graphics = new Object[10][2]; // Should not include monStats
-    public static Object[][] Display = new Object[21][51]; // 25*2+1 length and 10*2+1 width(vertical) for maze, 10 for inventory 
+    public static Object[][] inventory = new Object[10][20];
+    public static String[][] stats = new String[5][20]; 
+    public static String[][] monStats = new String[6][20];
+    public static Object[][] graphics = new Object[20][20]; // Should not include monStats
+    public static Object[][] Display;
+
+    private static String[] convertString( String str ) { //to make array rows
+	String[] retStr = new String[str.length()];
+	for (int c = 0; c < str.length(); c ++) {
+	    retStr[c] = str.substring(c,c+1);
+	}
+	    
+	return retStr;
+    }
+
+    private static Object[][] eraseArray( Object[][] array ){
+	return (new Object[array.length][array[0].length]);
+    }
+
+    private static String[][] eraseArray( String[][] array ){
+	return (new String[array.length][array[0].length]);
+    }
+       
+
+    private static void addTo(Object[][] loc, String[] array, int pos ) {
+	for (int i = 0; i < array.length; i++) {
+	    loc[pos][i] = array[i];
+	}
+    }
 
     public static void updateInventory ( Character character) {
-	inventory[0][0] = "Armors: ";
-
+	inventory = eraseArray(inventory);
+	String[] armorT = convertString("Armors: ");
+	addTo(inventory,armorT,0);
 	int l = 0;
 	int m = 0;
 	int h = 0;
@@ -23,48 +48,82 @@ public class Graphics {
 			++h;
 		}
 	}
+	String[] armorL = convertString("Light- " + l + "x");
+        String[] armorM = convertString("Medium- " + m + "x");
+	String[] armorH = convertString("Heavy- " + h + "x");
+	addTo(inventory,armorL,1);
+	addTo(inventory,armorM,2);
+	addTo(inventory,armorH,3);
 
-	inventory[0][1] = "Light- " + l + "x    " + "Medium- " + m + "x    " + "Heavy- " + h + "x";
 
-	inventory[1][0] = "Weapons: ";
-	inventory[1][1] = character.sticks.size() + "x";
+	addTo(inventory,convertString("Weapons: "),4);
+	addTo(inventory,convertString(character.sticks.size() + "x"),5);
 
-	inventory[2][0] = "Adrenaline: ";
-	inventory[2][1] = character.adren.size() + "x";
+	addTo(inventory,convertString("Adrenaline: "),6);
+	addTo(inventory,convertString(character.adren.size() + "x"),7);
+	addTo(inventory,convertString( "Health Potions: "),8);
+	addTo(inventory,convertString(character.healthdrinks.size() + "x"),9);
 
-	inventory[3][0] = "Health Potions: ";
-	inventory[3][1] = character.healthdrinks.size() + "x";
 	}
 
     public static void updateStats ( Character character ) {
-	stats[0] = "Hp = " + character.getHp();
-	stats[1] = "Speed = "  + character.getSpeed();
-	stats[2] = "Damage = " + character.getDamage();
-	stats[3] = "Luck = " + character.getLuck();
-	stats[4] = "Money = " + character.getMoney();
+	stats = eraseArray(stats);
+	String hp = "Hp = " + character.getHp();
+	String speed = "Speed = "  + character.getSpeed();
+	String damage = "Damage = " + character.getDamage();
+	String luck = "Luck = " + character.getLuck();
+	String money = "Money = " + character.getMoney();
+	addTo(stats,convertString(hp),0);
+	addTo(stats,convertString(speed),1);
+	addTo(stats,convertString(damage),2);
+	addTo(stats,convertString(luck),3);
+	addTo(stats,convertString(money),4);
     }
 
     public static void updateMonStats ( Monster monster ) {
-	monStats[0] = "Name = " + monster.getName();
-	monStats[1] = "Hp = " + monster.getHp();
-	monStats[2] = "Speed = " + monster.getSpeed();
-	monStats[3] = "Damage = " + monster.getDamage();
+	monStats = eraseArray(monStats);
+	String border = "";
+	for (int i = 0; i < monStats[0].length; i++) {
+	    border+="-";
+	}
+	String mon = "Monster: ";
+	String name = "Name = " + monster.getName();
+	String hp = "Hp = " + monster.getHp();
+	String speed = "Speed = " + monster.getSpeed();
+	String damage = "Damage = " + monster.getDamage();
+	addTo(monStats,convertString(border),0);
+	addTo(monStats,convertString(mon),1);
+	addTo(monStats,convertString(name),2);
+	addTo(monStats,convertString(hp),3);
+	addTo(monStats,convertString(speed),4);
+	addTo(monStats,convertString(damage),5);
     }
 
     public static void updateGraphics () {
+	graphics = eraseArray(graphics);
 	for( int i = 0; i < inventory.length; i++ ) {
 	    for (int c = 0; c <inventory[i].length; c++) {
 		graphics[i][c] = inventory[i][c];
 	    }
 	}
 	int ctr = -1;
-	for( int i = inventory.length + 1; i < graphics.length; i++ ) {
-	    graphics[i][0] = stats[++ctr];
+	for( int i = 0; i < stats.length; i++ ) {
+	    for (int c = 0; c < stats[i].length; c++) {
+		graphics[i + inventory.length][c] = stats[i][c];
+	    }
 	}
+
     }
 
     public static Object[][] displayMazeGraphics(Object[][] maze) {
-	Display = new Object[21][51];
+	int size = 21;
+	if (graphics.length > maze.length) {
+	    size = graphics.length;
+	}
+	else {
+	    size = maze.length;
+	}
+	Display = new Object[size][maze[0].length+graphics.length];
 
 	for (int c = 0; c < maze.length; c ++) {
 	    for (int i = 0; i < maze[c].length; i++) {
@@ -75,7 +134,7 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		Display[c][25 + i] = graphics[c][i];
+		Display[c][maze[0].length + i] = graphics[c][i];
 	    }
 	}
 	//remove nulls
@@ -91,7 +150,14 @@ public class Graphics {
     }
 
     public static Object[][] displayBattleGraphics( String[][] battleMap ){
-	Display = new Object[21][51];
+	int size = 21;
+	if ((graphics.length + monStats.length) > battleMap.length) {
+	    size = (graphics.length + monStats.length);
+	}
+	else {
+	    size = battleMap.length;
+	}
+	Display = new Object[size][battleMap[0].length + graphics.length];
 
 	for (int c = 0; c < battleMap.length; c ++) {
 	    for (int i = 0; i < battleMap[c].length; i++) {
@@ -102,16 +168,15 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		Display[c][25 + i] = graphics[c][i];
+		Display[c][battleMap[0].length + i] = graphics[c][i];
 	    }
 	}
 
-	// Separation between Character and Monster
-	Display[graphics.length][25] = "-----------------------------------------------";
-	Display[graphics.length + 1][25] = "Monster:";
 
 	for (int c = 0; c < monStats.length; c++ ) {
-	    Display[1 + c + graphics.length ][25] = monStats[c]; // 
+	    for (int i = 0; i < monStats[c].length; i++) {
+		Display[c + graphics.length ][battleMap[0].length + i] = monStats[c][i]; 
+	    }
 	}
 
 	//remove nulls
@@ -127,5 +192,6 @@ public class Graphics {
 
 
     }
+
 
 }

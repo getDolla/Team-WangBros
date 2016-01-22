@@ -49,7 +49,6 @@ public class Engine {
 	    if ( ((Floor) userMap[r-1][c]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r-1][c]).monster;
-		System.out.println(monster.hp);
 	    }
 	}
 	updateMazeGraphics();
@@ -64,7 +63,6 @@ public class Engine {
 	    if ( ((Floor) userMap[r+1][c]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r+1][c]).monster;
-		System.out.println(monster.hp);
 	    }
 	}
 
@@ -79,7 +77,6 @@ public class Engine {
 	    if ( ((Floor) userMap[r][c - 1]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r][c - 1]).monster;
-		System.out.println(monster.hp);
 	    }
 	}
 	updateMazeGraphics();
@@ -94,7 +91,6 @@ public class Engine {
 	    if ( ((Floor) userMap[r][c + 1]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r][c + 1]).monster;
-		System.out.println(monster.hp);
 	    }
 	}
     	updateMazeGraphics();
@@ -151,8 +147,8 @@ public class Engine {
 	clearConsole();
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
-	Graphics.updateGraphics();
 	Graphics.updateMonStats(monster);
+	Graphics.updateGraphics();
 	printArray(Graphics.displayBattleGraphics( battleMap.map ));
     }
 
@@ -177,9 +173,8 @@ public class Engine {
 		attack = "used " + character.attack4( monster, battleMap );
 	    }
 	    else if (in.equals("5")) { // Run Away
-		if (Math.random() * character.luck < 1) {
+		if (Math.random() * character.luck < 30) {
 		    character.inBattle = false;
-		    monster.hp = 0;
 		    attack = "ran away sucessfully";
 		}
 		else {
@@ -196,6 +191,9 @@ public class Engine {
 	    System.out.println("Press any key to continue");
 	    Scanner con1 = new Scanner(System.in);
 	    String contin1 = con1.nextLine();
+	    if (!character.inBattle){ //ran away
+		break;
+	    }
 	    
 	    if (monster.hp > 0) {
 		monster.attack(character, battleMap);
