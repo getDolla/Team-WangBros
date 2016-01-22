@@ -41,19 +41,34 @@ public class Ninja extends Character {
     }
 
     public String attack2( Monster mon, BattleMap map ) {
-	mon.lowerHealth(damage);
-	hp += (int)(damage/2.0);
+	mon.lowerHealth(damage); 
+	int newHp = hp + (int)(damage/2.0);
+	if (newHp <= hp) {
+	    hp = newHp;
+	}
 	return attackNames[1];
     }
 
     public String attack3( Monster mon, BattleMap map ) {
 	mon.lowerHealth(damage);
-	speed = (int) (speed * 1.05);
+	int newSpeed = (int) (speed * 1.05);
+	if (newSpeed <= 60) {
+	    speed = newSpeed;
+	}
+	else {
+	    speed = 60;
+	}
 	return attackNames[2];
     }
 
     public String attack4( Monster mon, BattleMap map ) {
-	speed = (int) (speed * 1.1);
+	int newSpeed = (int) (speed * 1.1);
+	if (newSpeed <= 60) {
+	    speed = newSpeed;
+	}
+	else {
+	    speed = 60;
+	}
 	return attackNames[3];
     }
 
