@@ -21,9 +21,9 @@ public class DankMeme extends Character {
     }
 
 
-    public void attack1( Monster mon, BattleMap map ){}
-    public void attack2( Monster mon, BattleMap map ){}
-    public void attack3( Monster mon, BattleMap map ){}
-    public void attack4( Monster mon, BattleMap map ){}
+    public String attack1( Monster mon, BattleMap map ){ return "nothing"; }
+    public String attack2( Monster mon, BattleMap map ){ return "nothing"; }
+    public String attack3( Monster mon, BattleMap map ){ return "nothing"; }
+    public String attack4( Monster mon, BattleMap map ){ return "nothing"; }
 
 }

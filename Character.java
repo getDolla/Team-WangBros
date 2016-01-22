@@ -213,10 +213,10 @@ public abstract class Character {
     //FLAG - PROBABLY SHOULD BE IN SUBCLASSES
 
     // Feel free to make first parameter Object and try to catch errors
-    public abstract void attack1( Monster mon, BattleMap map );
-    public abstract void attack2( Monster mon, BattleMap map );
-    public abstract void attack3( Monster mon, BattleMap map );
-    public abstract void attack4( Monster mon, BattleMap map );
+    public abstract String attack1( Monster mon, BattleMap map );
+    public abstract String attack2( Monster mon, BattleMap map );
+    public abstract String attack3( Monster mon, BattleMap map );
+    public abstract String attack4( Monster mon, BattleMap map );
     
 
     protected static String[][] convertString( String[] array ) { // to make image

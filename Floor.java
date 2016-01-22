@@ -59,6 +59,7 @@ public class Floor extends Tile {
     }
 
     public boolean hasMon() {
+	monster = genMonster();
 	return (!monster.name.equals("NaBrO"));
     }
 

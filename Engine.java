@@ -163,20 +163,26 @@ public class Engine {
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
 	    // use CurrentTimeMillis along with BattleMap to animate attack FLAG
+	    String attack = "nothing";
 	    if (in.equals("1")){
-		character.attack1( monster, battleMap );
+		attack = character.attack1( monster, battleMap );
 	    }
 	    else if (in.equals("2")){
-		character.attack2( monster, battleMap );
+		attack = character.attack2( monster, battleMap );
 	    }
 	    else if (in.equals("3")){
-		character.attack3( monster, battleMap );
+		attack = character.attack3( monster, battleMap );
 	    }
 	    else if (in.equals("4")){
-		character.attack4( monster, battleMap );
+		attack = character.attack4( monster, battleMap );
 	    }
 	    // use CurrentTimeMillis along with BattleMap for monster attack FLAG
 	    updateBattleGraphics();
+	    System.out.println("You used " + " " + attack);
+
+	    System.out.println("Press any key to coninute");
+	    Scanner con = new Scanner(System.in);
+	    String contin = con.nextLine();
 	    
 	    if (monster.hp > 0) {
 		monster.attack(character, battleMap);
