@@ -163,22 +163,35 @@ public class Engine {
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
 	    // use CurrentTimeMillis along with BattleMap to animate attack FLAG
-	    String attack = "nothing";
+	    String attack = "did nothing";
 	    if (in.equals("1")){
-		attack = character.attack1( monster, battleMap );
+		attack = "used " + character.attack1( monster, battleMap );
 	    }
 	    else if (in.equals("2")){
-		attack = character.attack2( monster, battleMap );
+		attack = "used " + character.attack2( monster, battleMap );
 	    }
 	    else if (in.equals("3")){
-		attack = character.attack3( monster, battleMap );
+		attack = "used " + character.attack3( monster, battleMap );
 	    }
 	    else if (in.equals("4")){
-		attack = character.attack4( monster, battleMap );
+		attack = "used " + character.attack4( monster, battleMap );
+	    }
+	    else if (in.equals("5")) { // Run Away
+		if (Math.random() * character.luck < 1) {
+		    character.inBattle = false;
+		    monster.hp = 0;
+		    attack = "ran away sucessfully";
+		}
+		else {
+		    attack = "failed to run away";
+		}
+	    }
+	    else if (in.equals("6")) { // Use Items
+		
 	    }
 	    // use CurrentTimeMillis along with BattleMap for monster attack FLAG
 	    updateBattleGraphics();
-	    System.out.println("You used " + " " + attack);
+	    System.out.println("You " + attack);
 
 	    System.out.println("Press any key to coninute");
 	    Scanner con = new Scanner(System.in);

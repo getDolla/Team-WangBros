@@ -21,6 +21,9 @@ Testing Versions: (Currently only Ninja can be chosen and Snakes fought)
 
 Functional Versions:
 
+v.1.8 01-21-16 Richard Wang
+- Run is now being implemented ( No set percentage yet )
+
 v.1.7 01-21-16 Richard Wang
 - Battle now runs more smoothly
 
