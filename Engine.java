@@ -193,15 +193,19 @@ public class Engine {
 	    updateBattleGraphics();
 	    System.out.println("You " + attack);
 
-	    System.out.println("Press any key to coninute");
-	    Scanner con = new Scanner(System.in);
-	    String contin = con.nextLine();
+	    System.out.println("Press any key to continue");
+	    Scanner con1 = new Scanner(System.in);
+	    String contin1 = con1.nextLine();
 	    
 	    if (monster.hp > 0) {
 		monster.attack(character, battleMap);
 		updateBattleGraphics();
+		System.out.println(monster.name + " attacked");
+		System.out.println("Press any key to continue");
+		Scanner con2 = new Scanner(System.in);
+		String contin2 = con2.nextLine();
 	    }
-
+	    
 	}
 	
 	character.inBattle = false;
