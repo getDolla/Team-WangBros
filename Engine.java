@@ -207,9 +207,9 @@ public class Engine {
 	    }
 	    
 	    if (monster.hp > 0) {
-		monster.attack(character, battleMap);
+		int h = monster.attack(character, battleMap);
 		updateBattleGraphics();
-		System.out.println(monster.name + " attacked");
+		System.out.println(monster.name + " attacked " + h + " hit points.");
 		System.out.println("Press any key to continue");
 		Scanner con2 = new Scanner(System.in);
 		String contin2 = con2.nextLine();

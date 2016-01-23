@@ -18,7 +18,12 @@ public class Snake extends Monster {
 
     }
 
-    public void attack(Character chara, BattleMap map) { //stuff to add
-        chara.setHp(chara.getHp() - damage);
+    public int attack(Character chara, BattleMap map) { //stuff to add
+    	if( !chara.isMiss() ) {
+        	chara.setHp(chara.getHp() - damage);
+        	return damage;
+        }
+
+        return 0;
     }
 }

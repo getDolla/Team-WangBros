@@ -67,13 +67,30 @@ public class Monster {
 	return ( hp <= 0 );
     }
 
-    public void attack( Character chara, BattleMap map )
-    {} // FLAG - IN CASE WE WANT TO MAKE THIS ABSTRACT
+    public int attack( Character chara, BattleMap map )
+    {     	
+    	if( !chara.isMiss() ) {
+        	chara.setHp(chara.getHp() - damage);
+        	return damage;
+        }
+
+        return 0; 
+
+    } // FLAG - IN CASE WE WANT TO MAKE THIS ABSTRACT
 
     public int lowerHealth( int hit ) {
 	int temp = hp;
+
+	if( isMiss() ) {
+		return 0;
+	}
+
 	hp -= hit;
 	return temp;
+    }
+
+    public boolean isMiss() {
+    	return (Math.random() < speed/50.0 );
     }
 
     protected static String[][] convertString( String[] array ) { //to make image

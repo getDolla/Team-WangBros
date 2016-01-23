@@ -198,6 +198,11 @@ public abstract class Character {
         System.out.print( "Damage : " + damage + "\n" );
         System.out.print( "Luck : " + luck + "\n" );
     }
+
+    public boolean isMiss() {
+        return (Math.random() < speed/50.0 );
+    }
+
     /*
     public void attack( Object mon) {
 	Monster monster;
