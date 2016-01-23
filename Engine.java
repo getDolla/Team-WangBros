@@ -226,7 +226,7 @@ public class Engine {
 	    if (monster.hp > 0) {
 		int h = monster.attack(character, battleMap);
 		updateBattleGraphics();
-		System.out.println(monster.name + " attacked " + h + " hit points.");
+		System.out.println(monster.name + " did " + h + " hit points.");
 		pressEnter();
 	    }
 	    
