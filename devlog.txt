@@ -20,6 +20,9 @@ Testing Versions: (Currently only Ninja can be chosen and Snakes fought)
 
 
 Functional Versions:
+v.2.5 01-23-16 Richard Wang
+- Equipping Works!
+- Settings Screen has been created
 
 v.2.2 01-23-16 Richard Wang
 - Equip Screen Created

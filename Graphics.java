@@ -1,9 +1,9 @@
 public class Graphics {
    
-    public static Object[][] inventory = new Object[9][35];
-    public static String[][] stats = new String[5][35]; 
-    public static String[][] monStats = new String[6][35];
-    public static Object[][] graphics = new Object[15][35]; // Should not include monStats
+    public static Object[][] inventory = new Object[9][31];
+    public static String[][] stats = new String[5][31]; 
+    public static String[][] monStats = new String[6][31];
+    public static Object[][] graphics = new Object[15][31]; // Should not include monStats
     public static Object[][] equipped = new String[17][25];
     public static String[][] equipping = new String[17][25];
     public static Equipment[] avalEquips = new Equipment[5];
@@ -69,17 +69,17 @@ public class Graphics {
 	addTo(equipping, convertString("Weapons: "),7);
 	for (int i = 0; i < character.armors.size(); i++) {
 	    Armor a = character.armors.get(i);
-	    if (a instanceof Light && avalEquips[0] != null ) {
+	    if (a instanceof Light) {
 		avalEquips[0] = a;
 		addTo(equipping, convertString(a.name), 3);
 	    }
 
-	    if (a instanceof Medium && avalEquips[1] != null ) {
+	    if (a instanceof Medium) {
 		avalEquips[1] = a;
 		addTo(equipping, convertString(a.name), 4);
 	    }
 
-	    if (a instanceof Heavy && avalEquips[2] != null ) {
+	    if (a instanceof Heavy) {
 		avalEquips[2] = a;
 		addTo(equipping, convertString(a.name), 5);
 	    }
@@ -87,12 +87,12 @@ public class Graphics {
 
 	for (int i = 0; i < character.sticks.size(); i++) {
 	    Weapon a = character.sticks.get(i);
-	    if (a instanceof Twig && avalEquips[3] != null ) {
+	    if (a instanceof Twig) {
 		avalEquips[3] = a;
 		addTo(equipping, convertString(a.name), 8);
 	    }
 
-	    if (a instanceof Sword && avalEquips[4] != null ) {
+	    if (a instanceof Sword) {
 		avalEquips[4] = a;
 		addTo(equipping, convertString(a.name), 9);
 	    }
@@ -178,18 +178,19 @@ public class Graphics {
 	else {
 	    size = maze.length;
 	}
-	display = new Object[size][maze[0].length+graphics[0].length+1];
+	display = new Object[size][maze[0].length+graphics[0].length+2];
 
 	for (int c = 0; c < maze.length; c ++) {
 	    for (int i = 0; i < maze[c].length; i++) {
 		display[c][i] = maze[c][i];
 	    }
+	    display[c][maze[0].length+1] = "|";
 	}
 	
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		display[c][maze[0].length + i + 1] = graphics[c][i];
+		display[c][maze[0].length + i + 2] = graphics[c][i];
 	    }
 	}
 	//remove nulls
@@ -212,7 +213,7 @@ public class Graphics {
 	else {
 	    size = battleMap.length;
 	}
-	display = new Object[size][battleMap[0].length + graphics[0].length];
+	display = new Object[size][battleMap[0].length + graphics[0].length + 2];
 
 	for (int c = 0; c < battleMap.length; c ++) {
 	    for (int i = 0; i < battleMap[c].length; i++) {
@@ -223,15 +224,17 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		display[c][battleMap[0].length + i] = graphics[c][i];
+		display[c][battleMap[0].length + i + 2] = graphics[c][i];
 	    }
+	    display[c][battleMap[0].length+1] = "|";
 	}
 
 
 	for (int c = 0; c < monStats.length; c++ ) {
 	    for (int i = 0; i < monStats[c].length; i++) {
-		display[c + graphics.length ][battleMap[0].length + i] = monStats[c][i]; 
+		display[c + graphics.length ][battleMap[0].length + i + 2] = monStats[c][i]; 
 	    }
+	    display[c][battleMap[0].length+1] = "|";
 	}
 
 	//remove nulls
@@ -256,7 +259,7 @@ public class Graphics {
 	else {
 	    size = shop.length;
 	}
-	display = new Object[size][shop[0].length+shop[0].length];
+	display = new Object[size][shop[0].length+graphics[0].length + 2];
 	
 
 	for (int c = 0; c < shop.length; c ++) {
@@ -268,8 +271,9 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		display[c][shop[0].length + i] = graphics[c][i];
+		display[c][shop[0].length + i + 2] = graphics[c][i];
 	    }
+	    display[c][shop[0].length+1] = "|";
 	}
 	
 	for (int c = 0; c < display.length; c++) {
@@ -291,7 +295,7 @@ public class Graphics {
 	else {
 	    size = equipped.length;
 	}
-	display = new Object[size][equipped[0].length+graphics[0].length+1];
+	display = new Object[size][equipped[0].length+graphics[0].length+2];
 
 	for (int c = 0; c < equipped.length; c ++) {
 	    for (int i = 0; i < equipped[c].length; i++) {
@@ -302,8 +306,9 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		display[c][equipped[0].length + i + 1] = graphics[c][i];
+		display[c][equipped[0].length + i + 2] = graphics[c][i];
 	    }
+	    display[c][equipped[0].length+1] = "|";
 	}
 	//remove nulls
 	
@@ -326,7 +331,7 @@ public class Graphics {
 	else {
 	    size = settings.length;
 	}
-	display = new Object[size][settings[0].length+graphics[0].length+1];
+	display = new Object[size][settings[0].length+graphics[0].length+2];
 
 	addTo(settings,convertString("Settings:"),0);
 	addTo(settings,convertString("1: Equip Items"),2);
@@ -342,8 +347,9 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		display[c][settings[0].length + i + 1] = graphics[c][i];
+		display[c][settings[0].length + i + 2] = graphics[c][i];
 	    }
+	    display[c][settings[0].length+1] = "|";
 	}
 	//remove nulls
 	
@@ -365,7 +371,7 @@ public class Graphics {
 	else {
 	    size = equipping.length;
 	}
-	display = new Object[size][equipping[0].length+graphics[0].length+1];
+	display = new Object[size][equipping[0].length+graphics[0].length+2];
 
 	for (int c = 0; c < equipping.length; c ++) {
 	    for (int i = 0; i < equipping[c].length; i++) {
@@ -375,10 +381,12 @@ public class Graphics {
 	
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
-
-		display[c][equipping[0].length + i + 1] = graphics[c][i];
+		display[c][equipping[0].length + i + 2] = graphics[c][i];
 	    }
+	    display[c][equipping[0].length+1] = "|";
 	}
+
+
 	//remove nulls
 	
 	for (int c = 0; c < display.length; c++) {

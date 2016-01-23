@@ -206,8 +206,7 @@ public abstract class Character {
     }
 
     public int getBuff( Weapon i ) {
-	setDamage( (int) (damage + i.equip()) );
-	return damage;
+	return setDamage( (int) (damage + i.equip()) );
     }
 
     public void displaystats() {

@@ -339,6 +339,8 @@ public class Engine {
 	boolean exitMode = false;
 	while(!exitMode) {
 	    clearConsole();
+	    Graphics.updateStats(character);
+	    Graphics.updateGraphics();
 	    Graphics.updateEquipping(character);
 	    printArray(Graphics.displayEquippingGraphics());
 	    Scanner input = new Scanner(System.in);
@@ -346,19 +348,19 @@ public class Engine {
 	    if (in.toUpperCase().equals("BACK") || in.toUpperCase().equals("EXIT")) {
 		exitMode = true;
 	    }
-	    if (Graphics.avalEquips[0] != null && in.toUpperCase().equals(Graphics.avalEquips[0])) {
+	    if (Graphics.avalEquips[0] != null && in.toUpperCase().equals(Graphics.avalEquips[0].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[0]);
 	    }
-	    if (Graphics.avalEquips[1] != null && in.toUpperCase().equals(Graphics.avalEquips[1])) {
+	    if (Graphics.avalEquips[1] != null && in.toUpperCase().equals(Graphics.avalEquips[1].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[1]);
 	    }
-	    if (Graphics.avalEquips[2] != null && in.toUpperCase().equals(Graphics.avalEquips[2])) {
+	    if (Graphics.avalEquips[2] != null && in.toUpperCase().equals(Graphics.avalEquips[2].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[2]);
 	    }
-	    if (Graphics.avalEquips[3] != null && in.toUpperCase().equals(Graphics.avalEquips[3])) {
+	    if (Graphics.avalEquips[3] != null && in.toUpperCase().equals(Graphics.avalEquips[3].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[3]);
 	    }
-	    if (Graphics.avalEquips[4] != null && in.toUpperCase().equals(Graphics.avalEquips[4])) {
+	    if (Graphics.avalEquips[4] != null && in.toUpperCase().equals(Graphics.avalEquips[4].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[4]);
 	    }
 	}	
@@ -386,6 +388,7 @@ public class Engine {
 	while (!back.toUpperCase().equals("BACK")){
 	    Scanner esc = new Scanner(System.in);
 	    clearConsole();
+	    Graphics.updateStats(character);
 	    Graphics.updateEquipped(character);
 	    printArray(Graphics.displayEquippedGraphics());
 	    back = esc.nextLine();

@@ -29,9 +29,6 @@ public class Shop {
 	addTo(shop,convertString(  "5.Heavy Armor: " + (new Heavy()).price),6);
 	addTo(shop,convertString(  "6.Twig: " + (new Twig()).price),7);
 	addTo(shop,convertString(  "7.Sword: " + (new Sword()).price),8);
-	for (int i = 0; i < shop.length; i++) {
-	    shop[i][29] = "|";
-	}
 
 
     }
