@@ -43,7 +43,7 @@ public class Ninja extends Character {
     public String attack2( Monster mon, BattleMap map ) {
 	mon.lowerHealth(damage); 
 	int newHp = hp + (int)(damage/2.0);
-	if (newHp <= hp) {
+	if (newHp <= normalstats[0]) {
 	    hp = newHp;
 	}
 	else {

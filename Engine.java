@@ -100,7 +100,7 @@ public class Engine {
     public static boolean isEnd() {
 	int r = character.getRLocation();
 	int c = character.getCLocation();
-
+	
 	return (r == userMap.length - 2) && (c == userMap[r].length - 2);
     }
 
@@ -141,6 +141,12 @@ public class Engine {
 	    }
 	    else if (in.toUpperCase().equals("D")) {
 		moveRight(character.getRLocation(), (character.getCLocation()));
+	    }
+	    else if (in.toUpperCase().equals("DRINK")) {
+		chooseDrink();
+	    }
+	    else if (in.toUpperCase().equals("EQUIP")) {
+		chooseEquipment();
 	    }
 	    
 	    
@@ -225,6 +231,34 @@ public class Engine {
 	if (in.toUpperCase().equals("EXIT")) {
 	    character.isShopping = false;
 	}
+    }
+
+    public static void chooseDrink() {
+	System.out.println("Choose a drink: ");
+	System.out.println("1. HpPotion \t 2. Adrenaline");
+	Scanner in = new Scanner(System.in);
+	String input = in.nextLine();
+	if (input.equals("1")) {
+	    if (character.healthdrinks.size() == 0) {
+		System.out.println("You do not have Hp Potions");
+	    }
+	    else {
+		character.use(character.healthdrinks.get(0));
+	    }
+	}
+	else if (input.equals("2")) {
+	    if (character.adren.size() == 0) {
+		System.out.println("You do not have Hp Potions");
+	    }
+	    else {
+		character.use(character.adren.get(0));
+	    }
+	}
+    }
+
+    public static void chooseEquipment() {
+	System.out.println("Choose a piece of equipment: ");
+	// CONTINUE
     }
 
     
