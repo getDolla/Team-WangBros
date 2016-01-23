@@ -123,7 +123,7 @@ public class Graphics {
 	else {
 	    size = maze.length;
 	}
-	Display = new Object[size][maze[0].length+graphics[0].length];
+	Display = new Object[size][maze[0].length+graphics[0].length+1];
 
 	for (int c = 0; c < maze.length; c ++) {
 	    for (int i = 0; i < maze[c].length; i++) {
@@ -134,7 +134,7 @@ public class Graphics {
 	for (int c = 0; c < graphics.length; c ++) {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
-		Display[c][maze[0].length + i] = graphics[c][i];
+		Display[c][maze[0].length + i + 1] = graphics[c][i];
 	    }
 	}
 	//remove nulls
