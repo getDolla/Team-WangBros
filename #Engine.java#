@@ -168,7 +168,7 @@ public class Engine {
 		chooseEquipment();
 	    }
 	    else if (in.toUpperCase().equals("SETTINGS")) {
-		chooseEquipment();
+		Graphics.displaySetti
 	    }
 	    
 	    

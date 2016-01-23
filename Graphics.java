@@ -50,6 +50,7 @@ public class Graphics {
 	}
     }
 
+
     public static void updateInventory ( Character character) {
 	inventory = eraseArray(inventory);
 	String[] armorT = convertString("Armors: ");
@@ -268,6 +269,45 @@ public class Graphics {
 	    for (int i = 0; i < graphics[c].length; i++) {
 
 		Display[c][equipped[0].length + i + 1] = graphics[c][i];
+	    }
+	}
+	//remove nulls
+	
+	for (int c = 0; c < Display.length; c++) {
+	    for (int i = 0; i < Display[c].length; i++) {
+		if (Display[c][i] == null) {
+		    Display[c][i] = " ";
+		}
+	    }
+	}
+	return Display;
+    }
+
+
+    public static Object[][] displaySettingsGraphics() {
+	int size;
+	if (graphics.length > settings.length) {
+	    size = graphics.length;
+	}
+	else {
+	    size = settings.length;
+	}
+	Display = new Object[size][settings[0].length+graphics[0].length+1];
+
+	addTo(settings,convertString("Settings:"),0);
+	addTo(settings,convertString("1: Equip Items"),2);
+	addTo(settings,convertString("2: Check Equipped"),3);
+
+	for (int c = 0; c < settings.length; c ++) {
+	    for (int i = 0; i < settings[c].length; i++) {
+		Display[c][i] = settings[c][i];
+	    }
+	}
+	
+	for (int c = 0; c < graphics.length; c ++) {
+	    for (int i = 0; i < graphics[c].length; i++) {
+
+		Display[c][settings[0].length + i + 1] = graphics[c][i];
 	    }
 	}
 	//remove nulls

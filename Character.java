@@ -141,6 +141,19 @@ public abstract class Character {
         }
     }
 
+    public void equip( Equipment e ) {
+	if ( e instanceof Weapon) {
+	    getBuff((Weapon)e);
+	    equipped.add(e);
+	    sticks.remove(e);
+	}
+	else if (e instanceof Armor) {
+	    setCharstat((Armor)e);
+	    armors.remove(e);
+	}
+    }
+
+    /*
     public void use( Item i ) {
 
 	    if ( i instanceof Weapon ) {
@@ -160,6 +173,7 @@ public abstract class Character {
 		//healthdrinks.remove( (HpPotion) i );
 	    } 
     }
+    */
     
     public void setCharstat( Armor a ) {
 	setHp( (int) (hp * a.equip()) );
