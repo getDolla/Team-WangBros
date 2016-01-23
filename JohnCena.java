@@ -7,10 +7,19 @@ public class JohnCena extends Monster {
 
 		name = "The Boss: Juan CenaporFavor";
 		//stuff to add
-
+		
+		image = convertString(new String[] {
+			" _____  ",
+			"|_   _| ",
+			"|.   .| ",
+			"| <    )",
+			"| __/)| ",
+			"\\____ / "
+		    });
+		
 	}
 
-    public void attack(Character chara, BattleMap map) { //stuff to add
-        
+    public int attack(Character chara, BattleMap map) { //stuff to add
+        return super.attack(chara,map);
     }
 }

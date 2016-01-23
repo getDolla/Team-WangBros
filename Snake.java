@@ -7,13 +7,14 @@ public class Snake extends Monster {
 	speed = 20;
 	damage = 15;
 	name = "Snake";
-	image = convertString( new String[]{" ______    ",
-				"< .  . >   ",
-				" \\ .. / |  ",
-				"  \\__/| |  ",
-				"  __|/ /   ",
-				"  \\ ^ /____",
-				"   \\______/"} );
+	image = convertString( new String[]{
+		" ______    ",
+		"< .  . >   ",
+		" \\ .. / |  ",
+		"  \\__/| |  ",
+		"  __|/ /   ",
+		"  \\ ^ /____",
+		"   \\______/"} );
 	//stuff to add
 
     }

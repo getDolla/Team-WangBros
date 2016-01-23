@@ -1,5 +1,4 @@
 public class HpPotion extends Consumable {
-    public int boost = 0;
     public boolean used;
 
     public HpPotion () {
