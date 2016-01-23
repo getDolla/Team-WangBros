@@ -243,7 +243,7 @@ public class Engine {
 		System.out.println("You do not have Hp Potions");
 	    }
 	    else {
-		character.use(character.healthdrinks.get(0));
+		character.use(new HpPotion());
 	    }
 	}
 	else if (input.equals("2")) {
@@ -251,7 +251,7 @@ public class Engine {
 		System.out.println("You do not have Hp Potions");
 	    }
 	    else {
-		character.use(character.adren.get(0));
+		character.use(new Adrenaline());
 	    }
 	}
     }

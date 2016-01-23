@@ -3,7 +3,7 @@ public class Graphics {
     public static Object[][] inventory = new Object[10][20];
     public static String[][] stats = new String[5][20]; 
     public static String[][] monStats = new String[6][20];
-    public static Object[][] graphics = new Object[20][20]; // Should not include monStats
+    public static Object[][] graphics = new Object[15][20]; // Should not include monStats
     public static Object[][] Display;
 
     private static String[] convertString( String str ) { //to make array rows
