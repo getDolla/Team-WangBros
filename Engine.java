@@ -4,7 +4,8 @@ public class Engine {
     public static Object[][] userMap; // One map for all
     public static Character character; // One character for all
     public static BattleMap battleMap;
-    public static Monster monster; // only one monster to exist at a time FLAG
+    public static Shop shop = new Shop();
+    public static Monster monster; // only one monster to exist at a time
 
 
     public static void printArray(Object[][] array) {
@@ -106,6 +107,10 @@ public class Engine {
     public static void newLvl() { 
 	if(isEnd()) { 
 	    fillMap();
+	    character.isShopping = true;
+	    while (character.isShopping) {
+		shop();
+	    }
 	}
     }
 
@@ -117,13 +122,13 @@ public class Engine {
 
     public static void move() {
 
-	    Scanner input = new Scanner(System.in);
-	    clearConsole();
-	    Graphics.updateInventory(character);
-	    Graphics.updateStats(character);
-	    Graphics.updateGraphics();
-	    printArray(Graphics.displayMazeGraphics(userMap));
-	if (! character.inBattle) {	
+	Scanner input = new Scanner(System.in);
+	clearConsole();
+	Graphics.updateInventory(character);
+	Graphics.updateStats(character);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayMazeGraphics(userMap));
+	if (!(character.inBattle) && !(character.isShopping)) {	
 	    String in = input.nextLine();
 	    if (in.toUpperCase().equals("W")) { //FPS keys :D
 		moveUp(character.getRLocation(), (character.getCLocation()));
@@ -137,11 +142,11 @@ public class Engine {
 	    else if (in.toUpperCase().equals("D")) {
 		moveRight(character.getRLocation(), (character.getCLocation()));
 	    }
-	
-	
+	    
+	    
 	}
     }
-
+    
     public static void updateBattleGraphics() {
 	battleMap = new BattleMap(character,monster);
 	clearConsole();
@@ -207,6 +212,19 @@ public class Engine {
 	}
 	
 	character.inBattle = false;
+    }
+
+    public static void shop() {
+	clearConsole();
+	Graphics.updateStats(character);
+	Graphics.updateMonStats(monster);
+	Graphics.updateGraphics();
+	printArray(Graphics.displayShopGraphics(shop.shop));
+	Scanner input = new Scanner(System.in);
+	String in = input.nextLine();
+	if (in.toUpperCase().equals("EXIT")) {
+	    character.isShopping = false;
+	}
     }
 
     

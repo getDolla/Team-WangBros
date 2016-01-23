@@ -116,14 +116,14 @@ public class Graphics {
     }
 
     public static Object[][] displayMazeGraphics(Object[][] maze) {
-	int size = 21;
+	int size;
 	if (graphics.length > maze.length) {
 	    size = graphics.length;
 	}
 	else {
 	    size = maze.length;
 	}
-	Display = new Object[size][maze[0].length+graphics.length];
+	Display = new Object[size][maze[0].length+graphics[0].length];
 
 	for (int c = 0; c < maze.length; c ++) {
 	    for (int i = 0; i < maze[c].length; i++) {
@@ -150,14 +150,14 @@ public class Graphics {
     }
 
     public static Object[][] displayBattleGraphics( String[][] battleMap ){
-	int size = 21;
+	int size;
 	if ((graphics.length + monStats.length) > battleMap.length) {
 	    size = (graphics.length + monStats.length);
 	}
 	else {
 	    size = battleMap.length;
 	}
-	Display = new Object[size][battleMap[0].length + graphics.length];
+	Display = new Object[size][battleMap[0].length + graphics[0].length];
 
 	for (int c = 0; c < battleMap.length; c ++) {
 	    for (int i = 0; i < battleMap[c].length; i++) {
@@ -190,6 +190,41 @@ public class Graphics {
 	}
 	return Display;
 
+
+    }
+
+    public static Object[][] displayShopGraphics(Object[][] shop) {
+	int size;
+	if (graphics.length > shop.length) {
+	    size = (graphics.length);
+	}
+	else {
+	    size = shop.length;
+	}
+	Display = new Object[size][shop[0].length+shop[0].length];
+	
+
+	for (int c = 0; c < shop.length; c ++) {
+	    for (int i = 0; i < shop[c].length; i++) {
+		Display[c][i] = shop[c][i];
+	    }
+	}
+
+	for (int c = 0; c < graphics.length; c ++) {
+	    for (int i = 0; i < graphics[c].length; i++) {
+
+		Display[c][shop[0].length + i] = graphics[c][i];
+	    }
+	}
+	
+	for (int c = 0; c < Display.length; c++) {
+	    for (int i = 0; i < Display[c].length; i++) {
+		if (Display[c][i] == null) {
+		    Display[c][i] = " ";
+		}
+	    }
+	}
+	return Display;
 
     }
 

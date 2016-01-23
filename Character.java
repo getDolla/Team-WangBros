@@ -14,6 +14,8 @@ public abstract class Character {
     public boolean inBattle = false;
     public Monster enemy = null;
 
+    public boolean isShopping = false;
+
     public ArrayList<Armor> armors = new ArrayList<Armor>();
     public ArrayList<Weapon> sticks = new ArrayList<Weapon>();
     public ArrayList<Adrenaline> adren = new ArrayList<Adrenaline>();
