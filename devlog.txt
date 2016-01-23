@@ -21,6 +21,9 @@ Testing Versions: (Currently only Ninja can be chosen and Snakes fought)
 
 Functional Versions:
 
+v.2.0 01-22-16 Richard Wang
+- Shops! (You can only enter them for now)
+
 v.1.9 01-22-16 Richard Wang
 - Graphics has been remodeled
 - Run works

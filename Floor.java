@@ -35,7 +35,7 @@ public class Floor extends Tile {
     }
 
     private Monster genMonster() {
-	if ( Math.random() < 1.0/2 ) {
+	if ( Math.random() < 1.0/6 ) {
 	    return (new Snake());
 	}
 	/*

@@ -46,6 +46,9 @@ public class Ninja extends Character {
 	if (newHp <= hp) {
 	    hp = newHp;
 	}
+	else {
+	    hp = 200;
+	}
 	return attackNames[1];
     }
 
