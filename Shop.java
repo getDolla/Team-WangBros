@@ -21,14 +21,14 @@ public class Shop {
 
     public void displayShop() {
 	addTo(shop,convertString( "You completed the maze!"),0);
-	addTo(shop,convertString(  "What would you like to buy?" ),1);
-	addTo(shop,convertString( "Health potions: " + (new HpPotion()).price),2);
-	addTo(shop,convertString( "Adrenaline: " + (new Adrenaline()).price),3);
-	addTo(shop,convertString( "Light Armor: " + (new Light()).price),4);
-	addTo(shop,convertString(  "Medium Armor: " + (new Medium()).price ),5);
-	addTo(shop,convertString(  "Heavy Armor: " + (new Heavy()).price),6);
-	addTo(shop,convertString(  "Twig: " + (new Twig()).price),7);
-	addTo(shop,convertString(  "Sword: " + (new Sword()).price),8);
+	addTo(shop,convertString(  "Here are our items:" ),1);
+	addTo(shop,convertString( "1.Health potions: " + (new HpPotion()).price),2);
+	addTo(shop,convertString( "2.Adrenaline: " + (new Adrenaline()).price),3);
+	addTo(shop,convertString( "3.Light Armor: " + (new Light()).price),4);
+	addTo(shop,convertString(  "4.Medium Armor: " + (new Medium()).price ),5);
+	addTo(shop,convertString(  "5.Heavy Armor: " + (new Heavy()).price),6);
+	addTo(shop,convertString(  "6.Twig: " + (new Twig()).price),7);
+	addTo(shop,convertString(  "7.Sword: " + (new Sword()).price),8);
 	for (int i = 0; i < shop.length; i++) {
 	    shop[i][29] = "|";
 	}

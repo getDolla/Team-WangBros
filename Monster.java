@@ -76,7 +76,7 @@ public class Monster {
 
         return 0; 
 
-    } // FLAG - IN CASE WE WANT TO MAKE THIS ABSTRACT
+    } 
 
     public int lowerHealth( int hit ) {
 	int temp = hp;

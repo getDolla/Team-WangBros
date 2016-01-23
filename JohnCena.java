@@ -5,7 +5,7 @@ public class JohnCena extends Monster {
 		speed = 15;
 		damage = 70;
 
-		name = "The Boss: Juan CenaporFavor";
+		name = "The Boss: Juan Cena";
 		//stuff to add
 		
 		image = convertString(new String[] {

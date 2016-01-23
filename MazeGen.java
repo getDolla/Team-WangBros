@@ -170,19 +170,16 @@ public class MazeGen{
 	for (int i = 0; i < array.length; i ++ ) {
 	    for (int c = 0; c < array[i].length; c++ ) {
 		if (array[i][c] instanceof Integer) {
-		    if (Math.random() < 1.0/10) {
+		    if ((Math.random())< 1.0/20) {
 			Item a = new HpPotion();
-			//		Monster m = genMonster();
 			array[i][c] = new Floor(a);
 		    }
-		    else if (Math.random() < 1.0/9) {
+		    else if ((Math.random()) < 1.0/9) {
 			Item a = new Adrenaline();
-			//Monster m = genMonster();
 			array[i][c] = new Floor(a);
 		    }
-		    else if (Math.random() < 1.0/6) {
+		    else if ((Math.random())< 1.0/6) {
 			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
-			//Monster m = genMonster();
 			array[i][c] = new Floor(a);
 		    }
 		    else {
@@ -199,17 +196,14 @@ public class MazeGen{
 		if (array[i][c] instanceof String && array[i][c].equals(" ")){
 		    if (Math.random() < 1.0/10) {
 			Item a = new HpPotion();
-			//		Monster m = genMonster();
 			array[i][c] = new Floor(a);
 		    }
 		    else if (Math.random() < 1.0/9) {
 			Item a = new Adrenaline();
-			//Monster m = genMonster();
 			array[i][c] = new Floor(a);
 		    }
 		    else if (Math.random() < 1.0/6) {
 			Item a = new Item( "Money", (int) ( Math.random() * 31 ) + 10 );
-			//Monster m = genMonster();
 			array[i][c] = new Floor(a);
 		    }
 		    else {
@@ -220,31 +214,6 @@ public class MazeGen{
 	}
     }
 
-    /*
-    private static Monster genMonster() {
-	if ( Math.random() < 1.0/2 ) {
-	    return (new Orc());
-	}
-
-	else if( Math.random() < 1.0/5 ) {
-	    return (new Snake());
-	}
-
-	else if( Math.random() < 1.0/6 ) {
-	    return (new Rat());
-	}
-
-	else if( Math.random() < 1.0/4 ) {
-	    return (new Boogeyman());
-	}
-
-	else if( Math.random() < 1.0/15) {
-	    return (new JohnCena());
-	}
-
-	return (new Monster());
-    }
-    */
     public static void main( String[] args ) {
 
         MazeGen juan = new MazeGen(8,8);

@@ -11,7 +11,12 @@ public class Engine {
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
 	    for (Object s : f) {
-		System.out.print(s);
+		if (!(s.toString().equals("*"))) {
+		    System.out.print(s);
+		}
+		else {
+		    System.out.print("\u001B[35m" + s + "\u001B[0m");
+		}
 	    }
 	    System.out.println();
 	}
@@ -30,7 +35,13 @@ public class Engine {
     public final static void clearConsole(){
 	System.out.print("\033[H\033[2J");  
 	System.out.flush();  
-     }
+    }
+    
+    public final static void pressEnter() {
+	System.out.println("Press enter to continue");
+	Scanner con1 = new Scanner(System.in);
+	String contin1 = con1.nextLine();
+    }
 
     private static void updateMazeGraphics(){
 	newLvl();
@@ -199,9 +210,7 @@ public class Engine {
 	    updateBattleGraphics();
 	    System.out.println("You " + attack);
 
-	    System.out.println("Press any key to continue");
-	    Scanner con1 = new Scanner(System.in);
-	    String contin1 = con1.nextLine();
+	    pressEnter();
 	    if (!character.inBattle){ //ran away
 		break;
 	    }
@@ -210,9 +219,7 @@ public class Engine {
 		int h = monster.attack(character, battleMap);
 		updateBattleGraphics();
 		System.out.println(monster.name + " attacked " + h + " hit points.");
-		System.out.println("Press any key to continue");
-		Scanner con2 = new Scanner(System.in);
-		String contin2 = con2.nextLine();
+		pressEnter();
 	    }
 	    
 	}
@@ -222,6 +229,7 @@ public class Engine {
 
     public static void shop() {
 	clearConsole();
+	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
 	Graphics.updateMonStats(monster);
 	Graphics.updateGraphics();
@@ -231,7 +239,62 @@ public class Engine {
 	if (in.toUpperCase().equals("EXIT")) {
 	    character.isShopping = false;
 	}
+	else if (in.toUpperCase().equals("B1")) {
+	    character.purchase(new HpPotion());
+	}
+	else if (in.toUpperCase().equals("B2")) {
+	    character.purchase(new Adrenaline());
+	}
+
+	else if (in.toUpperCase().equals("B3")) {
+	    character.purchase(new Light());
+	}
+
+	else if (in.toUpperCase().equals("B4")) {
+	    character.purchase(new Medium());
+	}
+
+	else if (in.toUpperCase().equals("B5")) {
+	    character.purchase(new Heavy());
+	}
+
+	else if (in.toUpperCase().equals("B6")) {
+	    character.purchase(new Twig());
+	}
+
+	else if (in.toUpperCase().equals("B7")) {
+	    character.purchase(new Sword());
+	}
+	else if (in.toUpperCase().equals("S1")) {
+	    character.sell(new HpPotion());
+	}
+	else if (in.toUpperCase().equals("S2")) {
+	    character.sell(new Adrenaline());
+	}
+
+	else if (in.toUpperCase().equals("S3")) {
+	    character.sell(new Light());
+	}
+
+	else if (in.toUpperCase().equals("S4")) {
+	    character.sell(new Medium());
+	}
+
+	else if (in.toUpperCase().equals("S5")) {
+	    character.sell(new Heavy());
+	}
+
+	else if (in.toUpperCase().equals("S6")) {
+	    character.sell(new Twig());
+	}
+
+	else if (in.toUpperCase().equals("S7")) {
+	    character.sell(new Sword());
+	}
+
+	
     }
+
 
     public static void chooseDrink() {
 	System.out.println("Choose a drink: ");
@@ -241,6 +304,7 @@ public class Engine {
 	if (input.equals("1")) {
 	    if (character.healthdrinks.size() == 0) {
 		System.out.println("You do not have Hp Potions");
+		pressEnter();
 	    }
 	    else {
 		character.use(character.healthdrinks.get(0));
@@ -249,6 +313,7 @@ public class Engine {
 	else if (input.equals("2")) {
 	    if (character.adren.size() == 0) {
 		System.out.println("You do not have Adrenaline Potions");
+		pressEnter();
 	    }
 	    else {
 		character.use(character.adren.get(0));

@@ -1,12 +1,12 @@
 public class Graphics {
     // 
-    public static Object[][] inventory = new Object[10][20];
-    public static String[][] stats = new String[5][20]; 
-    public static String[][] monStats = new String[6][20];
-    public static Object[][] graphics = new Object[15][20]; // Should not include monStats
+    public static Object[][] inventory = new Object[10][30];
+    public static String[][] stats = new String[5][30]; 
+    public static String[][] monStats = new String[6][30];
+    public static Object[][] graphics = new Object[15][30]; // Should not include monStats
     public static Object[][] Display;
 
-    private static String[] convertString( String str ) { //to make array rows
+    public static String[] convertString( String str ) { //to make array rows
 	String[] retStr = new String[str.length()];
 	for (int c = 0; c < str.length(); c ++) {
 	    retStr[c] = str.substring(c,c+1);
@@ -14,6 +14,8 @@ public class Graphics {
 	    
 	return retStr;
     }
+
+
 
     private static Object[][] eraseArray( Object[][] array ){
 	return (new Object[array.length][array[0].length]);

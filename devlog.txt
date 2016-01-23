@@ -21,6 +21,10 @@ Testing Versions: (Currently only Ninja can be chosen and Snakes fought)
 
 Functional Versions:
 
+v.2.1 01-23-16 Richard Wang
+- Players can now buy and sell from shops.
+- Characters are more visible in maze ( more colors incoming )
+
 v.2.0 01-22-16 Richard Wang
 - Shops! (You can only enter them for now)
 

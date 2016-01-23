@@ -241,5 +241,144 @@ public abstract class Character {
 	    System.out.println((i+1) + ":" + attackNames[i] + "\t");
 	}
     }
+
+
+    public void purchase(Item o) {
+	if (money > o.price) {
+	    money -= o.price;
+	    if (o instanceof Light) {
+		armors.add((Light) o); // Light is a subclass of Armor
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	    else if (o instanceof Medium) {
+		armors.add((Medium) o); 
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	    else if (o instanceof Heavy) {
+		armors.add((Heavy) o);
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	    else if (o instanceof Twig) {
+		sticks.add((Twig) o);
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	    else if (o instanceof Sword) {
+		sticks.add((Sword) o);
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	    else if (o instanceof HpPotion) {
+		healthdrinks.add((HpPotion) o);
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	    else if (o instanceof Adrenaline) {
+		adren.add((Adrenaline) o);
+		System.out.println("Successfully bought item for "+o.price+".");
+	    }
+	}
+	else {
+	    System.out.println("You do not have enough money.");
+	}
+	Engine.pressEnter();
+    }
+
+    public void sell(Item o) {
+	boolean sold = false;
+	int sellingPrice = ((int)(o.price*0.8));
+	if (o instanceof Light) {
+	    Light s = new Light();
+	    for(int i = 0;i < armors.size(); i++) {
+		if (armors.get(i) instanceof Light) {
+		    s = (Light) armors.get(i);
+		}
+	    }
+	    sold = armors.remove(s);
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else if (o instanceof Medium) {
+	    Medium s = new Medium();
+	    for(int i = 0;i < armors.size(); i++) {
+		if (armors.get(i) instanceof Medium) {
+		    s = (Medium) armors.get(i);
+		}
+	    }
+	    sold = armors.remove(s); 
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else if (o instanceof Heavy) {
+	    Heavy s = new Heavy();
+	    for(int i = 0;i < armors.size(); i++) {
+		if (armors.get(i) instanceof Heavy) {
+		    s = (Heavy) armors.get(i);
+		}
+	    }
+	    sold = armors.remove(s);
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else if (o instanceof Twig) {
+	    Twig s = new Twig();
+	    for(int i = 0;i < sticks.size(); i++) {
+		if (sticks.get(i) instanceof Twig) {
+		    s = (Twig) sticks.get(i);
+		}
+	    }
+	    sold = sticks.remove(s);
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else if (o instanceof Sword) {
+	    Sword s = new Sword();
+	    for(int i = 0;i < sticks.size(); i++) {
+		if (sticks.get(i) instanceof Sword) {
+		    s = (Sword) sticks.get(i);
+		}
+	    }
+	    sold = sticks.remove(s);
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else if (o instanceof HpPotion) {
+	    HpPotion s = new HpPotion();
+	    for(int i = 0;i < healthdrinks.size(); i++) {
+		if (healthdrinks.get(i) instanceof HpPotion) {
+		    s = healthdrinks.get(i);
+		}
+	    }
+	    sold = healthdrinks.remove(s);
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else if (o instanceof Adrenaline) {
+	    Adrenaline s = new Adrenaline();
+	    for(int i = 0;i < adren.size(); i++) {
+		if (adren.get(i) instanceof Adrenaline) {
+		    s = adren.get(i);
+		}
+	    }
+	    sold = adren.remove(s);
+	    if(sold) {
+		money += sellingPrice;
+		System.out.println("Successfully sold item for "+sellingPrice+".");
+	    }
+	}
+	else {
+	    System.out.println("You do not have enough money.");
+	}
+	Engine.pressEnter();
+    }
     
 }

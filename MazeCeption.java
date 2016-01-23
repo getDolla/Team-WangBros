@@ -1,13 +1,39 @@
 import java.util.Scanner; 
 
 public class MazeCeption {
-    protected int stage = 0;
+    private int stage = 0;
+    private String[][] title = new String[][]{
+	Graphics.convertString("___  ___              _____            _   _             "),
+	Graphics.convertString("|  \\/  |             /  __ \\          | | (_)            "),
+	Graphics.convertString("| .  . | __ _ _______| /  \\/ ___ _ __ | |_ _  ___  _ __  "),
+	Graphics.convertString("| |\\/| |/ _` |_  / _ \\ |    / _ \\ '_ \\| __| |/ _ \\| '_ \\ "),
+	Graphics.convertString("| |  | | (_| |/ /  __/ \\__/\\  __/ |_) | |_| | (_) | | | |"),
+	Graphics.convertString("\\_|  |_/\\__,_/___\\___|\\____/\\___| .__/ \\__|_|\\___/|_| |_|"),
+	Graphics.convertString("                                | |                      "),
+	Graphics.convertString("                                |_|                      ")
+    };
     
     public MazeCeption() {
 	newGame();
     }
     
     public void newGame() {
+	Engine.clearConsole();
+	Scanner entrance = new Scanner(System.in);	
+	for (String[] f : title) {
+	    for (String s : f) {
+		System.out.print(s);
+	    }
+	    System.out.println();
+	}
+	
+	System.out.println("By: Team-WangBros");
+	System.out.println("Press enter to begin");
+	String enter = entrance.nextLine();
+	
+	
+
+
 	System.out.println( "Welcome to MazeCeption!" );	
 	
 	System.out.println( );       
