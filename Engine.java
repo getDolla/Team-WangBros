@@ -336,10 +336,32 @@ public class Engine {
     }
 
     public static void chooseEquipment() {
-	clearConsole();
-	System.out.println("Choose a piece of equipment: ");
-        Scanner input = new Scanner(System.in);
-	String in = input.nextLine();
+	boolean exitMode = false;
+	while(!exitMode) {
+	    clearConsole();
+	    Graphics.updateEquipping(character);
+	    printArray(Graphics.displayEquippingGraphics());
+	    Scanner input = new Scanner(System.in);
+	    String in = input.nextLine();
+	    if (in.toUpperCase().equals("BACK") || in.toUpperCase().equals("EXIT")) {
+		exitMode = true;
+	    }
+	    if (Graphics.avalEquips[0] != null && in.toUpperCase().equals(Graphics.avalEquips[0])) {
+		character.equip( Graphics.avalEquips[0]);
+	    }
+	    if (Graphics.avalEquips[1] != null && in.toUpperCase().equals(Graphics.avalEquips[1])) {
+		character.equip( Graphics.avalEquips[1]);
+	    }
+	    if (Graphics.avalEquips[2] != null && in.toUpperCase().equals(Graphics.avalEquips[2])) {
+		character.equip( Graphics.avalEquips[2]);
+	    }
+	    if (Graphics.avalEquips[3] != null && in.toUpperCase().equals(Graphics.avalEquips[3])) {
+		character.equip( Graphics.avalEquips[3]);
+	    }
+	    if (Graphics.avalEquips[4] != null && in.toUpperCase().equals(Graphics.avalEquips[4])) {
+		character.equip( Graphics.avalEquips[4]);
+	    }
+	}	
     }
 
     public static void settings() {
@@ -347,7 +369,7 @@ public class Engine {
 	printArray(Graphics.displaySettingsGraphics());
 	Scanner input = new Scanner(System.in);
 	String in = input.nextLine();
-	if (in.toUpperCase().equals("EXIT") || in.toUpperCase().equals("BACK")) {
+	if (in.toUpperCase().equals("EXIT") ^ in.toUpperCase().equals("BACK")) {
 	    character.settingsMode = false;
 	}
 	if (in.equals("1")) {

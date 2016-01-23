@@ -18,8 +18,12 @@ public class MazeCeption {
     }
     
     public void newGame() {
-	Engine.clearConsole();
-	Scanner entrance = new Scanner(System.in);	
+	boolean chosenClass = false;
+	boolean entered = false;
+	
+	while (!chosenClass) {
+	    Engine.clearConsole();
+	    Scanner entrance = new Scanner(System.in);	
 	for (String[] f : title) {
 	    for (String s : f) {
 		System.out.print(s);
@@ -27,31 +31,33 @@ public class MazeCeption {
 	    System.out.println();
 	}
 	
-	System.out.println("By: Team-WangBros");
-	System.out.println("Press enter to begin");
-	String enter = entrance.nextLine();
-	
+	while (!entered) {
+
+	    System.out.println("By: Team-WangBros");
+	    System.out.println("Press enter to begin");
+	    String enter = entrance.nextLine();
+	    entered = true;
+
+	}
 	
 
-
+	
 	System.out.println( "Welcome to MazeCeption!" );	
 	
 	System.out.println( );       
-
-	boolean chosenClass = false;
 	
-	while (!chosenClass) {
-		System.out.println( "Choose your character:" );
-
-		System.out.println( "Tank" );
-		System.out.println( "Ninja" );
-		System.out.println( "DemoMan" );
-		System.out.println( "DankMeme" );
-
-	    Scanner in = new Scanner( System.in );
-	    
-	    String choice = in.nextLine();
-	    
+	System.out.println( "Choose your character:" );
+	
+	System.out.println( "Tank" );
+	System.out.println( "Ninja" );
+	System.out.println( "DemoMan" );
+	System.out.println( "DankMeme" );
+	System.out.println();
+	
+	Scanner in = new Scanner( System.in );
+	
+	String choice = in.nextLine();
+		
 	    if ( choice.toUpperCase().equals( "TANK" ) ) {
 	    	showCharinfo( new Tank() );
 	    		if( confirm() ) {

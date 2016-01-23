@@ -23,6 +23,7 @@ public abstract class Character {
     public ArrayList<HpPotion> healthdrinks = new ArrayList<HpPotion>();
     public ArrayList<Equipment> equipped = new ArrayList<Equipment>();
 
+
     public String[] attackNames= new String[4];
     
     public Character() {
@@ -144,37 +145,29 @@ public abstract class Character {
 
     public void equip( Equipment e ) {
 	if ( e instanceof Weapon) {
+	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
+		if (equipped.get(i) instanceof Weapon) {
+		    sticks.add((Weapon)equipped.get(i));
+		    equipped.remove(i);
+		}
+	    }
 	    getBuff((Weapon)e);
 	    equipped.add(e);
 	    sticks.remove(e);
 	}
 	else if (e instanceof Armor) {
+	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
+		if (equipped.get(i) instanceof Armor) {
+		    armors.add((Armor)equipped.get(i));
+		    equipped.remove(i);
+		}
+	    }
 	    setCharstat((Armor)e);
+	    equipped.add(e);
 	    armors.remove(e);
 	}
     }
 
-    /*
-    public void use( Item i ) {
-
-	    if ( i instanceof Weapon ) {
-		getBuff((Weapon)i);
-	    }
-	    else if ( i instanceof Armor ) {
-		setCharstat((Armor)i);
-	    }
-
-	    else if ( i instanceof Adrenaline ) {
-		drink((Consumable)i);
-		//adren.remove( (Adrenaline) i );
-	    }
-	    
-	    else if ( i instanceof HpPotion ) {
-		drink((Consumable)i);
-		//healthdrinks.remove( (HpPotion) i );
-	    } 
-    }
-    */
     
     public void setCharstat( Armor a ) {
 	setHp( (int) (hp * a.equip()) );
@@ -228,23 +221,8 @@ public abstract class Character {
         return (Math.random() < speed/100.0 );
     }
 
-    /*
-    public void attack( Object mon) {
-	Monster monster;
-	if (mon instanceof Object){
-	    monster = (Monster) mon;
-	}
-	else {
-	    throw new ClassCastException("\n Error L203"); // DEBUGGING
-	}
-	if ( Math.random() * monster.speed < 45 ) {
-	    monster.setHp( monster.getHp() - ( damage ) );
-	}
-    }
-    */
-    //FLAG - PROBABLY SHOULD BE IN SUBCLASSES
 
-    // Feel free to make first parameter Object and try to catch errors
+
     public abstract String attack1( Monster mon, BattleMap map );
     public abstract String attack2( Monster mon, BattleMap map );
     public abstract String attack3( Monster mon, BattleMap map );
