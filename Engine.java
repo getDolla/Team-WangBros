@@ -316,6 +316,7 @@ public class Engine {
 	    }
 	    else {
 		System.out.println( "You gained " + character.drink(character.healthdrinks.get(0)) + " health." );
+		pressEnter();
 	    }
 	}
 	else if (input.equals("2")) {
@@ -325,10 +326,9 @@ public class Engine {
 	    }
 	    else {
 		System.out.println( "You gained " + character.drink(character.adren.get(0)) + " more speed." );
+		pressEnter();
 	    }
 	}
-
-	pressEnter();
     }
 
     public static void chooseEquipment() {
