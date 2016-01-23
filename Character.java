@@ -15,6 +15,7 @@ public abstract class Character {
     public Monster enemy = null;
 
     public boolean isShopping = false;
+    public boolean settingsMode = false;
 
     public ArrayList<Armor> armors = new ArrayList<Armor>();
     public ArrayList<Weapon> sticks = new ArrayList<Weapon>();

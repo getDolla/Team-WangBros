@@ -168,7 +168,10 @@ public class Engine {
 		chooseEquipment();
 	    }
 	    else if (in.toUpperCase().equals("SETTINGS")) {
-		chooseEquipment();
+		character.settingsMode = true;
+		while (character.settingsMode) {
+		    settings();
+		}
 	    }
 	    
 	    
@@ -333,9 +336,38 @@ public class Engine {
     }
 
     public static void chooseEquipment() {
+	clearConsole();
 	System.out.println("Choose a piece of equipment: ");
-        
+        Scanner input = new Scanner(System.in);
+	String in = input.nextLine();
     }
 
+    public static void settings() {
+	clearConsole();
+	printArray(Graphics.displaySettingsGraphics());
+	Scanner input = new Scanner(System.in);
+	String in = input.nextLine();
+	if (in.toUpperCase().equals("EXIT") || in.toUpperCase().equals("BACK")) {
+	    character.settingsMode = false;
+	}
+	if (in.equals("1")) {
+	    chooseEquipment();
+	}
+	if (in.equals("2")) {
+	    checkEquipment();
+	}
+	
+    }
+
+    public static void checkEquipment() {
+	String back = "";
+	while (!back.toUpperCase().equals("BACK")){
+	    Scanner esc = new Scanner(System.in);
+	    clearConsole();
+	    Graphics.updateEquipped(character);
+	    printArray(Graphics.displayEquippedGraphics());
+	    back = esc.nextLine();
+	}
+    }
     
 }

@@ -4,8 +4,8 @@ public class Graphics {
     public static String[][] stats = new String[5][30]; 
     public static String[][] monStats = new String[6][30];
     public static Object[][] graphics = new Object[15][30]; // Should not include monStats
-    public static Object[][] equipped = new Object[20][20];
-    public static String[][] settings = new String[20][20];
+    public static Object[][] equipped = new Object[17][20];
+    public static String[][] settings = new String[17][20];
     public static Object[][] Display;
 
     public static String[] convertString( String str ) { //to make array rows
@@ -48,6 +48,14 @@ public class Graphics {
 		addTo(equipped, convertString(temp.name),6);
 	    }
 	}
+	if (equipped[3][0] == null) {
+	    addTo(equipped, convertString("None"),3);
+	}
+	if (equipped[6][0] == null) {
+	    addTo(equipped, convertString("None"),6);
+	}
+
+	addTo(equipped, convertString("Back"),15);
     }
 
 
@@ -297,6 +305,7 @@ public class Graphics {
 	addTo(settings,convertString("Settings:"),0);
 	addTo(settings,convertString("1: Equip Items"),2);
 	addTo(settings,convertString("2: Check Equipped"),3);
+	addTo(settings, convertString("Back"),15);
 
 	for (int c = 0; c < settings.length; c ++) {
 	    for (int i = 0; i < settings[c].length; i++) {
