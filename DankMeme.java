@@ -13,6 +13,18 @@ public class DankMeme extends Character {
 	normalstats[1] = speed;
 	normalstats[2] = damage;
 	normalstats[3] = luck;
+
+	image = convertString(new String[] 
+	    {" ___   ",
+	"|___|__",
+	"|$   $|",
+	"|__o__|",
+	"   |   ",
+	"  /|\\  ",
+	"   |   ",
+	"  / \\  "}
+			      );
+
     }
 
     public DankMeme(String name) {

@@ -59,8 +59,9 @@ public class MazeCeption {
 	    
 	    	}
 
-	    
+
     	Engine.clearConsole();
+	    
 	    }
 
 	    Engine.fillMap();

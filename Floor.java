@@ -17,9 +17,7 @@ public class Floor extends Tile {
     public Floor(Item item) {
 	this();
 	this.item = item;
-	if ( !this.item.name.equals( "None" ) ) {
-	    monster = genMonster();
-	}
+
 	if ( hasMon() ) {
 	    appearance = monster.toString();
 	}

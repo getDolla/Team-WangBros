@@ -12,6 +12,19 @@ public class Tank extends Character{
 	normalstats[1] = speed;
 	normalstats[2] = damage;
 	normalstats[3] = luck;
+
+	image = convertString(new String[] 
+	    {	" _____ ",
+	"/     \\",
+	"|    ==",
+	"\\_____/",
+	"   |   ",
+	" __|\\  ",
+	"/  \\ + ",
+	"|  | | ",
+	"\\__/\\| "}
+			      );
+
     }
 
     public Tank(String name) {

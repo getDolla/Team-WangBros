@@ -12,6 +12,15 @@ public class DemoMan extends Character {
 	normalstats[1] = speed;
 	normalstats[2] = damage;
 	normalstats[3] = luck;
+	
+	image = convertString(new String[] 
+	    { 
+	" o  __ ",
+	"/|\\<::>",
+	" | <__>",
+	"/ \\    "}
+			      );
+
     }
 
     public DemoMan(String name) {
