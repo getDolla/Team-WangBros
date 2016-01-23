@@ -48,7 +48,7 @@ public class Ninja extends Character {
     }
 
     public String attack2( Monster mon, BattleMap map ) {
-	mon.lowerHealth(damage); 
+	int temp = mon.lowerHealth(damage); 
 	int newHp = hp + (int)(damage/2.0);
 	if (newHp <= normalstats[0]) {
 	    hp = newHp;
@@ -56,28 +56,36 @@ public class Ninja extends Character {
 	else {
 	    hp = 200;
 	}
-	return attackNames[1];
+	
+	String s = attackNames[0];
+
+	if( temp == 0 ) {
+		s += ", but missed.";
+	}
+
+	return s;
+	
     }
 
     public String attack3( Monster mon, BattleMap map ) {
 	mon.lowerHealth(damage);
 	int newSpeed = (int) (speed * 1.05);
-	if (newSpeed <= 60) {
+	if (newSpeed <= 70) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = 60;
+	    speed = 70;
 	}
 	return attackNames[2];
     }
 
     public String attack4( Monster mon, BattleMap map ) {
 	int newSpeed = (int) (speed * 1.1);
-	if (newSpeed <= 60) {
+	if (newSpeed <= 70) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = 60;
+	    speed = 70;
 	}
 	return attackNames[3];
     }
