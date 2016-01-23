@@ -7,10 +7,17 @@ public class Rat extends Monster {
 
 		name = "Rat";
 		//stuff to add
+		image = convertString(new String[] {
+			" (\\_/) ",
+			"(o o ) ",
+			"=<== \\ ",
+			" / /( )",
+			"  _| _|"
+		    });
 
 	}
 
-    public void attack(Character chara, BattleMap map) { //stuff to add
-        
+    public int attack(Character chara, BattleMap map) { //stuff to add
+        return super.attack(chara,map);
     }
 }

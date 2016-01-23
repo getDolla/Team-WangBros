@@ -243,15 +243,15 @@ public class Engine {
 		System.out.println("You do not have Hp Potions");
 	    }
 	    else {
-		character.use(new HpPotion());
+		character.use(character.healthdrinks.get(0));
 	    }
 	}
 	else if (input.equals("2")) {
 	    if (character.adren.size() == 0) {
-		System.out.println("You do not have Hp Potions");
+		System.out.println("You do not have Adrenaline Potions");
 	    }
 	    else {
-		character.use(new Adrenaline());
+		character.use(character.adren.get(0));
 	    }
 	}
     }

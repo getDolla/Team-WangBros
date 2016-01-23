@@ -8,10 +8,19 @@ public class Boogeyman extends Monster {
 		name = "Boogeyman";
 
 		//stuff to add
-
+		image = convertString(new String[]{
+			"  ____  ",
+			" (o  O) ",
+			"  |^ |  ",
+			"  |==|_ ",
+			"/\\ /\\  )",
+			"  \\  \\ |",
+			"  |  | |",
+			"  __/__/"});
+		
 	}
 
-    public void attack(Character chara, BattleMap map) { //stuff to add
-        
+    public int attack(Character chara, BattleMap map) { //stuff to add
+        return super.attack(chara,map);
     }
 }

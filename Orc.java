@@ -7,12 +7,22 @@ public class Orc extends Monster {
 		
 	name = "Orc";
 	//stuff to add
-		
+	image = convertString(new String[] {
+		" __|__ ",
+		"<.\\ /.>",
+		"{^___^}",
+		"|  |  |",
+		"| /|\\ |",
+		"+/ | \\+",
+		"|  |  |",
+		"  / \\  ",
+		" /   \\ "
+	    });
     }
     
 
-    public void attack(Character chara, BattleMap map) { //stuff to add
-        
+    public int attack(Character chara, BattleMap map) { //stuff to add
+	    return super.attack(chara,map);
     }
 
 }
