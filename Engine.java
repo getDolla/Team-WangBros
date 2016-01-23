@@ -56,12 +56,14 @@ public class Engine {
 	if (!(userMap[r-1][c]  instanceof Wall)) { //if not blocked by border
 	    autoPickup( r-1, c );
 	    userMap[r][c] = character.tileUnder;
-	    userMap[r - 1][c] = character.appearance;
-	    character.setRLocation(r - 1);
+
 	    if ( ((Floor) userMap[r-1][c]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r-1][c]).monster;
 	    }
+
+	   	userMap[r - 1][c] = character.appearance;
+	    character.setRLocation(r - 1);
 	}
 	updateMazeGraphics();
     }
@@ -70,26 +72,30 @@ public class Engine {
 	if (!(userMap[r+1][c]  instanceof Wall)) { //if not blocked by border
 	    autoPickup( r+1, c );
 	    userMap[r][c] = character.tileUnder;
-	    userMap[r + 1][c] = character.appearance;
-	    character.setRLocation(r + 1);
+
 	    if ( ((Floor) userMap[r+1][c]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r+1][c]).monster;
 	    }
-	}
 
+	    userMap[r + 1][c] = character.appearance;
+	    character.setRLocation(r + 1);
+	}
+		updateMazeGraphics();
     }
 
     public static void moveLeft(int r, int c) {
 	if (!(userMap[r][c-1]  instanceof Wall)) { //if not blocked by border
 	    autoPickup( r, c-1 );
 	    userMap[r][c] = character.tileUnder;
-	    userMap[r][c - 1] = character.appearance;
-	    character.setCLocation(c - 1);
+
 	    if ( ((Floor) userMap[r][c - 1]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r][c - 1]).monster;
 	    }
+
+	    userMap[r][c - 1] = character.appearance;
+	    character.setCLocation(c - 1);
 	}
 	updateMazeGraphics();
     }
@@ -98,12 +104,14 @@ public class Engine {
 	if (!(userMap[r][c+1] instanceof Wall)) { //if not blocked by border
 	    autoPickup( r, c+1 );
 	    userMap[r][c] = character.tileUnder;
-	    userMap[r][c + 1] = character.appearance;
-	    character.setCLocation(c + 1);
+
 	    if ( ((Floor) userMap[r][c + 1]).hasMon() ) {
 		character.inBattle = true;
 		monster = ((Floor) userMap[r][c + 1]).monster;
 	    }
+
+	    userMap[r][c + 1] = character.appearance;
+	    character.setCLocation(c + 1);
 	}
     	updateMazeGraphics();
     }

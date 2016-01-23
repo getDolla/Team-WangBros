@@ -200,7 +200,7 @@ public abstract class Character {
     }
 
     public boolean isMiss() {
-        return (Math.random() < speed/50.0 );
+        return (Math.random() < speed/100.0 );
     }
 
     /*

@@ -1,6 +1,6 @@
 public class Floor extends Tile {
     public Item item = new Item( "None", 0 );
-    public Monster monster = genMonster(); // FLAG
+    public Monster monster = new Monster(); // FLAG
 
     public Floor() {
 	super();
@@ -11,12 +11,12 @@ public class Floor extends Tile {
     public Floor( String s ) {
     	this();
     	appearance = s;
-	monster = genMonster();
     }
 
     public Floor(Item item) {
 	this();
 	this.item = item;
+	monster = genMonster();
 
 	if ( hasMon() ) {
 	    appearance = monster.toString();
@@ -29,7 +29,7 @@ public class Floor extends Tile {
     public Floor(Item item, Monster monster) {
 	this(item);
 	this.monster = monster; //FLAG
-	appearance = item.toString();
+	appearance = monster.toString();
     }
 
     private Monster genMonster() {
@@ -56,9 +56,9 @@ public class Floor extends Tile {
 	return (new Monster());
     }
 
-    public boolean hasMon() {
-	monster = genMonster();
-	return (!monster.name.equals("NaBrO"));
+    public boolean hasMon() { //have monster and item
+    	//monster = genMonster();
+		return ((!monster.name.equals("NaBrO")) && (!item.name.equals("None")));
     }
 
     public String toString() {
