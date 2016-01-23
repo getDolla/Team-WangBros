@@ -3,7 +3,7 @@ public class HpPotion extends Consumable {
 
     public HpPotion () {
 	super( "HpPotion", 250 );
-	boost = (int) ( Math.random() * 101 ) + 50;
+	boost = (int) ( Math.random() * 50 ) + 50;
 	used = false;
     }
 

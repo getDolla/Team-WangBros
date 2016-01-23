@@ -315,7 +315,7 @@ public class Engine {
 		pressEnter();
 	    }
 	    else {
-		System.out.println( "You gained " + character.drink(character.healthdrinks.get(0)) + " health." );
+		System.out.println( "You now have " + character.drink(character.healthdrinks.get(0)) + " health." );
 		pressEnter();
 	    }
 	}
@@ -325,7 +325,7 @@ public class Engine {
 		pressEnter();
 	    }
 	    else {
-		System.out.println( "You gained " + character.drink(character.adren.get(0)) + " more speed." );
+		System.out.println( "You now have " + character.drink(character.adren.get(0)) + " speed." );
 		pressEnter();
 	    }
 	}

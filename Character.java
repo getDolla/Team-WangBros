@@ -151,12 +151,12 @@ public abstract class Character {
 
 	    else if ( i instanceof Adrenaline ) {
 		drink((Consumable)i);
-		adren.remove( (Adrenaline) i );
+		//adren.remove( (Adrenaline) i );
 	    }
 	    
 	    else if ( i instanceof HpPotion ) {
 		drink((Consumable)i);
-		healthdrinks.remove( (HpPotion) i );
+		//healthdrinks.remove( (HpPotion) i );
 	    } 
     }
     
@@ -176,12 +176,21 @@ public abstract class Character {
 	    }
 	    
 	    i.used = true;
+	    healthdrinks.remove( (HpPotion) i );
 	    return hp;
 	}
 	else if ( i instanceof Adrenaline ) {
-	    
-	    setSpeed( speed + i.boost );
+	    if (( speed + i.boost ) < 70 ) {
+	    	setSpeed( speed + i.boost );
+	    }
+
+	    else {
+	    	setSpeed( 70 );
+	    }
+
 	    i.used = true;
+	    adren.remove( (Adrenaline) i );
+
 	    return speed;
 	}
 	return 0; //??
