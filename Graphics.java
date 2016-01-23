@@ -4,6 +4,8 @@ public class Graphics {
     public static String[][] stats = new String[5][30]; 
     public static String[][] monStats = new String[6][30];
     public static Object[][] graphics = new Object[15][30]; // Should not include monStats
+    public static Object[][] equipped = new Object[20][20];
+    public static String[][] settings = new String[20][20];
     public static Object[][] Display;
 
     public static String[] convertString( String str ) { //to make array rows
@@ -29,6 +31,22 @@ public class Graphics {
     private static void addTo(Object[][] loc, String[] array, int pos ) {
 	for (int i = 0; i < array.length; i++) {
 	    loc[pos][i] = array[i];
+	}
+    }
+
+    public static void updateEquipped (Character character) {
+	equipped = eraseArray(equipped);
+	addTo(equipped, convertString("Equipped Items:"),0);
+	addTo(equipped, convertString("Armor: "),2);
+	addTo(equipped, convertString("Weapon: "),5);
+	for (int i = 0; i < character.equipped.size(); i++) {
+	    Equipment temp = character.equipped.get(i);
+	    if (temp instanceof Armor) {
+		addTo(equipped, convertString(temp.name), 3);
+	    }
+	    if (temp instanceof Weapon) {
+		addTo(equipped, convertString(temp.name),6);
+	    }
 	}
     }
 
@@ -230,5 +248,38 @@ public class Graphics {
 
     }
 
+    public static Object[][] displayEquippedGraphics() {
+	int size;
+	if (graphics.length > equipped.length) {
+	    size = graphics.length;
+	}
+	else {
+	    size = equipped.length;
+	}
+	Display = new Object[size][equipped[0].length+graphics[0].length+1];
+
+	for (int c = 0; c < equipped.length; c ++) {
+	    for (int i = 0; i < equipped[c].length; i++) {
+		Display[c][i] = equipped[c][i];
+	    }
+	}
+	
+	for (int c = 0; c < graphics.length; c ++) {
+	    for (int i = 0; i < graphics[c].length; i++) {
+
+		Display[c][equipped[0].length + i + 1] = graphics[c][i];
+	    }
+	}
+	//remove nulls
+	
+	for (int c = 0; c < Display.length; c++) {
+	    for (int i = 0; i < Display[c].length; i++) {
+		if (Display[c][i] == null) {
+		    Display[c][i] = " ";
+		}
+	    }
+	}
+	return Display;
+    }
 
 }

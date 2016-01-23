@@ -20,6 +20,8 @@ public class DemoMan extends Character {
 	" | <__>",
 	"/ \\    "}
 			      );
+	
+	attackNames = new String[]{ "Land Mine","Explosive Surge","Impact Bomb","Grenade"};
 
     }
 
@@ -29,9 +31,40 @@ public class DemoMan extends Character {
     }
 
 
-    public String attack1( Monster mon, BattleMap map ){ return "nothing"; }
-    public String attack2( Monster mon, BattleMap map ){ return "nothing"; }
-    public String attack3( Monster mon, BattleMap map ){ return "nothing"; }
-    public String attack4( Monster mon, BattleMap map ){ return "nothing"; }
+    public String attack1( Monster mon, BattleMap map ){ 
+	int temp = 0;
+	if (Math.random() * luck > 20) {
+	    temp = mon.lowerHealthD((int)(damage*1.1));
+	}
+	String s = attackNames[0];
+	
+	return s;
+    }
+    public String attack2( Monster mon, BattleMap map ){
+	int newDamage = ((int)(damage + (damage* (luck / 3000.0))));
+	if (newDamage < 250) {
+	    damage = newDamage;
+	}
+	else {
+	    damage = 250;
+	}
+	String s = attackNames[1];
+	return s;
+    }
+    public String attack3( Monster mon, BattleMap map ){
+	int temp = 0;
+	hp = ((int)(hp* 0.9));
+	temp = mon.lowerHealthD((int)(damage*1.3));
+	String s = attackNames[2];
+	return s;
+    }
+    public String attack4( Monster mon, BattleMap map ){
+       	int temp = mon.lowerHealth(damage);
+	String s = attackNames[3];
+	if(temp == 0) {
+	    s += ", but missed.";
+	}
+	return s;
+    }
 
 }

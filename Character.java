@@ -20,6 +20,7 @@ public abstract class Character {
     public ArrayList<Weapon> sticks = new ArrayList<Weapon>();
     public ArrayList<Adrenaline> adren = new ArrayList<Adrenaline>();
     public ArrayList<HpPotion> healthdrinks = new ArrayList<HpPotion>();
+    public ArrayList<Equipment> equipped = new ArrayList<Equipment>();
 
     public String[] attackNames= new String[4];
     

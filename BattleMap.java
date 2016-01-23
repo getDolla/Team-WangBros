@@ -11,7 +11,7 @@ public class BattleMap {
 	create();
     }
 
-    public void create() {
+    private void create() {
 	for (int c = 0; c < character.image.length; c++ ){
 	    for (int i = 0; i < character.image[0].length; i++) {
 		map[map[c].length - character.image.length + c][i] = character.image[c][i]; // To place in bottom left

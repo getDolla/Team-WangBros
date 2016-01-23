@@ -68,15 +68,19 @@ public class Ninja extends Character {
     }
 
     public String attack3( Monster mon, BattleMap map ) {
-	mon.lowerHealth(damage);
+	int temp = mon.lowerHealth(damage); 
 	int newSpeed = (int) (speed * 1.05);
+	String s = attackNames[2];
+	if( temp == 0 ) {
+		s += ", but missed.";
+	}
 	if (newSpeed <= 70) {
 	    speed = newSpeed;
 	}
 	else {
 	    speed = 70;
 	}
-	return attackNames[2];
+	return s;
     }
 
     public String attack4( Monster mon, BattleMap map ) {

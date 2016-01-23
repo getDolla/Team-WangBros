@@ -89,6 +89,12 @@ public class Monster {
 	return temp;
     }
 
+    public int lowerHealthD( int hit ) { //direct attack
+	int temp = hp;
+	hp -= hit;
+	return temp;
+    }
+
     public boolean isMiss() {
     	return (Math.random() < speed/100.0 );
     }

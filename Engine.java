@@ -188,7 +188,6 @@ public class Engine {
 	    character.printAttacks();
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
-	    // use CurrentTimeMillis along with BattleMap to animate attack FLAG
 	    String attack = "did nothing";
 	    if (in.equals("1")){
 		attack = "used " + character.attack1( monster, battleMap );
@@ -239,7 +238,6 @@ public class Engine {
 	clearConsole();
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
-	Graphics.updateMonStats(monster);
 	Graphics.updateGraphics();
 	printArray(Graphics.displayShopGraphics(shop.shop));
 	Scanner input = new Scanner(System.in);
