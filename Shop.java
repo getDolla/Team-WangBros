@@ -1,5 +1,5 @@
 public class Shop {
-    public String[][] shop = new String[15][30];
+    public String[][] shop = new String[16][30];
 
     public Shop() {
 	displayShop();
