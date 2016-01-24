@@ -11,6 +11,15 @@ public class Engine {
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
 	    for (Object s : f) {
+		System.out.print(s);
+	    }
+	    System.out.println();
+	}
+    }
+
+    public static void printArrayM(Object[][] array) {
+	for (Object[] f : array) {
+	    for (Object s : f) {
 		if (!(s.toString().equals("*"))) {
 		    System.out.print(s);
 		}
@@ -49,7 +58,7 @@ public class Engine {
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
+	printArrayM(Graphics.displayMazeGraphics(userMap));
     }
 
     public static void moveUp(int r, int c) {
