@@ -144,48 +144,37 @@ public abstract class Character {
     }
 
     public void equip( Equipment e ) {
-    boolean isequipped = false;
 
 	if ( e instanceof Weapon) {
 	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
 		if (equipped.get(i) instanceof Weapon) {
 		    sticks.add((Weapon)equipped.get(i));
 		    equipped.remove(i);
-		    isequipped = true;
-		    break;
 		}
 	    }
-	   	if (isequipped || (equipped.size() == 0)) {
+
+
 	    	getBuffI((Weapon)e);
 	    	equipped.add(e);
 	    	sticks.remove(e);
-	    }
+
 	}
 	else if (e instanceof Armor) {
 	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
 		if (equipped.get(i) instanceof Armor) {
 		    armors.add((Armor)equipped.get(i));
 		    equipped.remove(i);
-		    isequipped = true;
-		    break;
 		}
 	    }
 
-	    if( isequipped || (equipped.size() == 0)) {
 	    	setCharStatI((Armor)e);
 	    	equipped.add(e);
 	    	armors.remove(e);
-	    }
 	}
 
-	if (isequipped || (equipped.size() == 0)) {
 	    System.out.println ( "Sucessfully equiped " + e.name );
 	    Engine.pressEnter();
-	}
-	else {
-	    System.out.println ( name + " does not have " + e.name );
-	    Engine.pressEnter();
-	}
+
     }
 
     public void unequip( Equipment e ) {
