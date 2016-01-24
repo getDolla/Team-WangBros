@@ -172,7 +172,7 @@ public abstract class Character {
 	    	armors.remove(e);
 	}
 
-	    System.out.println ( "Sucessfully equipped " + e.name );
+	    System.out.println ( "Sucessfully equipped " + e.name ".");
 	    Engine.pressEnter();
 
     }
@@ -201,11 +201,11 @@ public abstract class Character {
 	    }
 	}
 	if (unequipped) {
-	    System.out.println ( "Sucessfully unequiped " + e.name );
+	    System.out.println ( "Sucessfully unequiped " + e.name + ".");
 	    Engine.pressEnter();
 	}
 	else {
-	    System.out.println ( name + " is not wearing a " + e.name );
+	    System.out.println ( name + " is not wearing a " + e.name + ".");
 	    Engine.pressEnter();
 	}
 

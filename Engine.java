@@ -244,30 +244,30 @@ public class Engine {
 	    character.printAttacks();
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
-	    String attack = character.name + " did nothing";
+	    String attack = character.name + " did nothing.";
 	    if (in.equals("1")){
-		attack = character.name + " used " + character.attack1( monster, battleMap );
+		attack = character.name + " used " + character.attack1( monster, battleMap ) + ".";
 		moveChosen = true;
 	    }
 	    else if (in.equals("2")){
-		attack = character.name + " used " + character.attack2( monster, battleMap );
+		attack = character.name + " used " + character.attack2( monster, battleMap ) + ".";
 		moveChosen = true;
 	    }
 	    else if (in.equals("3")){
-		attack = character.name + " used " + character.attack3( monster, battleMap );
+		attack = character.name + " used " + character.attack3( monster, battleMap ) + ".";
 		moveChosen = true;
 	    }
 	    else if (in.equals("4")){
-		attack = character.name + " used " + character.attack4( monster, battleMap );
+		attack = character.name + " used " + character.attack4( monster, battleMap ) + ".";
 		moveChosen = true;
 	    }
 	    else if (in.equals("5") || in.toUpperCase().equals("RUN")) { // Run Away
 		if (Math.random() * character.getLuck() > 40 ) {
 		    character.inBattle = false;
-		    attack = character.name + " ran away sucessfully";
+		    attack = character.name + " ran away sucessfully.";
 		}
 		else {
-		    attack = character.name + " failed to run away";
+		    attack = character.name + " failed to run away.";
 		}
 		moveChosen = true;
 	    }
@@ -385,7 +385,7 @@ public class Engine {
 	String input = in.nextLine();
 	if (input.equals("1")) {
 	    if (character.healthdrinks.size() == 0) {
-		System.out.println(character.name + " does not have Hp Potions");
+		System.out.println(character.name + " does not have Hp Potions.");
 		pressEnter();
 	    }
 	    else {
@@ -396,7 +396,7 @@ public class Engine {
 	}
 	else if (input.equals("2")) {
 	    if (character.adren.size() == 0) {
-		System.out.println(character.name + " does not have Adrenaline Potions");
+		System.out.println(character.name + " does not have Adrenaline Potions.");
 		pressEnter();
 	    }
 	    else {
