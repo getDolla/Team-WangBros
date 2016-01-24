@@ -385,7 +385,7 @@ public class Engine {
 	String input = in.nextLine();
 	if (input.equals("1")) {
 	    if (character.healthdrinks.size() == 0) {
-		System.out.println(character.name + " do not have Hp Potions");
+		System.out.println(character.name + " does not have Hp Potions");
 		pressEnter();
 	    }
 	    else {

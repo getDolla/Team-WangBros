@@ -305,6 +305,7 @@ public abstract class Character {
 
 	System.out.println( (attackNames.length + 1) + ":Escape" );
 	System.out.println( "Drink:Drink" );
+	System.out.println();
     }
 
 
