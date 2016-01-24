@@ -208,7 +208,7 @@ public class Engine {
 		attack = "used " + character.attack4( monster, battleMap );
 	    }
 	    else if (in.equals("5")) { // Run Away
-		if (Math.random() * character.luck < 30) {
+		if (Math.random() * character.getLuck() > 50 ) {
 		    character.inBattle = false;
 		    attack = "ran away sucessfully";
 		}
@@ -371,7 +371,7 @@ public class Engine {
 	printArray(Graphics.displaySettingsGraphics());
 	Scanner input = new Scanner(System.in);
 	String in = input.nextLine();
-	if (in.toUpperCase().equals("EXIT") ^ in.toUpperCase().equals("BACK")) {
+	if (in.toUpperCase().equals("EXIT") || in.toUpperCase().equals("BACK")) {
 	    character.settingsMode = false;
 	}
 	if (in.equals("1")) {
@@ -384,14 +384,14 @@ public class Engine {
     }
 
     public static void checkEquipment() {
-	String back = "";
-	while (!back.toUpperCase().equals("BACK")){
+	String in = "";
+	while (!((in.toUpperCase().equals("EXIT") ^ in.toUpperCase().equals("BACK")))) {
 	    Scanner esc = new Scanner(System.in);
 	    clearConsole();
 	    Graphics.updateStats(character);
 	    Graphics.updateEquipped(character);
 	    printArray(Graphics.displayEquippedGraphics());
-	    back = esc.nextLine();
+	    in = esc.nextLine();
 	}
     }
     
