@@ -336,7 +336,7 @@ public class Engine {
 	boolean exitMode = false;
 	while(!exitMode) {
 	    clearConsole();
-	    Graphics.updateInventory(Character);
+	    Graphics.updateInventory(character);
 	    Graphics.updateStats(character);
 	    Graphics.updateGraphics();
 	    Graphics.updateEquipping(character);
