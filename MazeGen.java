@@ -212,6 +212,7 @@ public class MazeGen{
 		}
 	    }
 	}
+	((Floor)array[array.length - 2][array[0].length -2]).monster = new Monster(); //So that last tile doesn't have a monster
     }
 
     public static void main( String[] args ) {

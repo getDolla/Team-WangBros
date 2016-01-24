@@ -57,8 +57,7 @@ public class Floor extends Tile {
     }
 
     public boolean hasMon() { //have monster and item
-    	//monster = genMonster();
-		return ((!monster.name.equals("NaBrO")) && (!item.name.equals("None")));
+	return ((!monster.name.equals("NaBrO")) && (!item.name.equals("None")));
     }
 
     public String toString() {
