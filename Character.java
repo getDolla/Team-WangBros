@@ -151,7 +151,7 @@ public abstract class Character {
 		    equipped.remove(i);
 		}
 	    }
-	    getBuff((Weapon)e);
+	    getBuffI((Weapon)e);
 	    equipped.add(e);
 	    sticks.remove(e);
 	}
@@ -162,43 +162,59 @@ public abstract class Character {
 		    equipped.remove(i);
 		}
 	    }
-	    setCharstat((Armor)e);
+	    setCharStatI((Armor)e);
 	    equipped.add(e);
 	    armors.remove(e);
 	}
     }
 
-    public void unequip( String str ) {
-	/*
-	if (str instanceof Light) {
+    public void unequip( Equipment e ) {
+	boolean unequipped = false;
+	System.out.println("WHAT");
+	if ( e instanceof Weapon) {
+	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
+		if (equipped.get(i).equals(e)) {
+		    equipped.remove(i);
+		    System.out.println("D1");
+		    sticks.add((Weapon)e);
+		    getBuffII((Weapon)e);
+		    unequipped = true;
+		}
+	    }
+	}
+	else if (e instanceof Armor) {
 	    
+	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
+		if (equipped.get(i).equals(e)) {
+		    equipped.remove(i);
+		    System.out.println("D2");
+		    armors.add((Armor)e);
+		    setCharStatII((Armor)e);
+		    unequipped = true;
+		}
+	    }
 	}
-	else if (str instanceof Medium) {
-
+	if (unequipped) {
+	    System.out.println ( "Sucessfully unequiped" + e.name );
+      
 	}
-	else if (str instanceof Heavy) {
-
+	else {
+	    System.out.println ( "You are not wearing a" + e.name );
 	}
-	else if (str instanceof Twig) {
 
-	}
-	else if (str instanceof Sword) {
-
-	}
-	else if (str instanceof HpPotion) {
-
-	}
-	else if (str instanceof Adrenaline) {
-
-	}*/
     }
 	
 
 
     
-    public void setCharstat( Armor a ) {
+    public void setCharStatI( Armor a ) { //for equipping
 	setHp( (int) (hp * a.equip()) );
 	setSpeed( speed - a.debuff );
+    }
+
+    public void setCharStatII( Armor a ) { //for removing
+	setHp(normalstats[0]);
+	setSpeed( speed + a.debuff );
     }
 
     public int drink( Consumable i ) {
@@ -232,8 +248,12 @@ public abstract class Character {
 	return 0; //??
     }
 
-    public int getBuff( Weapon i ) {
+    public int getBuffI( Weapon i ) { //for equiping
 	return setDamage( (int) (damage + i.equip()) );
+    }
+
+    public int getBuffII( Weapon i ) { //for equiping
+	return setDamage( (int) (damage - i.equip()) );
     }
 
     public void displaystats() {
@@ -319,6 +339,7 @@ public abstract class Character {
 		if (armors.get(i) instanceof Light) {
 		    armors.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 	    
@@ -332,6 +353,7 @@ public abstract class Character {
 		if (armors.get(i) instanceof Medium) {
 		    armors.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 
@@ -345,6 +367,7 @@ public abstract class Character {
 		if (armors.get(i) instanceof Heavy) {
 		    armors.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 
@@ -358,6 +381,7 @@ public abstract class Character {
 		if (sticks.get(i) instanceof Twig) {
 		    sticks.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 
@@ -371,6 +395,7 @@ public abstract class Character {
 		if (sticks.get(i) instanceof Sword) {
 		    sticks.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 
@@ -384,6 +409,7 @@ public abstract class Character {
 		if (healthdrinks.get(i) instanceof HpPotion) {
 		    healthdrinks.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 
@@ -397,6 +423,7 @@ public abstract class Character {
 		if (adren.get(i) instanceof Adrenaline) {
 		    adren.remove(i);
 		    sold = true;
+		    break;
 		}
 	    }
 

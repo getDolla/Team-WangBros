@@ -335,7 +335,8 @@ public class Graphics {
 
 	addTo(settings,convertString("Settings:"),0);
 	addTo(settings,convertString("1: Equip Items"),2);
-	addTo(settings,convertString("2: Check Equipped"),3);
+	addTo(settings,convertString("2: Unequip Items"),4);
+	addTo(settings,convertString("3: Check Equipped"),6);
 	addTo(settings, convertString("Back"),15);
 
 	for (int c = 0; c < settings.length; c ++) {

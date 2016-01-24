@@ -164,9 +164,6 @@ public class Engine {
 	    else if (in.toUpperCase().equals("DRINK")) {
 		chooseDrink();
 	    }
-	    else if (in.toUpperCase().equals("EQUIP")) {
-		chooseEquipment();
-	    }
 	    else if (in.toUpperCase().equals("SETTINGS")) {
 		character.settingsMode = true;
 		while (character.settingsMode) {
@@ -339,6 +336,7 @@ public class Engine {
 	boolean exitMode = false;
 	while(!exitMode) {
 	    clearConsole();
+	    Graphics.updateInventory(Character);
 	    Graphics.updateStats(character);
 	    Graphics.updateGraphics();
 	    Graphics.updateEquipping(character);
@@ -366,6 +364,31 @@ public class Engine {
 	}	
     }
 
+ public static void removeEquipment() {
+	boolean exitMode = false;
+	while(!exitMode) {
+	    clearConsole();
+	    Graphics.updateInventory(character);
+	    Graphics.updateStats(character);
+	    Graphics.updateGraphics();
+	    Graphics.updateEquipping(character);
+	    Graphics.updateEquipped(character);
+	    printArray(Graphics.displayEquippedGraphics());
+	    Scanner input = new Scanner(System.in);
+	    String in = input.nextLine();
+	    if (in.toUpperCase().equals("BACK") || in.toUpperCase().equals("EXIT")) {
+		exitMode = true;
+	    }
+	    if (character.equipped.size() > 0 && in.toUpperCase().equals(character.equipped.get(0).name.toUpperCase())) {
+		character.unequip(character.equipped.get(0));
+	    }
+	    if (character.equipped.size() > 1 && in.toUpperCase().equals(character.equipped.get(1).name.toUpperCase())) {
+		character.unequip(character.equipped.get(1));
+	    }
+	}	
+    }
+
+
     public static void settings() {
 	clearConsole();
 	printArray(Graphics.displaySettingsGraphics());
@@ -378,6 +401,9 @@ public class Engine {
 	    chooseEquipment();
 	}
 	if (in.equals("2")) {
+	    removeEquipment();
+	}
+	if (in.equals("3")) {
 	    checkEquipment();
 	}
 	

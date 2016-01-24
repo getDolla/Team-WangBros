@@ -49,7 +49,11 @@ public class Tank extends Character{
 
 	String s = attackNames[1];
 	if(!(temp == 0)) {
+<<<<<<< HEAD
+	    mon.setSpeed( 2 );
+=======
 		mon.setSpeed( 2 );
+>>>>>>> 322f62b7ad2563e6dc8def0b0b7e4a083c3be6c8
 	    return s;
 	}
 
@@ -58,7 +62,11 @@ public class Tank extends Character{
 	}
 
     public String attack3( Monster mon, BattleMap map ){ 
+<<<<<<< HEAD
+    	int temp = mon.lowerHealth( (int) (damage + ( damage * ( Math.random() + 0.5 ))) );
+=======
     	int temp = mon.lowerHealth( (int) (damage + ( damage * ( Math.random() + 0.5 ) )));
+>>>>>>> 322f62b7ad2563e6dc8def0b0b7e4a083c3be6c8
     	this.setSpeed( this.getSpeed() - 1 );
 
     	String s = attackNames[2];
