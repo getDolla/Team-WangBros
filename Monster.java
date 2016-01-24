@@ -96,7 +96,7 @@ public class Monster {
     }
 
     public boolean isMiss() {
-    	return (Math.random() < speed/100.0 );
+    	return (Math.random() < (speed/100.0) );
     }
 
     protected static String[][] convertString( String[] array ) { //to make image
