@@ -4,7 +4,7 @@ public class DankMeme extends Character {
 	super();
 	hp = 200;
 	speed = 15;
-	damage = 55;
+	damage = 50;
 	luck = 95;
 
 	money = 0;
@@ -50,24 +50,31 @@ public class DankMeme extends Character {
     public String attack2( Monster mon, BattleMap map ){ 
    	int temp = mon.lowerHealth(damage);
 
-
+   	int newHp = (int) (hp * 1.05);
+	if (newHp < normalstats[0]) {
+	    hp = newHp;
+	}
+	else {
+	    hp = normalstats[0];
+	}
+	
 	String s = attackNames[1];
 
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed. Anyhow, Hp increased slightly";
 	}
 
 	return s;
     }
 
     public String attack3( Monster mon, BattleMap map ){ 
-    int newSpeed = (int) (this.getSpeed() * 1.075 );
+    int newSpeed = (int) (this.getSpeed() * 1.1 );
 
-    if (newSpeed <= 70) {
+    if (newSpeed < normalstats[1] + 30) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = 70;
+	    speed = normalstats[1] + 30;
 	}
 
 	return attackNames[2];

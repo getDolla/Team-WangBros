@@ -144,29 +144,47 @@ public abstract class Character {
     }
 
     public void equip( Equipment e ) {
+    boolean isequipped = false;
+
 	if ( e instanceof Weapon) {
 	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
 		if (equipped.get(i) instanceof Weapon) {
 		    sticks.add((Weapon)equipped.get(i));
 		    equipped.remove(i);
+		    isequipped = true;
 		    break;
 		}
 	    }
-	    getBuffI((Weapon)e);
-	    equipped.add(e);
-	    sticks.remove(e);
+	   	if (isequipped) {
+	    	getBuffI((Weapon)e);
+	    	equipped.add(e);
+	    	sticks.remove(e);
+	    }
 	}
 	else if (e instanceof Armor) {
 	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
 		if (equipped.get(i) instanceof Armor) {
 		    armors.add((Armor)equipped.get(i));
 		    equipped.remove(i);
+		    isequipped = true;
 		    break;
 		}
 	    }
-	    setCharStatI((Armor)e);
-	    equipped.add(e);
-	    armors.remove(e);
+
+	    if( isequipped ) {
+	    	setCharStatI((Armor)e);
+	    	equipped.add(e);
+	    	armors.remove(e);
+	    }
+	}
+
+	if (isequipped) {
+	    System.out.println ( "Sucessfully equiped " + e.name );
+	    Engine.pressEnter();
+	}
+	else {
+	    System.out.println ( name + " does not have " + e.name );
+	    Engine.pressEnter();
 	}
     }
 
@@ -198,7 +216,7 @@ public abstract class Character {
 	    Engine.pressEnter();
 	}
 	else {
-	    System.out.println ( "You are not wearing a " + e.name );
+	    System.out.println ( name + " is not wearing a " + e.name );
 	    Engine.pressEnter();
 	}
 
@@ -236,12 +254,12 @@ public abstract class Character {
 	    return hp;
 	}
 	else if ( i instanceof Adrenaline ) {
-	    if (( speed + i.boost ) < 30 + normalstats[1] ) {
+	    if (( speed + i.boost ) < (30 + normalstats[1]) ) {
 	    	setSpeed( speed + i.boost );
 	    }
 
 	    else {
-	    	setSpeed( 70 );
+	    	setSpeed( (30 + normalstats[1]) );
 	    }
 
 	    i.used = true;
@@ -295,6 +313,9 @@ public abstract class Character {
 	for (int i = 0; i < attackNames.length; i++) {//safer measure is i < 4
 	    System.out.println((i+1) + ":" + attackNames[i] + "\t");
 	}
+
+	System.out.println( (attackNames.length + 1) + ":Escape" );
+	System.out.println( "Drink:Drink" );
     }
 
 
@@ -331,7 +352,7 @@ public abstract class Character {
 	    }
 	}
 	else {
-	    System.out.println("You do not have enough money.");
+	    System.out.println(name + " does not have enough money.");
 	}
 	Engine.pressEnter();
     }
@@ -440,7 +461,7 @@ public abstract class Character {
 	}
 
 	if (!sold ) {
-	    System.out.println("You do not have the item :(.");
+	    System.out.println(name + " does not have the item :(.");
 	}
 
 	Engine.pressEnter();

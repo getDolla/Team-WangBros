@@ -44,16 +44,15 @@ public class MazeCeption {
 	    printTitle();
 	
 	    System.out.println( "Welcome to MazeCeption!" );	
-	
-	    System.out.println( );       
+	    System.out.println();
 	    
 	    while (!chosenName){
 		
-		System.out.println( "What's your name?" );
+		System.out.println( "Enter an awesome name:" );
 		
 		enter = entrance.nextLine();
 		
-		System.out.println( "Your name is "+ enter + ".");
+		System.out.println( "Your character's name is "+ enter + ".");
 		
 		if (confirm()) {
 		    name = enter;
@@ -94,7 +93,10 @@ public class MazeCeption {
 	    System.out.println( "DemoMan" );
 	    System.out.println( "DankMeme" );
 	    System.out.println();
-	
+
+	   	System.out.println( "Type ? or help for manual if you need help" ) ;
+		System.out.println();
+
 	    Scanner in = new Scanner( System.in );
 	
 	    String choice = in.nextLine();
@@ -132,6 +134,10 @@ public class MazeCeption {
 	    
 	    }
 
+	    else if (choice.toUpperCase().equals("HELP") || choice.equals("?")) {
+	    	Engine.help();
+		}
+
 
 	    Engine.clearConsole();
 	    
@@ -155,7 +161,7 @@ public class MazeCeption {
     }
 
     public void showCharinfo( Character c ) {
-	System.out.println( c.name );
+	System.out.println( "\n" + c.name );
 	c.displaystats();
 
 	Engine.printArray( c.image );

@@ -50,7 +50,13 @@ public class Engine {
 	String input = "";
 	while (!input.toUpperCase().equals("BACK")) {
 	    clearConsole();
-	    printArray(Graphics.displayHelpGraphics());
+	    if (input.toUpperCase().equals("ATTACKS")) {
+	    	printArray(Graphics.displayHelpGraphics("A"));
+	    }
+	    else {
+	    	printArray(Graphics.displayHelpGraphics("H"));
+	    }
+
 	    input = in.nextLine();
 	}
     }
@@ -78,7 +84,7 @@ public class Engine {
     }
     
     public final static void pressEnter() {
-	System.out.println("Press enter to continue");
+	System.out.println("Enter something to continue");
 	Scanner con1 = new Scanner(System.in);
 	String contin1 = con1.nextLine();
 	if (contin1.toUpperCase().equals("HELP") || contin1.equals("?")) {
@@ -242,37 +248,37 @@ public class Engine {
 	    character.printAttacks();
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
-	    String attack = "You did nothing";
+	    String attack = character.name + " did nothing";
 	    if (in.equals("1")){
-		attack = "You used " + character.attack1( monster, battleMap );
+		attack = character.name + " used " + character.attack1( monster, battleMap );
 		moveChosen = true;
 	    }
 	    else if (in.equals("2")){
-		attack = "You used " + character.attack2( monster, battleMap );
+		attack = character.name + " used " + character.attack2( monster, battleMap );
 		moveChosen = true;
 	    }
 	    else if (in.equals("3")){
-		attack = "You used " + character.attack3( monster, battleMap );
+		attack = character.name + " used " + character.attack3( monster, battleMap );
 		moveChosen = true;
 	    }
 	    else if (in.equals("4")){
-		attack = "You used " + character.attack4( monster, battleMap );
+		attack = character.name + " used " + character.attack4( monster, battleMap );
 		moveChosen = true;
 	    }
 	    else if (in.equals("5") || in.toUpperCase().equals("RUN")) { // Run Away
 		if (Math.random() * character.getLuck() > 50 ) {
 		    character.inBattle = false;
-		    attack = "You ran away sucessfully";
+		    attack = character.name + " ran away sucessfully";
 		}
 		else {
-		    attack = "You failed to run away";
+		    attack = character.name + " failed to run away";
 		}
 		moveChosen = true;
 	    }
 	    else if (in.toUpperCase().equals("DRINK")) { // Use Items
 		moveChosen = chooseDrink();
 		if (moveChosen) {
-		    attack = "You used an item";
+		    attack = character.name + " used an item";
 		}
 	    }
 	    else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
@@ -292,7 +298,7 @@ public class Engine {
 	    if (monster.hp > 0 && moveChosen) {
 		int h = monster.attack(character, battleMap);
 		updateBattleGraphics();
-		System.out.println(monster.name + " did " + h + " hitpoints.");
+		System.out.println(monster.name + " did " + h + " hit-points.");
 		pressEnter();
 	    }
 	    
@@ -383,22 +389,22 @@ public class Engine {
 	String input = in.nextLine();
 	if (input.equals("1")) {
 	    if (character.healthdrinks.size() == 0) {
-		System.out.println("You do not have Hp Potions");
+		System.out.println(character.name + " do not have Hp Potions");
 		pressEnter();
 	    }
 	    else {
-		System.out.println( "You now have " + character.drink(character.healthdrinks.get(0)) + " health." );
+		System.out.println( character.name + " now have " + character.drink(character.healthdrinks.get(0)) + " health." );
 		pressEnter();
 		retBo = true;
 	    }
 	}
 	else if (input.equals("2")) {
 	    if (character.adren.size() == 0) {
-		System.out.println("You do not have Adrenaline Potions");
+		System.out.println(character.name + " do not have Adrenaline Potions");
 		pressEnter();
 	    }
 	    else {
-		System.out.println( "You now have " + character.drink(character.adren.get(0)) + " speed." );
+		System.out.println( character.name + " now have " + character.drink(character.adren.get(0)) + " speed." );
 		pressEnter();
 		retBo = true;
 	    }

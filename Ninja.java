@@ -3,9 +3,9 @@ public class Ninja extends Character {
 
     public Ninja() {
 	super();
-	hp = 200;
+	hp = 250;
 	speed = 30;
-	damage = 50;
+	damage = 52;
 	luck = 60;
 
 	money = 0;
@@ -26,7 +26,7 @@ public class Ninja extends Character {
 	     "| / \\  "}
 			      );
 
-	attackNames = new String[] { "Munburedo","Kyuketsuki","Surasshu","Kangaeru" }; // Translation = Moon Blade, Vampire, Slash, Meditate
+	attackNames = new String[] { "Munburedo (Moon Blade)","Kyuketsuki (Vampire)","Surasshu (Slash)","Kangaeru (Meditate)" }; // Translation = Moon Blade, Vampire, Slash, Meditate
 
     }
 
@@ -36,7 +36,7 @@ public class Ninja extends Character {
     }
 
     public String attack1( Monster mon, BattleMap map ) {
-	int temp = mon.lowerHealth(damage + (int)(damage * speed / 100.0));
+	int temp = mon.lowerHealth(damage + (int)(damage * speed / 120.0));
 
 	String s = attackNames[0];
 
@@ -49,12 +49,12 @@ public class Ninja extends Character {
 
     public String attack2( Monster mon, BattleMap map ) {
 	int temp = mon.lowerHealth(damage); 
-	int newHp = hp + (int)(damage/2.0);
-	if (newHp <= normalstats[0]) {
+	int newHp = hp + (int)(damage/3.0);
+	if (newHp < normalstats[0]) {
 	    hp = newHp;
 	}
 	else {
-	    hp = 200;
+	    hp = normalstats[0];
 	}
 	
 	String s = attackNames[0];
@@ -74,22 +74,22 @@ public class Ninja extends Character {
 	if( temp == 0 ) {
 		s += ", but missed.";
 	}
-	if (newSpeed <= normalstats[1] + 40 ) {
+	if (newSpeed < normalstats[1] + 30 ) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = normalstats[1] + 40;
+	    speed = normalstats[1] + 30;
 	}
 	return s;
     }
 
     public String attack4( Monster mon, BattleMap map ) {
-	int newSpeed = (int) (speed * 1.1);
-	if (newSpeed <= normalstats[1] + 40) {
+	int newSpeed = (int) (speed * 1.15);
+	if (newSpeed < normalstats[1] + 30) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = normalstats[1] + 40;
+	    speed = normalstats[1] + 30;
 	}
 	return attackNames[3];
     }

@@ -3,7 +3,7 @@ public class Tank extends Character{
 	super();
 	hp = 500;
 	speed = 10;
-	damage = 85;
+	damage = 80;
 	luck = 60;
 
 	money = 0;
@@ -45,7 +45,7 @@ public class Tank extends Character{
     }
 
     public String attack2( Monster mon, BattleMap map ){ 
-    int temp = mon.lowerHealth( (int ) ( damage + (0.4 * damage * Math.random()) )) ;
+    int temp = mon.lowerHealth( (int ) ( 0.8 * damage + (0.4 * damage * Math.random()) )) ;
 
 	String s = attackNames[1];
 	if(!(temp == 0)) {

@@ -3,7 +3,7 @@ public class DemoMan extends Character {
 	super();
 	hp = 300;
 	speed = 15;
-	damage = 100;
+	damage = 90;
 	luck = 60;
 
 	money = 0;
@@ -34,7 +34,11 @@ public class DemoMan extends Character {
     public String attack1( Monster mon, BattleMap map ){ 
 	int temp = 0;
 	if (Math.random() * luck > 25) {
-	    temp = mon.lowerHealthD((int)(damage*1.4));
+	    temp = mon.lowerHealth((int)(damage*1.4));
+	}
+
+	else {
+		temp = mon.lowerHealth(damage);
 	}
 	
 	String s = attackNames[0];
@@ -75,10 +79,18 @@ public class DemoMan extends Character {
 
     public String attack4( Monster mon, BattleMap map ){
     int temp = mon.lowerHealth(damage);
+    int newSpeed = (int) (speed * 1.05);
+
+    if (newSpeed < normalstats[1] + 30) {
+	    speed = newSpeed;
+	}
+	else {
+	    speed = normalstats[1] + 30;
+	}
 
 	String s = attackNames[3];
 	if(temp == 0) {
-	    s += ", but missed.";
+	    s += ", but missed. However, speed increased slightly";
 	}
 	return s;
     }

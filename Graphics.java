@@ -9,6 +9,7 @@ public class Graphics {
     public static Equipment[] avalEquips = new Equipment[5];
     public static String[][] settings = new String[17][25];
     public static String[][] helpScreen = (new Help()).helpScreen;
+    public static String[][] attackinfo = (new Help()).attackinfo;
     public static Object[][] display;
 
     public static String[] convertString( String str ) { //to make array rows
@@ -401,16 +402,25 @@ public class Graphics {
 	return display;
     }
 
-    public static Object[][] displayHelpGraphics() {
-	int size;
-	for (int c = 0; c < helpScreen.length; c++) {
-	    for (int i = 0; i < helpScreen[c].length; i++) {
-		if (helpScreen[c][i] == null) {
-		    helpScreen[c][i] = " ";
+    public static Object[][] displayHelpGraphics(String s) {
+    String[][] array;
+
+	if( s.toUpperCase().equals("A") ) {
+		array = attackinfo;
+	}
+
+	else {
+		array = helpScreen;
+	}
+
+	for (int c = 0; c < array.length; c++) {
+	    for (int i = 0; i < array[c].length; i++) {
+		if (array[c][i] == null) {
+		    array[c][i] = " ";
 		}
 	    }
 	}
-	return helpScreen;
+	return array;
     }
 
 }
