@@ -172,7 +172,7 @@ public abstract class Character {
 	    	armors.remove(e);
 	}
 
-	    System.out.println ( "Sucessfully equiped " + e.name );
+	    System.out.println ( "Sucessfully equipped " + e.name );
 	    Engine.pressEnter();
 
     }
