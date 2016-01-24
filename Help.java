@@ -1,5 +1,5 @@
 public class Help {
-    public String[][] helpScreen = new String[44][60];
+    public String[][] helpScreen = new String[46][60];
     public String[][] attackinfo = new String[30][60];
 
     public Help() {
@@ -24,47 +24,53 @@ public class Help {
     public void create() {
 	addTo(helpScreen, convertString( "Help Center:" ), 0);
 
-	addTo(helpScreen, convertString( "Enter w,a,s,d to move in" ), 2);
-	addTo(helpScreen, convertString( "the maze."),3);
+	addTo(helpScreen, convertString( "Your goal is to reach the" ), 2 );
+	addTo(helpScreen, convertString( "last corner of the last row in the maze" ), 3 );
 
-	addTo(helpScreen, convertString( "Enter 1,2,3,4 to use the" ), 5);
-	addTo(helpScreen, convertString( "corresponding attacks in" ), 6);
-	addTo(helpScreen, convertString( "battle." ),7);
+	addTo(helpScreen, convertString( "Moving in the maze:" ), 5);
+	addTo(helpScreen, convertString( "Enter w,a,s,d to move in the maze." ), 6);
 
-	addTo(helpScreen, convertString( "Enter 5 or run to run away" ), 9);
-	addTo(helpScreen, convertString( "from battle (uses Luck)." ), 10);
+  
+	addTo(helpScreen, convertString( "Using consumables: "),8);
+	addTo(helpScreen, convertString( "Enter drink anywhere to use a consumable. " ),9);
+	addTo(helpScreen, convertString( "Hp potions (type 1 to use) boosts" ), 10);
+	addTo(helpScreen, convertString( "health while adrenaline (2) boosts speed." ), 11);
+	
+	addTo(helpScreen, convertString( "Attacking: "), 13);
+	addTo(helpScreen, convertString( "Enter 1,2,3,4 to use the" ), 14);
+	addTo(helpScreen, convertString( "corresponding attacks in battle." ), 15);
 
-	addTo(helpScreen, convertString( "Enter drink anywhere to " ),12);
-	addTo(helpScreen, convertString( "use a consumable. Hp potions (type 1 to use) boosts" ), 13);
-	addTo(helpScreen, convertString( "health while adrenaline (2) boosts speed." ), 14);
+	addTo(helpScreen, convertString( "Enter 5 or run to run away" ), 16);
+	addTo(helpScreen, convertString( "from battle (uses Luck)." ), 17);
 
-	addTo(helpScreen, convertString( "Enter settings in the maze" ), 16);
-	addTo(helpScreen, convertString( "to check (type 3), equip (1), or unequip items (2)." ),18);
-	addTo(helpScreen, convertString( "To change equipment, type the name"), 19);
-	addTo(helpScreen, convertString( "of the equipment you want to equip/unequip."), 20);
 
-	addTo(helpScreen, convertString( "Enter B (buy) or S (sell) and " ),22);
-	addTo(helpScreen, convertString( "a number corresponding to the" ), 23);
-	addTo(helpScreen, convertString( "item in shop screen. (ex: B1)" ),24);
-	addTo(helpScreen, convertString( "Enter exit to exit the shop." ),25);
+	addTo(helpScreen, convertString( "Equipment: "), 19);
+	addTo(helpScreen, convertString( "Enter settings in the maze." ), 20);
+	addTo(helpScreen, convertString( "To check (type 3), equip (1), or unequip items (2)." ),21);
+	addTo(helpScreen, convertString( "To change equipment, type the name"), 22);
+	addTo(helpScreen, convertString( "of the equipment you want to equip/unequip."), 23);
 
-	addTo(helpScreen, convertString( "Your goal is to reach the" ), 27 );
-	addTo(helpScreen, convertString( "last corner of the last row in" ), 28 );
-	addTo(helpScreen, convertString( "the maze." ), 29 );
+	addTo(helpScreen, convertString( "Store: "),25);
+	addTo(helpScreen, convertString( "Enter B (buy) or S (sell) and " ),26);
+	addTo(helpScreen, convertString( "a number corresponding to the" ), 27);
+	addTo(helpScreen, convertString( "item in shop screen. (ex: B1)" ),28);
+	addTo(helpScreen, convertString( "Enter exit to exit the shop." ),29);
 
-	addTo(helpScreen, convertString( "Hp = health" ), 31 );
-	addTo(helpScreen, convertString( "Speed = chance for enemy to miss" ), 32 );
-	addTo(helpScreen, convertString( "Damage = base damage dealth to enemy" ), 33 );
-	addTo(helpScreen, convertString( "Luck = chance to escape" ), 34 );
 
-	addTo(helpScreen, convertString( "If there is a back on the " ), 36);
-	addTo(helpScreen, convertString( "bottom-left of the screen," ),37);
-	addTo(helpScreen, convertString( "you can enter back to return" ),38);
-	addTo(helpScreen, convertString( "to where you were." ),39);
+	addTo(helpScreen, convertString( "General:"), 31);
+	addTo(helpScreen, convertString( "Hp = health" ), 32 );
+	addTo(helpScreen, convertString( "Speed = chance for enemy to miss" ), 33 );
+	addTo(helpScreen, convertString( "Damage = base damage dealth to enemy" ), 34 );
+	addTo(helpScreen, convertString( "Luck = chance to escape" ), 35 );
 
-	addTo(helpScreen, convertString( "Enter attacks below to learn about each character's attacks." ),41);
+	addTo(helpScreen, convertString( "If there is a back on the " ), 37);
+	addTo(helpScreen, convertString( "bottom-left of the screen," ),38);
+	addTo(helpScreen, convertString( "you can enter back to return" ),39);
+	addTo(helpScreen, convertString( "to where you were." ),40);
 
-	addTo(helpScreen, convertString( "Back" ),43);
+	addTo(helpScreen, convertString( "Enter attacks below to learn about each character's attacks." ),42);
+
+	addTo(helpScreen, convertString( "Back" ),44);
     }
 
     public void showattackinfo() {
