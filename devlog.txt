@@ -20,6 +20,11 @@ Testing Versions: (Currently only Ninja can be chosen and Snakes fought)
 
 
 Functional Versions:
+
+v.2.6 1/24/16 Richard Wang
+- There are help texts!
+- Mazes now expand
+
 v.2.5 01-23-16 Richard Wang
 - Equipping Works!
 - Settings Screen has been created
