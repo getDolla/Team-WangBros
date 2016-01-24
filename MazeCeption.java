@@ -94,7 +94,7 @@ public class MazeCeption {
 	    System.out.println( "DankMeme" );
 	    System.out.println();
 
-	   	System.out.println( "Type ? or help for manual if you need help" ) ;
+	   	System.out.println( "Type ? or help for a manual if you need help" ) ;
 		System.out.println();
 
 	    Scanner in = new Scanner( System.in );

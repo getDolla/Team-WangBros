@@ -1,5 +1,5 @@
 public class Help {
-    public String[][] helpScreen = new String[46][60];
+    public String[][] helpScreen = new String[46][62];
     public String[][] attackinfo = new String[30][60];
 
     public Help() {
@@ -68,7 +68,7 @@ public class Help {
 	addTo(helpScreen, convertString( "you can enter back to return" ),39);
 	addTo(helpScreen, convertString( "to where you were." ),40);
 
-	addTo(helpScreen, convertString( "Enter attacks below to learn about each character's attacks." ),42);
+	addTo(helpScreen, convertString( "Enter 'attacks' below to learn about each character's attacks." ),42);
 
 	addTo(helpScreen, convertString( "Back" ),44);
     }
