@@ -39,7 +39,7 @@ public class Tank extends Character{
 
 		String s = attackNames[0];
 		if(temp == 0) {
-	    	s += ", but missed.";
+	    	s += ", but missed";
 		}
 		return s;
     }
@@ -54,7 +54,7 @@ public class Tank extends Character{
 	    return s;
 	}
 
-	s += ", but missed.";
+	s += ", but missed";
 	return s;
 	}
 
@@ -65,7 +65,7 @@ public class Tank extends Character{
 
     	String s = attackNames[2];
 		if(temp == 0) {
-	    	s += ", but missed.";
+	    	s += ", but missed";
 		}
 		return s;
     }
@@ -75,7 +75,7 @@ public class Tank extends Character{
 
     	String s = attackNames[3];
 	if(temp == 0) {
-	    	s += ", but missed.";
+	    	s += ", but missed";
 		}
 		return s;
     }

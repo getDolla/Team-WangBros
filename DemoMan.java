@@ -44,7 +44,7 @@ public class DemoMan extends Character {
 	String s = attackNames[0];
 
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed";
 	}
 
 	return s;

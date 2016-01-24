@@ -41,7 +41,7 @@ public class Ninja extends Character {
 	String s = attackNames[0];
 
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed";
 	}
 
 	return s;
@@ -60,7 +60,7 @@ public class Ninja extends Character {
 	String s = attackNames[0];
 
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed";
 	}
 
 	return s;
@@ -72,7 +72,7 @@ public class Ninja extends Character {
 	int newSpeed = (int) (speed * 1.05);
 	String s = attackNames[2];
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed";
 	}
 	if (newSpeed < normalstats[1] + 30 ) {
 	    speed = newSpeed;

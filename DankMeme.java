@@ -41,7 +41,7 @@ public class DankMeme extends Character {
 	String s = attackNames[0];
 
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed";
 	}
 
 	return s;
@@ -86,7 +86,7 @@ public class DankMeme extends Character {
 	String s = attackNames[3];
 
 	if( temp == 0 ) {
-		s += ", but missed.";
+		s += ", but missed";
 	}
 
 	return s;  	
