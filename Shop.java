@@ -30,7 +30,7 @@ public class Shop {
 	addTo(shop,convertString(  "6.Twig: " + (new Twig()).price),7);
 	addTo(shop,convertString(  "7.Sword: " + (new Sword()).price),8);
 
-
+	addTo(shop, convertString( "Exit (return to maze)" ), 14);
     }
 }
 
