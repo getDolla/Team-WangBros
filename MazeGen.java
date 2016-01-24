@@ -154,7 +154,7 @@ public class MazeGen{
     removeStrings( array );
     //showMaze( array );
 
-    array[array.length-1][array[array.length-1].length] = new Floor();
+    array[array.length-1][array[array.length-1].length-1] = new Floor();
 
     return array;
     }
