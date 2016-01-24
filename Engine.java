@@ -266,7 +266,7 @@ public class Engine {
 		moveChosen = true;
 	    }
 	    else if (in.equals("5") || in.toUpperCase().equals("RUN")) { // Run Away
-		if (Math.random() * character.getLuck() > 50 ) {
+		if (Math.random() * character.getLuck() > 40 ) {
 		    character.inBattle = false;
 		    attack = character.name + " ran away sucessfully";
 		}
