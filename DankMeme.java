@@ -81,7 +81,7 @@ public class DankMeme extends Character {
     }
 
     public String attack4( Monster mon, BattleMap map ){
-     int temp = mon.lowerHealth( (int) (damage * 0.5) + (int)( (damage * luck * Math.random()) / 250.0));
+     int temp = mon.lowerHealth( (int) (damage * 0.5) + (int)( (damage * luck * Math.random()) / 100.0));
 
 	String s = attackNames[3];
 
