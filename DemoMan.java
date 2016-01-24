@@ -47,12 +47,12 @@ public class DemoMan extends Character {
     }
 
     public String attack2( Monster mon, BattleMap map ){
-	int newDamage = ((int)(damage + (damage * (( Math.random() * luck / 3000.0)))));
-	if (newDamage < 250) {
+	int newDamage = ((int)(damage + (damage * (( Math.random() * luck / 2000.0)))));
+	if (newDamage < normalstats[2]+100) {
 	    damage = newDamage;
 	}
 	else {
-	    damage = 250;
+	    damage = normalstats[2]+100;
 	}
 	String s = attackNames[1];
 	return s;
@@ -60,14 +60,15 @@ public class DemoMan extends Character {
 
     public String attack3( Monster mon, BattleMap map ){
 	int temp = 0;
-	hp = ((int)(hp* 0.9));
-	temp = mon.lowerHealthD((int)(damage*1.3));
-	
-	String s = attackNames[2];
-
-	if( temp == 0 ) {
-		s += ", but missed.";
+	double hpLoss = (hp* 0.1);
+	hp = ((int)(hp - hpLoss));
+	if (damage/(hpLoss) > 75) {
+	    temp = mon.lowerHealthD((int)(damage*1.3) + 75);
 	}
+	else {
+	    temp = mon.lowerHealthD((int)(damage*1.3 + (damage/hpLoss)));
+	}
+	String s = attackNames[2];
 
 	return s;
     }

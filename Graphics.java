@@ -8,6 +8,7 @@ public class Graphics {
     public static String[][] equipping = new String[17][25];
     public static Equipment[] avalEquips = new Equipment[5];
     public static String[][] settings = new String[17][25];
+    public static String[][] helpScreen = (new Help()).helpScreen;
     public static Object[][] display;
 
     public static String[] convertString( String str ) { //to make array rows
@@ -234,7 +235,7 @@ public class Graphics {
 	    for (int i = 0; i < monStats[c].length; i++) {
 		display[c + graphics.length ][battleMap[0].length + i + 2] = monStats[c][i]; 
 	    }
-	    display[c][battleMap[0].length+1] = "|";
+	    display[c+ graphics.length ][battleMap[0].length+1] = "|";
 	}
 
 	//remove nulls
@@ -398,6 +399,18 @@ public class Graphics {
 	    }
 	}
 	return display;
+    }
+
+    public static Object[][] displayHelpGraphics() {
+	int size;
+	for (int c = 0; c < helpScreen.length; c++) {
+	    for (int i = 0; i < helpScreen[c].length; i++) {
+		if (helpScreen[c][i] == null) {
+		    helpScreen[c][i] = " ";
+		}
+	    }
+	}
+	return helpScreen;
     }
 
 }

@@ -6,7 +6,18 @@ public class Engine {
     public static BattleMap battleMap;
     public static Shop shop = new Shop();
     public static Monster monster; // only one monster to exist at a time
+    public static int stage = 1;
 
+
+    public static String defaultc = "\u001B[0m";
+    public static String blackc = "\u001B[30m";
+    public static String redc = "\u001B[31m";
+    public static String greenc = "\u001B[32m";
+    public static String yellowc = "\u001B[33m";
+    public static String bluec = "\u001B[34m";
+    public static String purplec = "\u001B[35m";
+    public static String cyanc = "\u001B[36m";
+    public static String whitec = "\u001B[37m";
 
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
@@ -18,21 +29,41 @@ public class Engine {
     }
 
     public static void printArrayM(Object[][] array) {
-	for (Object[] f : array) {
-	    for (Object s : f) {
-		if (!(s.toString().equals("*"))) {
-		    System.out.print(s);
+	for (int f = 0; f < array.length; f++) {
+	    for (int s = 0; s < array[0].length; s++) {
+	        if ((array[f][s].toString()).equals("*") && f < userMap.length && s < userMap[0].length) {
+		    System.out.print(cyanc + array[f][s] + defaultc);
+		}
+		else if (((array[f][s].toString()).equals("-") || (array[f][s].toString()).equals("|")) && f < userMap.length && s < userMap[0].length) {
+		    System.out.print(redc + array[f][s] + defaultc);
 		}
 		else {
-		    System.out.print("\u001B[35m" + s + "\u001B[0m");
+		    System.out.print(array[f][s]);
 		}
 	    }
 	    System.out.println();
 	}
     }
 
+    public static void help() {
+	Scanner in = new Scanner(System.in);
+	String input = "";
+	while (!input.toUpperCase().equals("BACK")) {
+	    clearConsole();
+	    printArray(Graphics.displayHelpGraphics());
+	    input = in.nextLine();
+	}
+    }
+
     public static void fillMap() {
-	MazeGen john = new MazeGen( 10, 10 );
+	int mapSize;
+	if (stage > 15) {
+	    mapSize = 15;
+	}
+	else {
+	    mapSize = 10 + stage;
+	}
+	MazeGen john = new MazeGen( mapSize, mapSize + 1);
 
 	userMap = MazeGen.generate( john.maze );
 	 
@@ -50,6 +81,9 @@ public class Engine {
 	System.out.println("Press enter to continue");
 	Scanner con1 = new Scanner(System.in);
 	String contin1 = con1.nextLine();
+	if (contin1.toUpperCase().equals("HELP") || contin1.equals("?")) {
+	    help();
+	}
     }
 
     private static void updateMazeGraphics(){
@@ -136,6 +170,7 @@ public class Engine {
 	if(isEnd()) { 
 	    fillMap();
 	    character.isShopping = true;
+	    stage++;
 	    while (character.isShopping) {
 		shop();
 	    }
@@ -155,7 +190,7 @@ public class Engine {
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
-	printArray(Graphics.displayMazeGraphics(userMap));
+	printArrayM(Graphics.displayMazeGraphics(userMap));
 	if (!(character.inBattle) && !(character.isShopping)) {	
 	    String in = input.nextLine();
 	    if (in.toUpperCase().equals("W")) { //FPS keys :D
@@ -179,7 +214,13 @@ public class Engine {
 		    settings();
 		}
 	    }
-	    
+	    else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
+		help();
+	    }
+	    else {
+	        System.out.println("\nConfused? Enter ? or help for help.");
+		pressEnter();
+	    }
 	    
 	}
     }
@@ -196,48 +237,62 @@ public class Engine {
 
     public static void battle() {
 	while ( monster.hp > 0 && character.hp > 0 ) {
+	    boolean moveChosen = false;
 	    updateBattleGraphics();
 	    character.printAttacks();
 	    Scanner input = new Scanner(System.in);
 	    String in = input.nextLine();
-	    String attack = "did nothing";
+	    String attack = "You did nothing";
 	    if (in.equals("1")){
-		attack = "used " + character.attack1( monster, battleMap );
+		attack = "You used " + character.attack1( monster, battleMap );
+		moveChosen = true;
 	    }
 	    else if (in.equals("2")){
-		attack = "used " + character.attack2( monster, battleMap );
+		attack = "You used " + character.attack2( monster, battleMap );
+		moveChosen = true;
 	    }
 	    else if (in.equals("3")){
-		attack = "used " + character.attack3( monster, battleMap );
+		attack = "You used " + character.attack3( monster, battleMap );
+		moveChosen = true;
 	    }
 	    else if (in.equals("4")){
-		attack = "used " + character.attack4( monster, battleMap );
+		attack = "You used " + character.attack4( monster, battleMap );
+		moveChosen = true;
 	    }
-	    else if (in.equals("5")) { // Run Away
+	    else if (in.equals("5") || in.toUpperCase().equals("RUN")) { // Run Away
 		if (Math.random() * character.getLuck() > 50 ) {
 		    character.inBattle = false;
-		    attack = "ran away sucessfully";
+		    attack = "You ran away sucessfully";
 		}
 		else {
-		    attack = "failed to run away";
+		    attack = "You failed to run away";
+		}
+		moveChosen = true;
+	    }
+	    else if (in.toUpperCase().equals("DRINK")) { // Use Items
+		moveChosen = chooseDrink();
+		if (moveChosen) {
+		    attack = "You used an item";
 		}
 	    }
-	    else if (in.equals("6")) { // Use Items
-		
+	    else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
+		help();
 	    }
-	    // use CurrentTimeMillis along with BattleMap for monster attack FLAG
+	    else {
+		attack += "\nConfused? Enter ? or help for help.";
+	    }
 	    updateBattleGraphics();
-	    System.out.println("You " + attack);
+	    System.out.println(attack);
 
 	    pressEnter();
 	    if (!character.inBattle){ //ran away
 		break;
 	    }
 	    
-	    if (monster.hp > 0) {
+	    if (monster.hp > 0 && moveChosen) {
 		int h = monster.attack(character, battleMap);
 		updateBattleGraphics();
-		System.out.println(monster.name + " did " + h + " hit points.");
+		System.out.println(monster.name + " did " + h + " hitpoints.");
 		pressEnter();
 	    }
 	    
@@ -309,12 +364,19 @@ public class Engine {
 	else if (in.toUpperCase().equals("S7")) {
 	    character.sell(new Sword());
 	}
-
+	else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
+	    help();
+	}
+	else {
+	    System.out.println( "\nConfused? Enter ? or help for help.");
+	    pressEnter();
+	}
 	
     }
 
 
-    public static void chooseDrink() {
+    public static boolean chooseDrink() {
+	boolean retBo = false;
 	System.out.println("Choose a drink: ");
 	System.out.println("1. HpPotion \t 2. Adrenaline");
 	Scanner in = new Scanner(System.in);
@@ -327,6 +389,7 @@ public class Engine {
 	    else {
 		System.out.println( "You now have " + character.drink(character.healthdrinks.get(0)) + " health." );
 		pressEnter();
+		retBo = true;
 	    }
 	}
 	else if (input.equals("2")) {
@@ -337,11 +400,13 @@ public class Engine {
 	    else {
 		System.out.println( "You now have " + character.drink(character.adren.get(0)) + " speed." );
 		pressEnter();
+		retBo = true;
 	    }
 	}
+	return retBo;
     }
 
-    public static void chooseEquipment() {
+    public static boolean chooseEquipment() {
 	boolean exitMode = false;
 	while(!exitMode) {
 	    clearConsole();
@@ -355,25 +420,33 @@ public class Engine {
 	    if (in.toUpperCase().equals("BACK") || in.toUpperCase().equals("EXIT")) {
 		exitMode = true;
 	    }
-	    if (Graphics.avalEquips[0] != null && in.toUpperCase().equals(Graphics.avalEquips[0].name.toUpperCase())) {
+	    else if (Graphics.avalEquips[0] != null && in.toUpperCase().equals(Graphics.avalEquips[0].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[0]);
 	    }
-	    if (Graphics.avalEquips[1] != null && in.toUpperCase().equals(Graphics.avalEquips[1].name.toUpperCase())) {
+	    else if (Graphics.avalEquips[1] != null && in.toUpperCase().equals(Graphics.avalEquips[1].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[1]);
 	    }
-	    if (Graphics.avalEquips[2] != null && in.toUpperCase().equals(Graphics.avalEquips[2].name.toUpperCase())) {
+	    else if (Graphics.avalEquips[2] != null && in.toUpperCase().equals(Graphics.avalEquips[2].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[2]);
 	    }
-	    if (Graphics.avalEquips[3] != null && in.toUpperCase().equals(Graphics.avalEquips[3].name.toUpperCase())) {
+	    else if (Graphics.avalEquips[3] != null && in.toUpperCase().equals(Graphics.avalEquips[3].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[3]);
 	    }
-	    if (Graphics.avalEquips[4] != null && in.toUpperCase().equals(Graphics.avalEquips[4].name.toUpperCase())) {
+	    else if (Graphics.avalEquips[4] != null && in.toUpperCase().equals(Graphics.avalEquips[4].name.toUpperCase())) {
 		character.equip( Graphics.avalEquips[4]);
 	    }
-	}	
+	    else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
+		help();
+	    }
+	    else if (!exitMode){
+		System.out.println("\nConfused? Enter ? or help for help.");
+		pressEnter();
+	    }
+	}
+	return exitMode;
     }
 
- public static void removeEquipment() {
+ public static boolean removeEquipment() {
 	boolean exitMode = false;
 	while(!exitMode) {
 	    clearConsole();
@@ -388,17 +461,27 @@ public class Engine {
 	    if (in.toUpperCase().equals("BACK") || in.toUpperCase().equals("EXIT")) {
 		exitMode = true;
 	    }
-	    if (character.equipped.size() > 0 && in.toUpperCase().equals(character.equipped.get(0).name.toUpperCase())) {
+	    else if (character.equipped.size() > 0 && in.toUpperCase().equals(character.equipped.get(0).name.toUpperCase())) {
 		character.unequip(character.equipped.get(0));
 	    }
-	    if (character.equipped.size() > 1 && in.toUpperCase().equals(character.equipped.get(1).name.toUpperCase())) {
+	    else if (character.equipped.size() > 1 && in.toUpperCase().equals(character.equipped.get(1).name.toUpperCase())) {
 		character.unequip(character.equipped.get(1));
 	    }
-	}	
+	    else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
+		help();
+	    }
+	    else if (!exitMode){
+		System.out.println("\nConfused? Enter ? or help for help.");
+		pressEnter();
+	    }
+	}
+	return exitMode;
+	
     }
 
 
     public static void settings() {
+	boolean help = false; // to prevent extra help popup
 	clearConsole();
 	printArray(Graphics.displaySettingsGraphics());
 	Scanner input = new Scanner(System.in);
@@ -407,18 +490,24 @@ public class Engine {
 	    character.settingsMode = false;
 	}
 	if (in.equals("1")) {
-	    chooseEquipment();
+	    help = chooseEquipment();
 	}
 	if (in.equals("2")) {
-	    removeEquipment();
+	    help = removeEquipment();
 	}
 	if (in.equals("3")) {
-	    checkEquipment();
+	    help = checkEquipment();
 	}
-	
+	else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
+	    help();
+	}
+	else if (character.settingsMode && !help){
+	    System.out.println("\nConfused? Enter ? or help for help.");
+	    pressEnter();
+	}
     }
 
-    public static void checkEquipment() {
+    public static boolean checkEquipment() {
 	String in = "";
 	while (!((in.toUpperCase().equals("EXIT") ^ in.toUpperCase().equals("BACK")))) {
 	    Scanner esc = new Scanner(System.in);
@@ -428,6 +517,7 @@ public class Engine {
 	    printArray(Graphics.displayEquippedGraphics());
 	    in = esc.nextLine();
 	}
+	return true;
     }
     
 }

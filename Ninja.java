@@ -74,22 +74,22 @@ public class Ninja extends Character {
 	if( temp == 0 ) {
 		s += ", but missed.";
 	}
-	if (newSpeed <= 70) {
+	if (newSpeed <= normalstats[1] + 40 ) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = 70;
+	    speed = normalstats[1] + 40;
 	}
 	return s;
     }
 
     public String attack4( Monster mon, BattleMap map ) {
 	int newSpeed = (int) (speed * 1.1);
-	if (newSpeed <= 70) {
+	if (newSpeed <= normalstats[1] + 40) {
 	    speed = newSpeed;
 	}
 	else {
-	    speed = 70;
+	    speed = normalstats[1] + 40;
 	}
 	return attackNames[3];
     }

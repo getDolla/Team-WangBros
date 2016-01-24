@@ -172,12 +172,10 @@ public abstract class Character {
 
     public void unequip( Equipment e ) {
 	boolean unequipped = false;
-	//System.out.println("WHAT");
 	if ( e instanceof Weapon) {
 	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
 		if (equipped.get(i).equals(e)) {
 		    equipped.remove(i);
-		    //System.out.println("D1");
 		    sticks.add((Weapon)e);
 		    getBuffII((Weapon)e);
 		    unequipped = true;
@@ -189,7 +187,6 @@ public abstract class Character {
 	    for (int i = 0; i < equipped.size(); i ++) { //to remove existing item
 		if (equipped.get(i).equals(e)) {
 		    equipped.remove(i);
-		    //System.out.println("D2");
 		    armors.add((Armor)e);
 		    setCharStatII((Armor)e);
 		    unequipped = true;
@@ -197,11 +194,12 @@ public abstract class Character {
 	    }
 	}
 	if (unequipped) {
-	    System.out.println ( "Sucessfully unequiped" + e.name );
-      
+	    System.out.println ( "Sucessfully unequiped " + e.name );
+	    Engine.pressEnter();
 	}
 	else {
-	    System.out.println ( "You are not wearing a" + e.name );
+	    System.out.println ( "You are not wearing a " + e.name );
+	    Engine.pressEnter();
 	}
 
     }
@@ -210,17 +208,17 @@ public abstract class Character {
 
     
     public void setCharStatI( Armor a ) { //for equipping
-    normalstats[0] = normalstats[0] * a.equip();
-    normalstats[1] = normalstats[1] - a.debuff;
+	normalstats[0] = ((int)(normalstats[0] * a.equip()));
+	normalstats[1] = ((int)(normalstats[1] - a.debuff));
 	setHp( (int) (hp * a.equip()) );
-	setSpeed( speed - a.debuff );
+	setSpeed((int)( speed - a.debuff) );
     }
 
     public void setCharStatII( Armor a ) { //for removing
-    normalstats[0] = normalstats[0] / a.equip();
-    normalstats[1] = normalstats[1] + a.debuff;
-	setHp( (int) hp / a.equip());
-	setSpeed( speed + a.debuff );
+	normalstats[0] = ((int)(normalstats[0] / a.equip()));
+	normalstats[1] =((int)( normalstats[1] + a.debuff));
+	setHp( (int)( hp / a.equip()));
+	setSpeed((int) (speed + a.debuff) );
     }
 
     public int drink( Consumable i ) {
@@ -255,12 +253,12 @@ public abstract class Character {
     }
 
     public int getBuffI( Weapon i ) { //for equiping
-    normalstats[2] = normalstats[2] + i.equip();
+	normalstats[2] = ((int)(normalstats[2] + i.equip()));
 	return setDamage( (int) (damage + i.equip()) );
     }
 
     public int getBuffII( Weapon i ) { //for dequiping
-    normalstats[2] = normalstats[2] - i.equip();
+	normalstats[2] = ((int)(normalstats[2] - i.equip()));
 	return setDamage( (int) (damage - i.equip()) );
     }
 

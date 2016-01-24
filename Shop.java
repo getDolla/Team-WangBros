@@ -22,7 +22,7 @@ public class Shop {
     public void displayShop() {
 	addTo(shop,convertString( "You completed the maze!"),0);
 	addTo(shop,convertString(  "Here are our items:" ),1);
-	addTo(shop,convertString( "1.Health potions: " + (new HpPotion()).price),2);
+	addTo(shop,convertString( "1.Health potion: " + (new HpPotion()).price),2);
 	addTo(shop,convertString( "2.Adrenaline: " + (new Adrenaline()).price),3);
 	addTo(shop,convertString( "3.Light Armor: " + (new Light()).price),4);
 	addTo(shop,convertString(  "4.Medium Armor: " + (new Medium()).price ),5);
