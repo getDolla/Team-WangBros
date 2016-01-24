@@ -274,7 +274,7 @@ public class Engine {
 	    else if (in.toUpperCase().equals("DRINK")) { // Use Items
 		moveChosen = chooseDrink();
 		if (moveChosen) {
-		    attack = character.name + " used an item";
+		    attack = character.name + " used an item.";
 		}
 	    }
 	    else if (in.toUpperCase().equals("HELP") || in.equals("?")) {
