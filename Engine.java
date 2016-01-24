@@ -393,18 +393,18 @@ public class Engine {
 		pressEnter();
 	    }
 	    else {
-		System.out.println( character.name + " now have " + character.drink(character.healthdrinks.get(0)) + " health." );
+		System.out.println( character.name + " now has " + character.drink(character.healthdrinks.get(0)) + " health." );
 		pressEnter();
 		retBo = true;
 	    }
 	}
 	else if (input.equals("2")) {
 	    if (character.adren.size() == 0) {
-		System.out.println(character.name + " do not have Adrenaline Potions");
+		System.out.println(character.name + " does not have Adrenaline Potions");
 		pressEnter();
 	    }
 	    else {
-		System.out.println( character.name + " now have " + character.drink(character.adren.get(0)) + " speed." );
+		System.out.println( character.name + " now has " + character.drink(character.adren.get(0)) + " speed." );
 		pressEnter();
 		retBo = true;
 	    }
