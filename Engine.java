@@ -98,7 +98,6 @@ public class Engine {
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
-	printArrayM(Graphics.displayMazeGraphics(userMap));
     }
 
     public static void moveUp(int r, int c) {
@@ -192,10 +191,7 @@ public class Engine {
     public static void move() {
 
 	Scanner input = new Scanner(System.in);
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
+	updateMazeGraphics();
 	printArrayM(Graphics.displayMazeGraphics(userMap));
 	if (!(character.inBattle) && !(character.isShopping)) {	
 	    String in = input.nextLine();
@@ -389,7 +385,7 @@ public class Engine {
 	String input = in.nextLine();
 	if (input.equals("1")) {
 	    if (character.healthdrinks.size() == 0) {
-		System.out.println(character.name + " do not have Hp Potions");
+		System.out.println(character.name + " does not have Hp Potions");
 		pressEnter();
 	    }
 	    else {

@@ -172,7 +172,7 @@ public abstract class Character {
 	    	armors.remove(e);
 	}
 
-	    System.out.println ( "Sucessfully equiped " + e.name );
+	    System.out.println ( "Sucessfully equipped " + e.name );
 	    Engine.pressEnter();
 
     }
@@ -305,6 +305,7 @@ public abstract class Character {
 
 	System.out.println( (attackNames.length + 1) + ":Escape" );
 	System.out.println( "Drink:Drink" );
+	System.out.println();
     }
 
 
