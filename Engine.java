@@ -98,7 +98,6 @@ public class Engine {
 	Graphics.updateInventory(character);
 	Graphics.updateStats(character);
 	Graphics.updateGraphics();
-	printArrayM(Graphics.displayMazeGraphics(userMap));
     }
 
     public static void moveUp(int r, int c) {
@@ -192,10 +191,7 @@ public class Engine {
     public static void move() {
 
 	Scanner input = new Scanner(System.in);
-	clearConsole();
-	Graphics.updateInventory(character);
-	Graphics.updateStats(character);
-	Graphics.updateGraphics();
+	updateMazeGraphics();
 	printArrayM(Graphics.displayMazeGraphics(userMap));
 	if (!(character.inBattle) && !(character.isShopping)) {	
 	    String in = input.nextLine();
