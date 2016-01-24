@@ -1,7 +1,10 @@
 import java.util.Scanner; 
 
 public class MazeCeption {
-    private int stage = 0;
+
+    //    private int stage = 0;
+    public String name = "Bob";
+
     private String[][] title = new String[][]{
 	Graphics.convertString("___  ___              _____            _   _             "),
 	Graphics.convertString("|  \\/  |             /  __ \\          | | (_)            "),
@@ -19,35 +22,53 @@ public class MazeCeption {
     
     public void newGame() {
 	boolean chosenClass = false;
+	boolean chosenName = false;
+	Scanner entrance = new Scanner(System.in);
 	boolean entered = false;
 	boolean tutorialMode = true;
 	String enter; // for all user inputs
+
+	printTitle();
+		
+	while (!entered) {
+	    System.out.println("Press enter to begin");
+	    enter = entrance.nextLine();
+	    entered = true;
+	    
+	}
+	
 	
 	while (!chosenClass) {
-	    Engine.clearConsole();
-	    Scanner entrance = new Scanner(System.in);	
-	    for (String[] f : title) {
-		for (String s : f) {
-		    System.out.print(s);
-		}
-		System.out.println();
-	    }
+
 	
-	    while (!entered) {
-
-		System.out.println("By: Team-WangBros");
-		System.out.println("Press enter to begin");
-		enter = entrance.nextLine();
-		entered = true;
-
-	    }
-	
-
+	    printTitle();
 	
 	    System.out.println( "Welcome to MazeCeption!" );	
 	
 	    System.out.println( );       
-	
+	    
+	    while (!chosenName){
+		
+		System.out.println( "What's your name?" );
+		
+		enter = entrance.nextLine();
+		
+		System.out.println( "Your name is "+ enter + ".");
+		
+		if (confirm()) {
+		    name = enter;
+		    chosenName = true;
+		}
+		else if (!chosenName) {
+		    System.out.println("Your default name will be Bob.");
+		    if (confirm()) {
+			chosenName = true;
+		    }
+		}
+		
+		
+	    }
+
 	    /*
 	      if (tutorialMode) {
 	      System.out.println("Would you like a tutorial?(YES/NO)");
@@ -63,6 +84,9 @@ public class MazeCeption {
 	    */
 	    System.out.println();
 
+	    System.out.println("Hello " + name + ".");
+	    System.out.println();
+
 	    System.out.println( "Choose your character:" );
 	
 	    System.out.println( "Tank" );
@@ -76,33 +100,33 @@ public class MazeCeption {
 	    String choice = in.nextLine();
 		
 	    if ( choice.toUpperCase().equals( "TANK" ) ) {
-	    	showCharinfo( new Tank() );
+	    	showCharinfo( new Tank(name) );
 		if( confirm() ) {
-		    Engine.character = new Tank();
+		    Engine.character = new Tank(name);
 		    chosenClass = true;
 		}
 	    } 
 	    
 	    else if ( choice.toUpperCase().equals( "NINJA" ) ) {
-		showCharinfo( new Ninja() );
+		showCharinfo( new Ninja(name) );
 		if( confirm() ) {
-		    Engine.character = new Ninja();
+		    Engine.character = new Ninja(name);
 		    chosenClass = true;
 		}
 	    }
 	    
 	    else if ( choice.toUpperCase().equals( "DEMOMAN" ) ) {
-		showCharinfo( new DemoMan() );
+		showCharinfo( new DemoMan(name) );
 		if( confirm() ) {
-		    Engine.character = new DemoMan();
+		    Engine.character = new DemoMan(name);
 		    chosenClass = true;
 		}
 	    }
 	    
 	    else if ( choice.toUpperCase().equals( "DANKMEME" ) ) {
-		showCharinfo( new DankMeme() );
+		showCharinfo( new DankMeme(name) );
 		if( confirm() ) {
-		    Engine.character = new DankMeme();
+		    Engine.character = new DankMeme(name);
 		    chosenClass = true;
 		}
 	    
@@ -116,6 +140,20 @@ public class MazeCeption {
 	Engine.fillMap();
     }
 
+    public void printTitle() {
+	boolean entered = false;
+	String enter;
+	Engine.clearConsole();
+	Scanner entrance = new Scanner(System.in);	
+	    for (String[] f : title) {
+		for (String s : f) {
+		    System.out.print(s);
+		}
+		System.out.println();
+	    }
+	    System.out.println("By: Team-WangBros");
+    }
+
     public void showCharinfo( Character c ) {
 	System.out.println( c.name );
 	c.displaystats();
@@ -125,7 +163,7 @@ public class MazeCeption {
     }
 
     public boolean confirm() { 
-    	System.out.println( "Do you want this class? (YES/NO)" );
+    	System.out.println( "Are you sure? (YES/NO)" );
 
     	Scanner in = new Scanner( System.in );
 	    

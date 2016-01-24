@@ -3,7 +3,7 @@ Make sure to use \\ in place of \
 	Ninja:
         " _____ "
 	"| - - |"
-	"\__v__/"
+	"\__-__/"
 	"   |   "
 	" /---\ "
 	"+  |   "

@@ -18,7 +18,7 @@ public class Ninja extends Character {
 	image = convertString(new String[] 
 	    {"_______",
 	     "| - - |",
-	     "\\__v__/",
+	     "\\__-__/",
 	     "   |   ",
 	     " /---\\ ",
 	     "+  |   ",
