@@ -35,8 +35,8 @@ public class Help {
 	addTo(helpScreen, convertString( "from battle (uses Luck)." ), 10);
 
 	addTo(helpScreen, convertString( "Enter drink anywhere to " ),12);
-	addTo(helpScreen, convertString( "use a consumable. Hp potions boosts" ), 13);
-	addTo(helpScreen, convertString( "health while adrenaline boosts speed." ), 14);
+	addTo(helpScreen, convertString( "use a consumable. Hp potions (type 1 to use) boosts" ), 13);
+	addTo(helpScreen, convertString( "health while adrenaline (2) boosts speed." ), 14);
 
 	addTo(helpScreen, convertString( "Enter settings in the maze" ), 16);
 	addTo(helpScreen, convertString( "to check (type 3), equip (1), or unequip items (2)." ),18);
