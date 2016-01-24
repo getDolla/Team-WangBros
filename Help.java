@@ -74,7 +74,7 @@ public class Help {
     	addTo(attackinfo, convertString( "Swing: Does normal damage." ), 3);
     	addTo(attackinfo, convertString( "Shield Bash: Chance for extra damage" ), 4);
     	addTo(attackinfo, convertString( "and lowers enemy's speed." ), 5);
-    	addTo(attackinfo, convertString( "Rampage: Deals more damage are the cost of speed."), 6);
+    	addTo(attackinfo, convertString( "Rampage: Deals more damage at the cost of speed."), 6);
     	addTo(attackinfo, convertString( "Charge: Chance to deal 0 - 2x the damage."), 7);
 
     	addTo(attackinfo, convertString( "Ninja Attacks:" ), 9);
