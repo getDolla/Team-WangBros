@@ -168,6 +168,33 @@ public abstract class Character {
 	}
     }
 
+    public void unequip( String str ) {
+	/*
+	if (str instanceof Light) {
+	    
+	}
+	else if (str instanceof Medium) {
+
+	}
+	else if (str instanceof Heavy) {
+
+	}
+	else if (str instanceof Twig) {
+
+	}
+	else if (str instanceof Sword) {
+
+	}
+	else if (str instanceof HpPotion) {
+
+	}
+	else if (str instanceof Adrenaline) {
+
+	}*/
+    }
+	
+
+
     
     public void setCharstat( Armor a ) {
 	setHp( (int) (hp * a.equip()) );

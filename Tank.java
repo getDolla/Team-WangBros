@@ -48,8 +48,8 @@ public class Tank extends Character{
     int temp = mon.lowerHealth( (int ) ( damage + (0.4 * damage * Math.random()) )) ;
 
 	String s = attackNames[1];
-	if(!(temp == 0) {
-	    mon.setSpeed( 2 )
+	if(!(temp == 0)) {
+		mon.setSpeed( 2 );
 	    return s;
 	}
 
@@ -58,7 +58,7 @@ public class Tank extends Character{
 	}
 
     public String attack3( Monster mon, BattleMap map ){ 
-    	int temp = mon.lowerHealth( (int) damage + ( damage * ( Math.random() + 0.5 ) ));
+    	int temp = mon.lowerHealth( (int) (damage + ( damage * ( Math.random() + 0.5 ) )));
     	this.setSpeed( this.getSpeed() - 1 );
 
     	String s = attackNames[2];
@@ -69,10 +69,10 @@ public class Tank extends Character{
     }
     
     public String attack4( Monster mon, BattleMap map ){ 
-    	int temp = mon.lowerHealth( (int) damage * 2 * Math.random() );
+    	int temp = mon.lowerHealth( (int) (damage * 2 * Math.random()) );
 
     	String s = attackNames[3];
-		if(temp == 0) {
+	if(temp == 0) {
 	    	s += ", but missed.";
 		}
 		return s;
