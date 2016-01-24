@@ -155,7 +155,7 @@ public abstract class Character {
 		    break;
 		}
 	    }
-	   	if (isequipped) {
+	   	if (isequipped || (equipped.size() == 0)) {
 	    	getBuffI((Weapon)e);
 	    	equipped.add(e);
 	    	sticks.remove(e);
@@ -171,14 +171,14 @@ public abstract class Character {
 		}
 	    }
 
-	    if( isequipped ) {
+	    if( isequipped || (equipped.size() == 0)) {
 	    	setCharStatI((Armor)e);
 	    	equipped.add(e);
 	    	armors.remove(e);
 	    }
 	}
 
-	if (isequipped) {
+	if (isequipped || (equipped.size() == 0)) {
 	    System.out.println ( "Sucessfully equiped " + e.name );
 	    Engine.pressEnter();
 	}
