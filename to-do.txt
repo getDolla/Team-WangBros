@@ -9,46 +9,42 @@ _________ _______         ______   _______    _       _________ _______ ________
    
    MazeCeption by Yikai Wang and Richard Wang (Team-WangBros)
 
---------------------------------------------------------------------------------------------------------
-						AGENDA:
-						DATE ( 1/20/16 ):
-	- Create Battle
-		
-		- Create Battle Displays *
+------------------------------------------------------------------------------------------
+Things Left:
 
-	- Create Startup Screen
-		
-		- Add more intricacies in individual classes *
+Tutorial
 
-	- Create Shops
+Aesthetics
 
----------------------------------------------------------------------------------------------------------                                                                                 
+Expansion
+------------------------------------------------------------------------------------------
+                                                                         
 
-1. Update Character superclass ( Friday 1/15/16 ) - CREATED 1/15/16
+1. Update Character superclass ( Friday 1/15/16 ) - CREATED 1/15/16 DONE
 
    - Add subclasses ( Tank, Ninja, DankMeme, DemoMan ) - CREATED 1/16/16
 
-2. Create Monster superclass ( Friday 1/15/16 ) -CREATED 1/15/16
+2. Create Monster superclass ( Friday 1/15/16 ) -CREATED 1/15/16 DONE
 
-   - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake ) - CREATED 1/16/16
+   - Add subclasses ( Orcs, Rat, Boogeyman, JohnCena, Snake ) - CREATED 1/16/16 DONE
 
-3. Item superclass ( Sunday 1/17/16 ) - CREATED 1/15/16
+3. Item superclass ( Sunday 1/17/16 ) - CREATED 1/15/16 DONE
 
-   - Add subclasses ( Hp Potion, Adrenaline Potion ) - CREATED 1/16/16
+   - Add subclasses ( Hp Potion, Adrenaline Potion ) - CREATED 1/16/16 DONE
 
-4. Tile class ( uses items ) ( Sunday 1/17/16 ) - CREATED 1/16/16
+4. Tile class ( uses items ) ( Sunday 1/17/16 ) - CREATED 1/16/16 DONE
 
-4.5. Testing! ( Sunday 1/17/16 )
+4.5. Testing! ( Sunday 1/17/16 ) DONE
 
-5. Create Battle ( through an interface ) ( Sunday 1/17/16 )
+<s>5. Create Battle ( through an interface ) ( Sunday 1/17/16 ) SCRAPPED - NOT NEEDED
 	
-   - Add Battle.java ( for interaction )
+   - Add Battle.java ( for interaction )</s>
 
-6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( Monday 1/18/16 ) - CREATED 1/17/16
+6. Graphics class ( for displaying, combine Engine and add stats on the side ) ( Monday 1/18/16 ) - CREATED 1/17/16 DONE
 
-7. Create a startup screen for user to choose their class. ( Tuesday 1/19/16 )
+7. Create a startup screen for user to choose their class. ( Tuesday 1/19/16 ) 
 
-8. Create shops after completion of a maze. ( Wednesday 1/20/16 )
+8. Create shops after completion of a maze. ( Wednesday 1/20/16 ) - CREATED 1/22/16 DONE
  
 9. Tutorial ( Thursday 1/21/16 )
 
