@@ -13,7 +13,7 @@ To play the game:
 	*java MazeCeption*
 - *Note* 
 	This game is best run in full screen.  Even though the map may seem small
-	at first, it expands as you progress through the game.
+	at first, it expands as you progress through the game. (1024x768 should be fine)
 
 
 Features:
