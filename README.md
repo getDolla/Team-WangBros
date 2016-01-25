@@ -17,7 +17,7 @@ Features:
 
 - Help option for controls and general information.
 - Mazes that are computer generated and gradually increase in size.
-- In game shop.
+- In-game shop.
 - 4 different classes that specializes in certain attributes.
 - Item pickups in maze.
 - 5 different monsters, including a boss.
