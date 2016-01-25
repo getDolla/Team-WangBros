@@ -27,11 +27,12 @@ public class Help {
 	addTo(helpScreen, convertString( "Your goal is to reach the" ), 2 );
 	addTo(helpScreen, convertString( "last corner of the last row in the maze" ), 3 );
 
-	addTo(helpScreen, convertString( "The symbols on the map correspond to" ),4);
-	addTo(helpScreen, convertString( "different items and monsters."), 5);
+	addTo(helpScreen, convertString( "Moving in the maze:" ), 5);
+	addTo(helpScreen, convertString( "Enter w,a,s,d to move in the maze." ), 6);
+	addTo(helpScreen, convertString( "The symbols on the map correspond to" ),8);
+	addTo(helpScreen, convertString( "different items and monsters."), 9);
 
-	addTo(helpScreen, convertString( "Moving in the maze:" ), 7);
-	addTo(helpScreen, convertString( "Enter w,a,s,d to move in the maze." ), 8);
+
 
   
 	addTo(helpScreen, convertString( "Using consumables: "),10);
