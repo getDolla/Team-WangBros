@@ -28,7 +28,7 @@ public class Floor extends Tile {
 
     public Floor(Item item, Monster monster) {
 	this(item);
-	this.monster = monster; //FLAG
+	this.monster = monster;
 	appearance = monster.toString();
     }
 

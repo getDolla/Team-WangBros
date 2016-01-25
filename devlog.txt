@@ -21,6 +21,11 @@ Testing Versions:
 
 
 Functional Versions:
+
+v.3.0 1/25/16 Richard Wang
+- Removed useless code
+- Added some more color
+
 v.2.8 1/24/16 Yikai Wang
 - Small but major edits:
 	-Balanced game

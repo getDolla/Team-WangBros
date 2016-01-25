@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class MazeCeption {
 
-    //    private int stage = 0;
+
     public String name = "Bob";
 
     private String[][] title = new String[][]{
@@ -25,7 +25,6 @@ public class MazeCeption {
 	boolean chosenName = false;
 	Scanner entrance = new Scanner(System.in);
 	boolean entered = false;
-	boolean tutorialMode = true;
 	String enter; // for all user inputs
 
 	printTitle();
@@ -68,19 +67,6 @@ public class MazeCeption {
 		
 	    }
 
-	    /*
-	      if (tutorialMode) {
-	      System.out.println("Would you like a tutorial?(YES/NO)");
-	      enter = entrance.nextLine();
-	      if (enter.toUpperCase().equals("YES")) {
-	      tutorial();
-	      tutorialMode = false;
-	      }
-	      if (enter.toUpperCase().equals("NO")) {
-	      tutorialMode = false;
-	      }
-	      }
-	    */
 	    System.out.println();
 
 	    System.out.println("Hello " + name + ".");
