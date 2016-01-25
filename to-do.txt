@@ -46,5 +46,5 @@ Expansion
 
 8. Create shops after completion of a maze. ( Wednesday 1/20/16 ) - CREATED 1/22/16 DONE
  
-9. Tutorial ( Thursday 1/21/16 )
+9. Tutorial ( Thursday 1/21/16 ) - SCRAPPED
 
