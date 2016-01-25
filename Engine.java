@@ -22,7 +22,12 @@ public class Engine {
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
 	    for (Object s : f) {
-		System.out.print(s);
+		if (s.toString().equals("|")) {
+		    System.out.print(greenc + s + defaultc);
+		}
+		else {
+		    System.out.print(s);
+		}
 	    }
 	    System.out.println();
 	}
