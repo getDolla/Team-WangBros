@@ -9,7 +9,7 @@ public class Monster {
 	}
 
 	else {
-	    appearance = "ë";
+	    appearance = "e";
 		}
 
 	name = "NaBrO";
