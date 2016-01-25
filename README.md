@@ -16,7 +16,7 @@ To play the game:
 Features:
 
 - Help option for controls and general information.
-- Mazes that are computer generated and gradually increase in size.
+- Mazes that are computer generated and gradually increase in size and difficulty.
 - In-game shop.
 - 4 different classes that specializes in certain attributes.
 - Item pickups in maze, and, of course, equipping and drinking.
