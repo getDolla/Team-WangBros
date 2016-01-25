@@ -23,7 +23,7 @@ public class Engine {
 	for (Object[] f : array) {
 	    for (Object s : f) {
 		if (s.toString().equals("|")) {
-		    System.out.print(greenc + s + defaultc);
+		    System.out.print(yellowc + s + defaultc);
 		}
 		else {
 		    System.out.print(s);
@@ -42,8 +42,11 @@ public class Engine {
 		else if (((array[f][s].toString()).equals("-") || (array[f][s].toString()).equals("|")) && f < userMap.length && s < userMap[0].length) {
 		    System.out.print(redc + array[f][s] + defaultc);
 		}
-		else if (((array[f][s].toString()).equals("|")) && s >= userMap[0].length) {
+		else if ((array[f][s].toString()).equals("+") && f < userMap.length && s < userMap[0].length) {
 		    System.out.print(greenc + array[f][s] + defaultc);
+		}
+		else if (((array[f][s].toString()).equals("|")) && s >= userMap[0].length) {
+		    System.out.print(yellowc + array[f][s] + defaultc);
 		}
 		else {
 		    System.out.print(array[f][s]);
