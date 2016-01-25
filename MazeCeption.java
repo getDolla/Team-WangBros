@@ -15,6 +15,15 @@ public class MazeCeption {
 	Graphics.convertString("                                | |                      "),
 	Graphics.convertString("                                |_|                      ")
     };
+
+    private String[][] gameOver = new String[][]{
+	Graphics.convertString(" _____                        _____                "),
+	Graphics.convertString("|  __ \\                      |  _  |               "),
+	Graphics.convertString("| |  \\/ __ _ _ __ ___   ___  | | | |_   _____ _ __ "),
+	Graphics.convertString("| | __ / _` | '_ ` _ \\ / _ \\ | | | \\ \\ / / _ \\ '__|"),
+	Graphics.convertString("| |_\\ \\ (_| | | | | | |  __/ \\ \\_/ /\\ V /  __/ |   "),
+	Graphics.convertString(" \\____/\\__,_|_| |_| |_|\\___|  \\___/  \\_/ \\___|_|   ")
+    };
     
     public MazeCeption() {
 	newGame();
@@ -183,6 +192,19 @@ public class MazeCeption {
 	    }
 	}
     }
+
+    private void printGameOver() {
+	Engine.clearConsole();
+	for (String[] f : gameOver) {
+	    for (String s : f) {
+		System.out.print(s);
+	    }
+	    System.out.println();
+	}
+	System.out.println();
+	System.out.println("Your journey has come to an end.  You have gotten to stage "+ Engine.stage +".");
+
+    }
 	
     public void play() {
 	while ( Engine.character.getHp() > 0 ) {
@@ -193,6 +215,7 @@ public class MazeCeption {
 		Engine.battle();
 	    }
 	}
+	printGameOver();
     }
     
     public static void main( String[] args ) {
