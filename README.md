@@ -11,6 +11,9 @@ To play the game:
 	*javac MazeCeption.java*
 - Third, run the program by typing:
 	*java MazeCeption*
+- *Note* 
+	This game is best run in full screen.  Even though the map may seem small
+	at first, it expands as you progress through the game.
 
 
 Features:
