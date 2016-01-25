@@ -51,7 +51,7 @@ public class DemoMan extends Character {
     }
 
     public String attack2( Monster mon, BattleMap map ){
-	int newDamage = ((int)(damage + (damage * (( Math.random() * luck / 2000.0)))));
+	int newDamage = ((int)(damage + (damage * (( Math.random() * luck / 1150.0)))));
 	if (newDamage < normalstats[2]+100) {
 	    damage = newDamage;
 	}
@@ -70,7 +70,7 @@ public class DemoMan extends Character {
 	    temp = mon.lowerHealthD((int)(damage*1.3) + 75);
 	}
 	else {
-	    temp = mon.lowerHealthD((int)(damage*1.3 + (damage/hpLoss)));
+	    temp = mon.lowerHealthD((int)(damage* 1.3 + (damage/hpLoss)));
 	}
 	String s = attackNames[2];
 
