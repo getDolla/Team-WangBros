@@ -70,7 +70,7 @@ public class Monster {
     public int attack( Character chara, BattleMap map )
     {     	
     	if( !chara.isMiss() ) {
-        	chara.setHp(chara.getHp() - damage);
+        	chara.setHp(chara.getHp() - damage - (int) (Math.random() * damage * 0.32) );
         	return damage;
         }
 
