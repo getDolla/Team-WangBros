@@ -34,25 +34,26 @@ public class Floor extends Tile {
 
     private Monster genMonster() {
     double s = Engine.stage;
+
 	if ( Math.random() < 1.0/(6.0 + 1.4*s) ) {
 	    return (new Snake());
 	}
 	
+	else if(( Math.random() < (1.0*s)/16.0) && ( s > 3 )) {
+	    return (new JohnCena());
+	} 
+
 	else if( Math.random() < (0.6 *s)/6.0 ) {
 	    return (new Orc());
-	}
-
-	else if( Math.random() < 1.0/(6.0 + 1.4*s) ) {
-	    return (new Rat());
 	}
 
 	else if( Math.random() < (0.6*s)/7.0 ) {
 	    return (new Boogeyman());
 	}
 
-	else if(( Math.random() < (1.0*s)/16.0) && ( s > 3 )) {
-	    return (new JohnCena());
-	} 
+	else if( Math.random() < 1.0/(6.0 + 1.4*s) ) {
+	    return (new Rat());
+	}
 
 	return (new Monster());
     }

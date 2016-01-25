@@ -61,7 +61,7 @@ public class Tank extends Character{
     public String attack3( Monster mon, BattleMap map ){ 
 
     	int temp = mon.lowerHealth( (int) (damage + ( damage * ( Math.random() + 0.5 ))) );
-    	this.setSpeed( this.getSpeed() - 1 );
+    	this.setSpeed( this.getSpeed() - 3 );
 
     	String s = attackNames[2];
 		if(temp == 0) {
