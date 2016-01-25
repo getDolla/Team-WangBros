@@ -19,5 +19,5 @@ Features:
 - Mazes that are computer generated and gradually increase in size.
 - In-game shop.
 - 4 different classes that specializes in certain attributes.
-- Item pickups in maze.
+- Item pickups in maze, and, of course, equipping and drinking.
 - 5 different monsters, including a boss.
