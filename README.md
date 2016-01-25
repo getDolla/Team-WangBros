@@ -8,9 +8,9 @@ To play the game:
 
 - First ensure that java is installed and working.
 - Second, compile by typing:
-	javac MazeCeption.java
+	*javac MazeCeption.java*
 - Third, run the program by typing:
-	java MazeCeption
+	*java MazeCeption*
 
 
 Features:
