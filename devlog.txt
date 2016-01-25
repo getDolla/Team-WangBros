@@ -14,12 +14,22 @@ v.#.# mm-dd-yy - <First Name> <Last Name> |
 ------------------------------------------+
 
 Current Bugs:
+NONE :)
 
 Testing Versions: 
 
 
 
 Functional Versions:
+v.2.8 1/24/16 Yikai Wang
+- Small but major edits:
+	-Balanced game
+	-expanded help()
+	-Made attacks vary in damage
+	-Updated README.mb
+	-Added more notifications
+	-Character name is displayed more often
+
 
 v.2.7 1/24/16 Richard Wang
 - Tutorial is being created
@@ -33,6 +43,11 @@ v.2.5 01-23-16 Richard Wang
 - Equipping Works!
 - Settings Screen has been created
 
+v.2.4 01-23-16 Yikai Wang
+-Fixed bug in hasMon()
+-Made attacks for character subclasses.
+-Made images for battle.
+
 v.2.2 01-23-16 Richard Wang
 - Equip Screen Created
 
@@ -43,9 +58,10 @@ v.2.1 01-23-16 Richard Wang
 v.2.0 01-22-16 Richard Wang
 - Shops! (You can only enter them for now)
 
-v.1.9 01-22-16 Richard Wang
+v.1.9 01-22-16 Richard Wang and Yikai Wang
 - Graphics has been remodeled
 - Run works
+- Created MazeCeption.java (driver file)
 
 v.1.8 01-21-16 Richard Wang
 - Run is now being implemented ( No set percentage yet )
