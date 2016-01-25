@@ -22,12 +22,7 @@ public class Engine {
     public static void printArray(Object[][] array) {
 	for (Object[] f : array) {
 	    for (Object s : f) {
-		if (s.toString().equals("|")) {
-		    System.out.print(yellowc + s + defaultc);
-		}
-		else {
-		    System.out.print(s);
-		}
+		System.out.print(s);
 	    }
 	    System.out.println();
 	}
@@ -47,9 +42,6 @@ public class Engine {
 		}
 	        else if ((array[f][s].toString()).equals("e") && f < userMap.length && s < userMap[0].length) {
 		    System.out.print(purplec + array[f][s] + defaultc);
-		}
-		else if (((array[f][s].toString()).equals("|")) && s >= userMap[0].length) {
-		    System.out.print(yellowc + array[f][s] + defaultc);
 		}
 		else {
 		    System.out.print(array[f][s]);
